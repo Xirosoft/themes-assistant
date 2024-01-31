@@ -101,7 +101,7 @@ class HeaderProfileInfo{
 
                         <?php esc_html_e('Powered by: ', 'themes-assistant') ?>
                         <a href="<?php echo esc_url('https://xirosoft.com'); ?>" target="_blank">
-                            <img src="<?php echo esc_url( FORMIT_ASSETS_URL.'/img/xirosoft.webp') ?>" alt="<?php echo esc_attr__('xirosoft', 'themes-assistant') ?>" />
+                            <img src="<?php echo esc_url( THEMEASSISTANT_ASSETS_URL.'/img/xirosoft.webp') ?>" alt="<?php echo esc_attr__('xirosoft', 'themes-assistant') ?>" />
                         </a>
                     </p>
                 </div>

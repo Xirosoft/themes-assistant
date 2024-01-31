@@ -56,7 +56,7 @@ class AdminEnqueue{
     function formit_ajax_localie(){
         wp_localize_script('themes-assistant-admin-scripts', 'themes_assistant_ajax_localize', array(
             'site_url'  => site_url(),
-            'plugin_url'=> FORMIT_URL,
+            'plugin_url'=> THEMEASSISTANT_URL,
             'ajax_url'  => admin_url('admin-ajax.php'),
             'nonce'     => wp_create_nonce('themes-assistant-nonce')
         ));
