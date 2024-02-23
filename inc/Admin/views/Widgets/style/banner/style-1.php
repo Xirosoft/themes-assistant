@@ -1,5 +1,5 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly      ?>
 <section class="banner a">
-	
 	<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-6 order-1 order-md-0">
@@ -54,7 +54,10 @@
 						<div class="">
 							<?php if($settings['image']['url']): ?>
 							<figure class="ban-img">
-								<?php echo '<img fetchPriority="high" src="' . esc_url($settings['image']['url']) . '" alt="'. esc_html__($settings['top_title'], 'themes-assistant') .'" width="530" height="530">'; ?>
+								<?php echo '<img fetchPriority="high" src="' . esc_url($settings['image']['url']) . '" alt="'. printf(
+									esc_html__( '%s', 'themes-assistant' ),
+									esc_html($settings['top_title'])
+								).'" width="530" height="530">'; ?>
 						</figure>
 							<?php endif; ?>
 					</div>

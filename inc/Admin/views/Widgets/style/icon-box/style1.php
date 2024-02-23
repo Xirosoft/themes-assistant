@@ -1,5 +1,6 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly      ?>
 <?php use Elementor\Icons_Manager; ?>
-<div class="iconBox <?php echo $settings['select_style']; echo  ' '.$settings['animation'] ?>">
+<div class="iconBox <?php echo esc_attr($settings['select_style']); echo  ' '.esc_attr($settings['animation']); ?>">
     <div class="icon-heading">
         <?php if( $settings['icon_type'] == 'icon'):?>
             <span class="icon">

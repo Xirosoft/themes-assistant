@@ -1,5 +1,6 @@
-<?php
-use Elementor\Icons_Manager; 
+<?php 
+    if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly      
+    use Elementor\Icons_Manager;  
 ?>
 <div class="team v2">
     <div class="single-memb">
@@ -14,8 +15,21 @@ use Elementor\Icons_Manager;
             </div>
         </div>
         <div class="memb-details">
-            <h3><?php echo esc_html__($settings['name'], 'themes-assistant'); ?></h3>
-            <span><?php echo esc_html__($settings['position'], 'themes-assistant'); ?></span>
+            <h3><?php 
+                    printf(
+                        esc_html__( '%s', 'themes-assistant' ),
+                        esc_html($settings['name'])
+                    );
+                ?>
+            </h3>
+            <span>
+                <?php 
+                    printf(
+                        esc_html__( '%s', 'themes-assistant' ),
+                        esc_html($settings['position'])
+                    );
+                ?>
+            </span>
             <div class="memb-social">
                 <?php if (!empty($socials)): ?>
                 <ul class="socials-list list-inline">
@@ -27,11 +41,16 @@ use Elementor\Icons_Manager;
                             </span>
                                 <?php elseif( $social['icon_type'] == 'iconclass'):?>
                                 <span class="icon">
-                                    <i class="<?php echo esc_html__($social['iconclass'], 'themes-assistant'); ?>"></i>
+                                    <i class="<?php echo esc_attr($social['iconclass']); ?>"></i>
                             </span>
                                 <?php elseif( $social['icon_type'] == 'image'):?>
                                 <span class="icon">
-                                    <img src="<?php echo esc_url($social['image']['url']); ?>" alt="<?php echo esc_attr__($social['name'],'themes-assistant'); ?>" class="img-icon" width="40" height="40">
+                                    <img src="<?php echo esc_url($social['image']['url']); ?>" alt="<?php 
+                                        printf(
+                                            esc_attr__( '%s', 'themes-assistant' ),
+                                            esc_attr($settings['name'])
+                                        );
+                                    ?>" class="img-icon" width="40" height="40">
                             </span>
                             <?php endif;?>
                         </a>

@@ -1,4 +1,6 @@
-<article class="post service-post service-image-height <?php echo esc_attr($settings['content_align']); echo  ' '.$settings['animation']; echo  ' '.$settings['background_shape'];?> borax-img-box">
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly      ?>
+
+<article class="post service-post service-image-height <?php echo esc_attr($settings['content_align']); echo  ' '.esc_attr($settings['animation']); echo  ' '.esc_attr($settings['background_shape']);?> borax-img-box">
 
     <div class="">
 

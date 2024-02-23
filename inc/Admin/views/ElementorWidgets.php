@@ -28,10 +28,6 @@ class ElementorWidgets {
 		// Register widgets
         add_action( 'elementor/elements/categories_registered', [$this, 'themes_assistant_elementor_widget_categories' ] );
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
-		// add_action( 'elementor/frontend/after_register_scripts', [ $this, 'borax__widget_scripts' ] );
-        // echo 'Hello.............';
-        // die();
-
 	}
 
     function themes_assistant_elementor_widget_categories( $elements_manager ) {
@@ -59,7 +55,6 @@ class ElementorWidgets {
 		foreach($borax_widget as $key => $value){
 			require_once __DIR__ . '/widgets/'.$value;
 		}
-
 	}
 	
 	
@@ -85,16 +80,12 @@ class ElementorWidgets {
 			Widget_image_box::class,
 			Widget_team_box::class,
 		];
-	
+
 		$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
-	
 		// Register all widget types in a loop
 		foreach ($widget_classes as $widget_class) {
 			$widget_manager->register_widget_type(new $widget_class());
 		}
 	}
-
-    
-
 
 }

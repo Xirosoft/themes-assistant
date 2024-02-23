@@ -49,8 +49,8 @@ class GlobalFunctions {
           ?>
             <div id="wpheader">
                 <div class="wpheader__title">
-                    <a class="wpheader__logo" href="<?php echo esc_url( THEMEASSISTANT_URL ) ?>">
-                        <img src="<?php echo esc_url( THEMEASSISTANT_ASSETS_URL.'/img/logo-icon.svg') ?>" alt="themes-assistant-logo" />  
+                    <a class="wpheader__logo" href="<?php echo esc_url( FORMIT_URL ) ?>">
+                        <img src="<?php echo esc_url( FORMIT_ASSETS_URL.'/img/logo-icon.svg') ?>" alt="themes-assistant-logo" />  
                     </a>
                     <div class="wpheader__name">
                         <small class="wpheader_title_version"><?php echo esc_html( 'THEMEASSISTANT-v1.0.0' ) ?> <span class="version-beta"><?php echo esc_html__('Beta', 'themes-assistant'); ?></span></small>  

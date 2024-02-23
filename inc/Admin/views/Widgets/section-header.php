@@ -377,7 +377,7 @@ class Widget_section_header extends Widget_Base {
     </span>
     <?php elseif( $settings['icon_type'] == 'iconclass'):?>
     <span class="divider_icon">
-        <i class="<?php echo esc_html__($settings['iconclass'], 'themes-assistant'); ?>"></i>
+        <i class="<?php echo esc_attr($settings['iconclass']); ?>"></i>
     </span>
     <?php elseif( $settings['icon_type'] == 'image'):?>
     <span class="divider_icon">

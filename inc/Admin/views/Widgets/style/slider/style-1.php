@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly      ?>
 <section class="banner v2">	
 			<div class="align-items-center">
 				<?php if ($settings['list']):  ?>
@@ -10,7 +11,12 @@
 					>
 						<?php foreach (  $settings['list'] as $item ) { ?>
 							<div class="item">
-								<img src="<?php echo esc_url($item['image']['url']); ?>" alt="<?php echo esc_attr__($item['title'],'themes-assistant') ?>" width="1920" height="750">
+								<img src="<?php echo esc_url($item['image']['url']); ?>" alt="<?php 
+									printf(
+										esc_attr__( '%s', 'themes-assistant' ),
+										esc_attr($settings['title'])
+									);
+								?>" width="1920" height="750">
 								<div class="ImageOverlay"></div>
 								<div class="container">
 									<div class="row">		

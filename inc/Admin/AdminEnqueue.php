@@ -13,16 +13,8 @@ class AdminEnqueue{
         $current_screen = get_current_screen();
         // Check if you're on the appropriate admin page(s) where you want to include your script       
         if ($current_screen && $current_screen->post_type == 'themes-assistant') {
-            wp_enqueue_script( 'jquery-ui-widget' , 'jquery');
-            wp_enqueue_script( 'jquery-ui-mouse' ,  'jquery');
-            wp_enqueue_script( 'jquery-ui-accordion' ,  'jquery');
-            wp_enqueue_script( 'jquery-ui-autocomplete' ,  'jquery');
-            wp_enqueue_script( 'jquery-ui-slider' ,  'jquery');
-            wp_enqueue_editor();
-            wp_enqueue_script('themes-assistant-form-builder', THEMEASSISTANT_ASSETS_URL . 'admin/js/form-builder.min.js', array('jquery'), '1.0', true);
-            wp_enqueue_script('form-render', THEMEASSISTANT_ASSETS_URL . 'admin/js/form-render.min.js', array('jquery'), time(), true);
-            wp_enqueue_script('themes-assistant-admin-scripts', THEMEASSISTANT_ASSETS_URL . 'admin/js/themes-assistant-admin-scripts.js', array('jquery'), time(), true);
-            wp_enqueue_style('themes-assistant-admin-style', THEMEASSISTANT_ASSETS_URL . 'admin/css/themes-assistant-admin-style.css?', array(), time(), 'all' );
+            // wp_enqueue_script('themes-assistant-admin-scripts', THEMEASSISTANT_ASSETS_URL . 'admin/js/themes-assistant-admin-scripts.js', array('jquery'), time(), true);
+            // wp_enqueue_style('themes-assistant-admin-style', THEMEASSISTANT_ASSETS_URL . 'admin/css/themes-assistant-admin-style.css?', array(), time(), 'all' );
         }
         
     }
@@ -56,7 +48,6 @@ class AdminEnqueue{
     function formit_ajax_localie(){
         wp_localize_script('themes-assistant-admin-scripts', 'themes_assistant_ajax_localize', array(
             'site_url'  => site_url(),
-            'plugin_url'=> THEMEASSISTANT_URL,
             'ajax_url'  => admin_url('admin-ajax.php'),
             'nonce'     => wp_create_nonce('themes-assistant-nonce')
         ));
