@@ -1,4 +1,4 @@
-=== Themes Assistant - Theme Helper plugin ===
+=== Themes Assistant - Theme Helper  ===
 Contributors: themeies, xirosoft, speeedsam, sofiquldev
 Donate link: https://www.paypal.com/paypalme/xirosoft
 Stable tag: 1.0.0
@@ -9,15 +9,34 @@ Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Easily design a dynamic WordPress form Builder using ThemesAssistant, the top drag-and-drop form builder for contact, surveys, quizzes, payments, and more.
+Themes Assistant: Enhance your WordPress with theme helpers, Elementor widgets, and advanced theme options for a seamless design experience.
 
 == Description ==
 
-FormIt Builder is a powerful and user-friendly WordPress plugin that allows you to create custom forms for your website easily.
-With FormIt Builder, designing forms is as simple as drag and drop. You can visualize real-time changes, ensuring the form meets your users' expectations.
-No technical expertise required! All essential features are consolidated on a single, easy-to-navigate page. FormIt Builder allows you to craft your perfect form independently and swiftly.
-What's more, FormIt Builder offers 15+ custom fields and 50+ custom forms to choose from, giving you a plethora of options to create the ideal form for your website! 🎨 It's like having a form-making superpower at your fingertips. 🚀
+Themes Assistant is a versatile WordPress plugin designed to elevate your website design and development experience. Whether you're a novice or an experienced developer, Themes Assistant provides essential tools to help you create stunning websites effortlessly.
 
+Key Features:
+Theme Helper:
+
+Simplify your theme customization process with intuitive tools and settings.
+Access a wide range of pre-designed templates and components to kickstart your design.
+Enjoy seamless compatibility with popular WordPress themes, ensuring a smooth integration.
+Elementor Widgets:
+
+Enhance your Elementor page-building experience with a rich collection of custom widgets.
+Easily add dynamic content and interactive elements to your pages without any coding.
+Customize widget settings to match your site's unique style and functionality requirements.
+Theme Options:
+
+Take control of your theme's appearance and behavior with a comprehensive options panel.
+Adjust colors, fonts, layouts, and other visual aspects effortlessly.
+Implement advanced features like custom headers, footers, and sidebars to create a unique user experience.
+Benefits:
+User-Friendly Interface: Designed with usability in mind, Themes Assistant makes it easy for anyone to build and customize their WordPress site.
+Increased Efficiency: Streamline your workflow by leveraging pre-built elements and settings, saving you time and effort.
+Enhanced Functionality: Expand the capabilities of your theme and Elementor with additional widgets and options tailored to your needs.
+Seamless Integration: Enjoy compatibility with a wide range of WordPress themes and plugins, ensuring a hassle-free experience.
+Themes Assistant is your go-to solution for optimizing and enhancing your WordPress website. Transform your design process and create visually stunning, highly functional sites with ease.
 
 == Installation == 
 

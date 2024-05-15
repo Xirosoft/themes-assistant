@@ -18,7 +18,7 @@ class Notice {
             <div class="notice notice-info is-dismissible">
                 <p>
                     <?php echo esc_html__('Thank you for choice the ThemesAssistant plugin! If you find it helpful, please consider leaving us a', 'themes-assistant') ?>
-                    <a href="<?php echo esc_url($route->create_url()); ?>"><?php echo esc_html__('Create new form', 'themes-assistant') ?></a>
+                   
                 </p>
                 <p><a href="<?php echo esc_url($dismiss_url); ?>"><?php echo esc_html__('Dismiss', 'themes-assistant') ?></a></p>
             </div>

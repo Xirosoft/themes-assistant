@@ -8,14 +8,22 @@
             <div class="">
                 <img 
                     src="<?php echo esc_url($settings['image']['url']); ?>" 
-                    alt="<?php echo esc_attr__($settings['name'], 'themes-assistant'); ?>"
+                    alt="
+                        <?php 
+                            printf(
+                                esc_html__( '%s', 'themes-assistant' ),
+                                esc_html($settings['name'])
+                            );
+                        ?>
+                    "
                     width="<?php echo esc_attr($settings['team_image_dimension']['width']); ?>"
                     height="<?php echo esc_attr($settings['team_image_dimension']['height']); ?>"
                 >
             </div>
         </div>
         <div class="memb-details">
-            <h3><?php 
+            <h3>
+                <?php 
                     printf(
                         esc_html__( '%s', 'themes-assistant' ),
                         esc_html($settings['name'])
