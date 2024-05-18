@@ -3,9 +3,9 @@
  * Plugin Name: Themes Assistant
  * Description: Themeies Assistant is a user-friendly WordPress plugin that simplifies and enhances your theme customization experience. Effortlessly tweak colors, layouts, styles, and designs to bring your creative vision to life. Save time and personalize your website with ease using Themeies Assistant..
  * Plugin URI: https://themeies.com/item/themes-assistant
- * Version: 1.0.0
- * Requires at least: 6.4
- * Requires PHP: 5.6
+ * Version: 1.0.1
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
  * Author: Xirosoft
  * Author URI: https://xirosoft.com/
  * License: GPL-2.0+
@@ -125,7 +125,7 @@ final class Themeie_Assistant_Plugin
 	 */
 	public function define_constants()
 	{
-		define('THEMEASSISTANT_VERSION', self::version);
+		define('THAST_VERSION', self::version);
 		define('THEMEASSISTANT__FILE__', __FILE__);
 		define('THEMEASSISTANT_PLUGIN_BASE', plugin_basename(THEMEASSISTANT__FILE__));
 		define('THEMEASSISTANT_PATH', plugin_dir_path(THEMEASSISTANT__FILE__));

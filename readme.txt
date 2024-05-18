@@ -3,9 +3,9 @@ Contributors: themeies, xirosoft, speeedsam, sofiquldev
 Donate link: https://www.paypal.com/paypalme/xirosoft
 Stable tag: 1.0.0
 Tags: Themeies Assistant is a user-friendly WordPress plugin that simplifies and enhances your theme customization experience. Effortlessly tweak colors, layouts, styles, and designs to bring your creative vision to life. Save time and personalize your website with ease using Themeies Assistant.
-Requires at least: 4.7
-Tested up to: 5.4
-Requires PHP: 5.6
+Requires at least: 6.4
+Tested up to: 6.0
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,13 +57,13 @@ We welcome contributions to make this plugin even better. If you're interested i
 == License == 
 This plugin is released under the GPLv2 or later license.
 
-
 == Credits == 
-Developed by Xirosft.
+Developed by [Xirosoft](https://www.xirosoft.com).
 
 Special thanks to the creators of the following plugins for their valuable contributions:
-jQuery Form Builder - A fantastic jQuery plugin that enhances form building capabilities.
-Another External Plugin - An awesome plugin that provides additional functionalities.
+
+- [wwww.ip-api.com](https://www.ipify.org) - A Simple Public IP Address API
+- [wwww.ip-api.com](https://httpbin.org) - A Simple Public IP Address API
 
 
 == Frequently Asked Questions ==

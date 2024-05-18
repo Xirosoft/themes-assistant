@@ -16,7 +16,7 @@ class HeaderProfileInfo{
                         <?php
                             $current_user   = wp_get_current_user();
                             $user_avatar    = get_avatar($current_user->user_email, 64);
-                            echo $user_avatar;
+                            echo esc_html($user_avatar);
                         ?>
                     </div>
                     <div class="user">
