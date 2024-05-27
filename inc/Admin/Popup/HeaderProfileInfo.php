@@ -1,6 +1,6 @@
 <?php 
-namespace Xirosoft\ThemesAssistant\Admin\Popup;
-use Xirosoft\ThemesAssistant\Admin\Route;
+namespace AT_Assistant\Admin\Popup;
+use AT_Assistant\Admin\Route;
 
 
 class HeaderProfileInfo{
@@ -101,7 +101,7 @@ class HeaderProfileInfo{
 
                         <?php esc_html_e('Powered by: ', 'themes-assistant') ?>
                         <a href="<?php echo esc_url('https://xirosoft.com'); ?>" target="_blank">
-                            <img src="<?php echo esc_url( THEMEASSISTANT_ASSETS_URL.'/img/xirosoft.webp') ?>" alt="<?php echo esc_attr__('xirosoft', 'themes-assistant') ?>" />
+                            <img src="<?php echo esc_url( AT_Assistant_ASSETS_URL.'/img/xirosoft.webp') ?>" alt="<?php echo esc_attr__('xirosoft', 'themes-assistant') ?>" />
                         </a>
                     </p>
                 </div>

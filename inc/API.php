@@ -1,5 +1,5 @@
 <?php 
-namespace Xirosoft\ThemesAssistant;
+namespace AT_Assistant;
 
 class API{
     

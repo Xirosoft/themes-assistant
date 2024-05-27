@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="assets/admin/css/readme.css">
 
-# **ThemesAssistant Builder** - drag and drop streamlines complex online forms
-![ThemesAssistant Logo](assets/img/logo-white.svg)
+# **Thast Builder** - drag and drop streamlines complex online forms
+![Thast Logo](assets/img/logo-white.svg)
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/xirosoft/themes-assistant/blob/master/CHANGELOG.md#v100)
 [![License](https://img.shields.io/badge/license-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
@@ -23,7 +23,7 @@
 
 ---
 
-![ThemesAssistant Screenshot](assets/img/docs/themes-assistant-screenshot.webp)
+![Thast Screenshot](assets/img/docs/themes-assistant-screenshot.webp)
 
 ## Introduction
 

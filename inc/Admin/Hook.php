@@ -1,6 +1,6 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Admin;
-use Xirosoft\ThemesAssistant\Query;
+namespace AT_Assistant\Admin;
+use AT_Assistant\Query;
 
 class Hook{
         

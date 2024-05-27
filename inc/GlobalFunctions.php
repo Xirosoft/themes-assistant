@@ -1,7 +1,7 @@
 <?php
-namespace Xirosoft\ThemesAssistant;
-use Xirosoft\ThemesAssistant\Admin\Popup\HeaderProfileInfo;
-use Xirosoft\ThemesAssistant\Admin\Route;
+namespace AT_Assistant;
+use AT_Assistant\Admin\Popup\HeaderProfileInfo;
+use AT_Assistant\Admin\Route;
 use is_plugin_active;
 
 /**
@@ -50,10 +50,10 @@ class GlobalFunctions {
             <div id="wpheader">
                 <div class="wpheader__title">
                     <a class="wpheader__logo" href="<?php echo esc_url( FORMIT_URL ) ?>">
-                        <img src="<?php echo esc_url( THEMEASSISTANT_ASSETS_URL.'/img/logo-icon.svg') ?>" alt="themes-assistant-logo" />  
+                        <img src="<?php echo esc_url( AT_ASSISTANT_ASSETS_URL.'/img/logo-icon.svg') ?>" alt="themes-assistant-logo" />  
                     </a>
                     <div class="wpheader__name">
-                        <small class="wpheader_title_version"><?php echo esc_html( 'THEMEASSISTANT-v1.0.0' ) ?> <span class="version-beta"><?php echo esc_html__('Beta', 'themes-assistant'); ?></span></small>  
+                        <small class="wpheader_title_version"><?php echo esc_html( 'AT_Assistant-v1.0.0' ) ?> <span class="version-beta"><?php echo esc_html__('Beta', 'themes-assistant'); ?></span></small>  
                         <h2>
                             <?php 
                                 // Check if it's the "Add New" page for the "themes-assistant" post type

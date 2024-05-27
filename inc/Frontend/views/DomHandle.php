@@ -1,6 +1,6 @@
 <?php
 
-namespace Xirosoft\ThemesAssistant\Frontend\views;
+namespace AT_Assistant\Frontend\views;
 
 class DomHandle
 {

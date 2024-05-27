@@ -1,5 +1,5 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Widgets;
+namespace AT_Assistant\Widgets;
  
 use Elementor\Repeater;
 use Elementor\Widget_Base;
@@ -530,7 +530,7 @@ protected function render() {
 	$style = $settings['image_layout'];
   $widget_title = $this->get_title(); // Get the widget title dynamically
 
-  require THEMEASSISTANT_WIDGET_DIR .'image-box/style-'.$style.'.php';
+  require AT_Assistant_WIDGET_DIR .'image-box/style-'.$style.'.php';
 
 }
 

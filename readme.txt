@@ -1,10 +1,10 @@
 === Themes Assistant - Theme Helper  ===
 Contributors: themeies, xirosoft, speeedsam, sofiquldev
 Donate link: https://www.paypal.com/paypalme/xirosoft
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Tags: Themeies Assistant is a user-friendly WordPress plugin that simplifies and enhances your theme customization experience. Effortlessly tweak colors, layouts, styles, and designs to bring your creative vision to life. Save time and personalize your website with ease using Themeies Assistant.
-Requires at least: 6.4
-Tested up to: 6.0
+Requires at least: 6.0
+Tested up to: 6.4
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -62,8 +62,20 @@ Developed by [Xirosoft](https://www.xirosoft.com).
 
 Special thanks to the creators of the following plugins for their valuable contributions:
 
-- [wwww.ip-api.com](https://www.ipify.org) - A Simple Public IP Address API
-- [wwww.ip-api.com](https://httpbin.org) - A Simple Public IP Address API
+
+= Does this plugin rely on any third-party services? =
+
+Yes, this plugin uses the following third-party services:
+
+1. **IP-API.com**: This service is used to get geolocation information based on the user's IP address.
+   - API Endpoint: `http://ip-api.com/json/`
+   - Terms of Use: [IP-API Terms of Service](https://members.ip-api.com/legal/terms)
+   - Privacy Policy: [IP-API Privacy Policy](https://members.ip-api.com/legal/privacy)
+
+2. **HTTPBin.org**: This service is used for testing HTTP requests.
+   - API Endpoint: `https://httpbin.org/ip`
+   - Terms of Use: [HTTPBin Terms of Service](https://httpbin.org/)
+   - Privacy Policy: [HTTPBin Privacy Policy](https://httpbin.org/)
 
 
 == Frequently Asked Questions ==
@@ -103,4 +115,6 @@ Yes, FormIt Builder is fully compatible with Gutenberg. You can easily embed for
 * Initial release- We just release our wordpress plugin.
 * For more details, see the full changelog.
 
-
+= 1.0.1 =
+* Fixed version number mismatch.
+* Documented use of third-party services.

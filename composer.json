@@ -1,11 +1,11 @@
 {
     "name": "xirosoft/themes-assistant-builder",
-    "description": "A ThemesAssistant drag and drop streamlines complex online forms, aiding web developers and businesses by structuring data collection into user-friendly steps",
+    "description": "A Thast drag and drop streamlines complex online forms, aiding web developers and businesses by structuring data collection into user-friendly steps",
     "type": "wordpress-plugin",
     "license": "GPLv2",
     "autoload": {
         "psr-4": {
-            "Xirosoft\\ThemesAssistant\\": "inc/"
+            "AT_Assistant\\": "inc/"
         },
         "files": [ "inc/functions.php" ]
     },
@@ -20,7 +20,12 @@
     "config": {
         "platform": {
             "php": "7.4"
+        },
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.0"
     }
-    
 }

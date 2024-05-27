@@ -1,12 +1,12 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Admin\views;
-use Xirosoft\ThemesAssistant\Widgets\Banner;
-use Xirosoft\ThemesAssistant\Widgets\Default_button;
-use Xirosoft\ThemesAssistant\Widgets\Hero_slider;
-use Xirosoft\ThemesAssistant\Widgets\Widget_icon_box;
-use Xirosoft\ThemesAssistant\Widgets\Widget_section_header;
-use Xirosoft\ThemesAssistant\Widgets\Widget_image_box;
-use Xirosoft\ThemesAssistant\Widgets\Widget_team_box;
+namespace AT_Assistant\Admin\views;
+use AT_Assistant\Widgets\Banner;
+use AT_Assistant\Widgets\Default_button;
+use AT_Assistant\Widgets\Hero_slider;
+use AT_Assistant\Widgets\Widget_icon_box;
+use AT_Assistant\Widgets\Widget_section_header;
+use AT_Assistant\Widgets\Widget_image_box;
+use AT_Assistant\Widgets\Widget_team_box;
 
 /**
  * Class Plugin

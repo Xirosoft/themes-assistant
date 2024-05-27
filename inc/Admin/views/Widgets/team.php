@@ -1,5 +1,5 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Widgets;
+namespace AT_Assistant\Widgets;
  
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -500,7 +500,7 @@ class Widget_team_box extends Widget_Base {
 		$socials 	=  $settings['socials'];
     $widget_title = $this->get_title(); // Get the widget title dynamically
 
-    require THEMEASSISTANT_WIDGET_DIR .'team/style-'.$style.'.php';
+    require AT_Assistant_WIDGET_DIR .'team/style-'.$style.'.php';
    		
 	}	
 

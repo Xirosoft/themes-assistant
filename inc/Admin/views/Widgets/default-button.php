@@ -1,5 +1,5 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Widgets;
+namespace AT_Assistant\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;

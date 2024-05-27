@@ -1,5 +1,5 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Widgets;
+namespace AT_Assistant\Widgets;
  
 use Elementor\Repeater;
 use Elementor\Widget_Base;
@@ -356,7 +356,7 @@ class Banner extends Widget_Base {
 	$style = $settings['banner_layout'];
     $widget_title = $this->get_title(); // Get the widget title dynamically
 
-  	require THEMEASSISTANT_WIDGET_DIR .'banner/style-'.$style.'.php';
+  	require AT_Assistant_WIDGET_DIR .'banner/style-'.$style.'.php';
     
 	}
 }

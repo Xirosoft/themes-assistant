@@ -1,5 +1,5 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Admin;
+namespace AT_Assistant\Admin;
 
 class AdminEnqueue{
     function __construct(){
@@ -13,8 +13,8 @@ class AdminEnqueue{
         $current_screen = get_current_screen();
         // Check if you're on the appropriate admin page(s) where you want to include your script       
         if ($current_screen && $current_screen->post_type == 'themes-assistant') {
-            // wp_enqueue_script('themes-assistant-admin-scripts', THEMEASSISTANT_ASSETS_URL . 'admin/js/themes-assistant-admin-scripts.js', array('jquery'), time(), true);
-            // wp_enqueue_style('themes-assistant-admin-style', THEMEASSISTANT_ASSETS_URL . 'admin/css/themes-assistant-admin-style.css?', array(), time(), 'all' );
+            // wp_enqueue_script('themes-assistant-admin-scripts', AT_Assistant_ASSETS_URL . 'admin/js/themes-assistant-admin-scripts.js', array('jquery'), time(), true);
+            // wp_enqueue_style('themes-assistant-admin-style', AT_Assistant_ASSETS_URL . 'admin/css/themes-assistant-admin-style.css?', array(), time(), 'all' );
         }
         
     }

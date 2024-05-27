@@ -1,5 +1,5 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Widgets;
+namespace AT_Assistant\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -408,7 +408,7 @@ protected function render() {
 	$style = $settings['slider_style'];
     $widget_title = $this->get_title(); // Get the widget title dynamically
 
-	require THEMEASSISTANT_WIDGET_DIR .'slider/style-'.$style.'.php';
+	require AT_Assistant_WIDGET_DIR .'slider/style-'.$style.'.php';
   }
 public function load_widget_script(){
         if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) { ?>

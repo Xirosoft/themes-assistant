@@ -1,6 +1,6 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Admin;
-use Xirosoft\ThemesAssistant\Query;
+namespace AT_Assistant\Admin;
+use AT_Assistant\Query;
 
 class Notice {
     public function __construct() {
@@ -17,7 +17,7 @@ class Notice {
             ?>
             <div class="notice notice-info is-dismissible">
                 <p>
-                    <?php echo esc_html__('Thank you for choice the ThemesAssistant plugin! If you find it helpful, please consider leaving us a', 'themes-assistant') ?>
+                    <?php echo esc_html__('Thank you for choice the Thast plugin! If you find it helpful, please consider leaving us a', 'themes-assistant') ?>
                    
                 </p>
                 <p><a href="<?php echo esc_url($dismiss_url); ?>"><?php echo esc_html__('Dismiss', 'themes-assistant') ?></a></p>

@@ -1,6 +1,6 @@
 <?php
 // Enqueue assets
-namespace Xirosoft\ThemesAssistant\Frontend;
+namespace AT_Assistant\Frontend;
 class FrontendEnqueue{
     function __construct(){
         /**
@@ -20,7 +20,7 @@ class FrontendEnqueue{
          * Enquee All Scripts
          */
         wp_enqueue_script('jquery');
-        wp_enqueue_script('themes-assistant-fontend-script', THEMEASSISTANT_ASSETS_URL . 'frontend/js/themes-assistant-fontend-script.js', array('jquery'), time(), true);
+        wp_enqueue_script('themes-assistant-fontend-script', AT_ASSISTANT_ASSETS_URL . 'frontend/js/themes-assistant-fontend-script.js', array('jquery'), time(), true);
         wp_localize_script('themes-assistant-fontend-script', 'formit_ajax_object', array(
             'ajaxurl' => admin_url('admin-ajax.php'),
             'nonce'   => wp_create_nonce('themes-assistant-nonce')
@@ -29,7 +29,7 @@ class FrontendEnqueue{
         /**
          * Enquee All Styles
          */
-        wp_enqueue_style('themes-assistant-frontend-style', THEMEASSISTANT_ASSETS_URL . 'frontend/css/themes-assistant-frontend-style.css', array(), time(), 'all' );
+        wp_enqueue_style('themes-assistant-frontend-style', AT_ASSISTANT_ASSETS_URL . 'frontend/css/themes-assistant-frontend-style.css', array(), time(), 'all' );
     }
 
 

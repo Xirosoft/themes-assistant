@@ -1,6 +1,6 @@
 <?php
 
-namespace Xirosoft\ThemesAssistant;
+namespace AT_Assistant;
 
 /**
  * AdminPanel class used for managing 

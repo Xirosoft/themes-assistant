@@ -1,6 +1,6 @@
 <?php
 
-namespace Xirosoft\ThemesAssistant\Admin;
+namespace AT_Assistant\Admin;
 
 
 /**

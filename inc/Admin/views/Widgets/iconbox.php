@@ -1,5 +1,5 @@
 <?php
-namespace Xirosoft\ThemesAssistant\Widgets;
+namespace AT_Assistant\Widgets;
  
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -474,6 +474,6 @@ protected function _register_controls() {
     $settings   = $this->get_settings_for_display();
     $style      = $settings[ 'style' ];
     $widget_title = $this->get_title(); // Get the widget title dynamically
-    require THEMEASSISTANT_WIDGET_DIR .'icon-box/'.$style.'.php';
+    require AT_Assistant_WIDGET_DIR .'icon-box/'.$style.'.php';
   }
 }

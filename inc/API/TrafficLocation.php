@@ -1,6 +1,6 @@
 <?php
 
-namespace Xirosoft\ThemesAssistant\API;
+namespace AT_Assistant\API;
 
 class TrafficLocation {
 
