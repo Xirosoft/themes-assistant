@@ -1,59 +1,58 @@
 <?php
+/**
+ * AdminEnqueue Class
+ *
+ * This class manages all Javascript and Css file loadng functionality.
+ *
+ * @package AT_Assistant
+ */
+
 namespace AT_Assistant\Admin;
 
-class AdminEnqueue{
-    function __construct(){
-        add_action('admin_enqueue_scripts', [$this, 'enqueue_dashboard_scripts']);
-        add_action('admin_enqueue_scripts', [$this, 'BuilderFormaData']);
-        add_action('admin_enqueue_scripts', [$this, 'formit_ajax_localie']);
-    }
-    
-    function enqueue_dashboard_scripts($hook) {
+/**
+ * Class AdminEnqueue
+ *
+ * This class handles all enquee functionality.
+ */
+class AdminEnqueue {
 
-        $current_screen = get_current_screen();
-        // Check if you're on the appropriate admin page(s) where you want to include your script       
-        if ($current_screen && $current_screen->post_type == 'themes-assistant') {
-            // wp_enqueue_script('themes-assistant-admin-scripts', AT_Assistant_ASSETS_URL . 'admin/js/themes-assistant-admin-scripts.js', array('jquery'), time(), true);
-            // wp_enqueue_style('themes-assistant-admin-style', AT_Assistant_ASSETS_URL . 'admin/css/themes-assistant-admin-style.css?', array(), time(), 'all' );
-        }
-        
-    }
+	/**
+	 * AdminEnqueue constructor.
+	 * Adds the action to initialize the REST API.
+	 */
+	public function __construct() {
+		add_action( 'admin_enqueue_scripts', array( $this, 'at_assistant_enqueue_dashboard_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'at_assistant_ajax_localie' ) );
+	}
 
-    /**
-     * JS peramiter localize function
-     *
-     * @param [type] $json_localize
-     * @return void
-     */
-    function BuilderFormaData($json_localize){
+	/**
+	 * CSS and JS enquee for dashboard.
+	 */
+	public function at_assistant_enqueue_dashboard_scripts() {
 
-        /**
-         * Object data send send script
-         * Retrieve the API token and pass it to the script
-         * @themes-assistant-admin-scripts
-         */
+		$current_screen = get_current_screen();
+		// Check if you're on the appropriate admin page(s) where you want to include your script.
+		if ( $current_screen && 'themes-assistant' === $current_screen->post_type ) {
+			wp_enqueue_style( 'themes-assistant-dashboard', AT_ASSISTANT_ASSETS_URL . 'frontend/css/themes-assistant-dashboard.css', array(), time(), 'all' );
+		}
+	}
 
-        wp_localize_script('themes-assistant-admin-scripts', 'formit_scripts_localize', array(
-            'GetBuilderJson' => json_decode($json_localize),
-      
-        ));
-        
-    }
 
-    /**
-     * Ajax Data localize function
-     * Retrieve the API token and pass it to the script 
-     * @return void
-     */
-    function formit_ajax_localie(){
-        wp_localize_script('themes-assistant-admin-scripts', 'themes_assistant_ajax_localize', array(
-            'site_url'  => site_url(),
-            'ajax_url'  => admin_url('admin-ajax.php'),
-            'nonce'     => wp_create_nonce('themes-assistant-nonce')
-        ));
-        
-    }
+	/**
+	 * Ajax Data localize function
+	 * Retrieve the API token and pass it to the script
+	 *
+	 * @return void
+	 */
+	public function at_assistant_ajax_localie() {
+		wp_localize_script(
+			'themes-assistant-admin-scripts',
+			'themes_assistant_ajax_localize',
+			array(
+				'site_url' => site_url(),
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'nonce'    => wp_create_nonce( 'themes-assistant-nonce' ),
+			)
+		);
+	}
 }
-
-
-

@@ -1,14 +1,24 @@
 <?php
+/**
+ * Hook Class File
+ *
+ * @package AT_Assistant\Admin
+ */
+
 namespace AT_Assistant\Admin;
-use AT_Assistant\Query;
 
-class Hook{
-        
-    function __construct(){
-        
+/**
+ * Class Hook
+ *
+ * This class handles the hooks for the admin area.
+ */
+class Hook {
 
+    /**
+     * Hook constructor.
+     *
+     * Initializes the Hook class.
+     */
+    public function __construct() {
     }
-
-
 }
-

@@ -1,7 +1,7 @@
-=== Themes Assistant - Theme Helper  ===
+=== Advance Themes Assistant – Theme Customization, Optimization, and Support  ===
 Contributors: themeies, xirosoft, speeedsam, sofiquldev
 Donate link: https://www.paypal.com/paypalme/xirosoft
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Tags: Themeies Assistant is a user-friendly WordPress plugin that simplifies and enhances your theme customization experience. Effortlessly tweak colors, layouts, styles, and designs to bring your creative vision to life. Save time and personalize your website with ease using Themeies Assistant.
 Requires at least: 6.0
 Tested up to: 6.4

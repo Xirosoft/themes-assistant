@@ -1,24 +1,37 @@
 <?php
+/**
+ * Frontend Class
+ *
+ * This class manages all API functionality.
+ *
+ * @package AT_Assistant
+ */
+
 namespace AT_Assistant;
 
 /**
- * This class using for manage all Admin raleted class 
+ * This class using for manage all Frontend raleted class
+ *
  * @FrotnendPanel
  */
 class FrontendPanel {
-    function __construct(){
 
-        /**
-         * Handles frontend asset enqueueing.
-         * Frontend All endquee class
-         */        
-        new Frontend\FrontendEnqueue();  
+	/**
+	 * FrontendPanel constructor.
+	 * Add the FrontendPanel.
+	 */
+	public function __construct() {
 
-        /**
-         * Handles DOM manipulation for views.
-         * Dom Mange class
-         */
-        new Frontend\views\DomHandle();
-        
-    }
+		/**
+		 * Handles frontend asset enqueueing.
+		 * Frontend All endquee class
+		 */
+		new Frontend\FrontendEnqueue();
+
+		/**
+		 * Handles DOM manipulation for views.
+		 * Dom Mange class
+		 */
+		new Frontend\views\DomHandle();
+	}
 }
