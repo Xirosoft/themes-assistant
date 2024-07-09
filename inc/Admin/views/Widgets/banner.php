@@ -195,7 +195,7 @@ class At_Assistant_Banner extends Widget_Base {
 			array(
 				'label'     => esc_html__( 'Banner Image', 'themes-assistant' ),
 				'type'      => Controls_Manager::MEDIA,
-				'default'   => array(
+				'default'   => array( 
 					'url' => Utils::get_placeholder_image_src(),
 				),
 				'condition' => array(

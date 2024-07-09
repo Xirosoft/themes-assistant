@@ -56,12 +56,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="col-md-6 order-0 order-md-1">
 					<div class="">
 						<div class="">
-							<?php if ( $settings['image']['url'] ) : ?>
+							<?php if ( $settings['image'] ) : ?>
 							<figure class="ban-img">
 
 								<img 
 									fetchPriority="high" 
-									src="<?php esc_url( $settings['image']['url'] ); ?>" 
+									src="<?php esc_url( $settings['image']); ?>" 
 									alt="
 										<?php
 										printf(

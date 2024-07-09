@@ -68,6 +68,8 @@ final class AT_Assistant_Main {
 		 */
 		$this->define_constants();
 
+        register_activation_hook( AT_ASSISTANT__FILE__ , [$this, 'activate'] );
+
 		// Load translation.
 		add_action( 'init', array( $this, 'i18n' ) );
 
@@ -143,6 +145,8 @@ final class AT_Assistant_Main {
 	 * @return void
 	 */
 	public function activate() {
+        $installer = new AT_Assistant\AtAssistant_Installer(); 
+        $installer->run();
 	}
 
 	/**

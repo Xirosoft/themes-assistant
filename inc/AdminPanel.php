@@ -27,6 +27,12 @@ class AdminPanel {
 		 */
 		new Admin\Notice();
 
+        /**
+		 * Instantiate the 'AtAssistantControls'
+		 * class from the 'Admin' namespace.
+		 */
+		new Admin\AtAssistantControls();
+
 		/**
 		 * Instantiate the 'AdminEnqueue' class
 		 * from the 'Admin' namespace.

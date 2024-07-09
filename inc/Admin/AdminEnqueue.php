@@ -33,8 +33,9 @@ class AdminEnqueue {
 		$current_screen = get_current_screen();
 		// Check if you're on the appropriate admin page(s) where you want to include your script.
 		if ( $current_screen && 'themes-assistant' === $current_screen->post_type ) {
-			wp_enqueue_style( 'themes-assistant-dashboard', AT_ASSISTANT_ASSETS_URL . 'frontend/css/themes-assistant-dashboard.css', array(), time(), 'all' );
-		}
+        }
+        wp_enqueue_script('ata-dashboard-scripts', AT_ASSISTANT_ASSETS_URL . 'admin/js/dashboard.js', array('jquery'), '1.0', true);
+        wp_enqueue_style( 'ata-dashboard-css', AT_ASSISTANT_ASSETS_URL . 'admin/css/dashboard.css', array(), time(), 'all' );
 	}
 
 
@@ -46,12 +47,12 @@ class AdminEnqueue {
 	 */
 	public function at_assistant_ajax_localie() {
 		wp_localize_script(
-			'themes-assistant-admin-scripts',
-			'themes_assistant_ajax_localize',
+			'ata-dashboard-scripts',
+			'ata_ajax_localize',
 			array(
 				'site_url' => site_url(),
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
-				'nonce'    => wp_create_nonce( 'themes-assistant-nonce' ),
+				'nonce'    => wp_create_nonce( 'ata-nonce' ),
 			)
 		);
 	}
