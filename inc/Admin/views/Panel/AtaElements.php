@@ -58,8 +58,6 @@ class AtaElements{
         }
 
         parse_str(str_replace(array("'", "\""), '', $encoded_data), $formFields);
-
-        // wp_send_json('Hello');
         
         // Define data to insert or update
         $data_to_insert = array(
@@ -108,8 +106,15 @@ class AtaElements{
 
 
     public function ata_elements_page(){
-        // Default SettingsArray.
+        // Default SettingsArray. 
         $pre_defined_elements = array(
+            'ata_banner' => false,
+            'default_button' => false,
+            'hero_slider' => false,
+            'icon_box' => false,
+            'section_header' => false,
+            'imagebox' => false,
+            'team_box' => false,
             'creative_button' => false,
             'responsive_grid' => false,
             'dynamic_grid' => false,
@@ -144,14 +149,76 @@ class AtaElements{
 
         // user's modified settingsArray
         $user_defined_elements = $this->ata_elements_settings_config();
-        var_dump($user_defined_elements);
 
-        // // Update the SettingsArray
+
+        // Update the SettingsArray
         $SettingsArray = $this->at_assistant_update_elements($pre_defined_elements, $user_defined_elements);
-        var_dump($SettingsArray);
-        
+
         // var_dump($user_defined_elements);
         $ata_elements_array = array(
+            array(
+                'name' => 'ata_banner',
+                'label' => 'ATA Banner 📢',
+                'desc' => 'The "ATA Banner" feature allows adding custom banners to the site.',
+                'value' => $SettingsArray['ata_banner'] ? true : false,
+                'disabled' => false,
+                'demo_link' => 'https://example.com/demo/ata_banner',
+                'doc_link' => 'https://example.com/docs/ata_banner'
+            ),
+            array(
+                'name' => 'default_button',
+                'label' => 'Default Button 🔘',
+                'desc' => 'The "Default Button" feature allows adding standard buttons to the site.',
+                'value' => $SettingsArray['default_button'] ? true : false,
+                'disabled' => false,
+                'demo_link' => 'https://example.com/demo/default_button',
+                'doc_link' => 'https://example.com/docs/default_button'
+            ),
+            array(
+                'name' => 'hero_slider',
+                'label' => 'Hero Slider 🎢',
+                'desc' => 'The "Hero Slider" feature allows adding a large image slider to the homepage.',
+                'value' => $SettingsArray['hero_slider'] ? true : false,
+                'disabled' => false,
+                'demo_link' => 'https://example.com/demo/hero_slider',
+                'doc_link' => 'https://example.com/docs/hero_slider'
+            ),
+            array(
+                'name' => 'icon_box',
+                'label' => 'Icon Box 📦',
+                'desc' => 'The "Icon Box" feature allows adding icon boxes to the site.',
+                'value' => $SettingsArray['icon_box'] ? true : false,
+                'disabled' => false,
+                'demo_link' => 'https://example.com/demo/icon_box',
+                'doc_link' => 'https://example.com/docs/icon_box'
+            ),
+            array(
+                'name' => 'section_header',
+                'label' => 'Section Header 📄',
+                'desc' => 'The "Section Header" feature allows adding headers to different sections of the site.',
+                'value' => $SettingsArray['section_header'] ? true : false,
+                'disabled' => false,
+                'demo_link' => 'https://example.com/demo/section_header',
+                'doc_link' => 'https://example.com/docs/section_header'
+            ),
+            array(
+                'name' => 'imagebox',
+                'label' => 'Image Box 🖼️',
+                'desc' => 'The "Image Box" feature allows adding image boxes to the site.',
+                'value' => $SettingsArray['imagebox'] ? true : false,
+                'disabled' => false,
+                'demo_link' => 'https://example.com/demo/imagebox',
+                'doc_link' => 'https://example.com/docs/imagebox'
+            ),
+            array(
+                'name' => 'team_box',
+                'label' => 'Team Box 👥',
+                'desc' => 'The "Team Box" feature allows displaying team members on the site.',
+                'value' => $SettingsArray['team_box'] ? true : false,
+                'disabled' => false,
+                'demo_link' => 'https://example.com/demo/team_box',
+                'doc_link' => 'https://example.com/docs/team_box'
+            ),
             array(
                 'name' => 'creative_button',
                 'label' => 'Creative Button 🎨',
