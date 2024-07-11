@@ -17,6 +17,8 @@ use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Core\Schemes\Typography;
 use ATA\Admin\Views\AtaElementorEnquee;
+use ATA\Utils\AtaWidgetManage;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -55,7 +57,7 @@ class Ata_team_box extends Widget_Base { //phpcs:ignore.
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'team-box';
+		return 'ata-team';
 	}
 
 	/**
@@ -516,7 +518,7 @@ class Ata_team_box extends Widget_Base { //phpcs:ignore.
 		$style        = $settings['teams_style'];
 		$socials      = $settings['socials'];
 		$widget_title = $this->get_title(); // Get the widget title dynamically.
-
-		require ATA_WIDGET_DIR . 'team/style-' . $style . '.php';
+        $widget_name  = $this->get_name(); // You can make this dynamic
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
 	}
 }

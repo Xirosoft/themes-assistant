@@ -4,7 +4,7 @@
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\ATA_Hero_slider
+ * @package ATA\Widgets\ATA_Hero_slider 
  * @since 1.0.0
  */
 
@@ -15,6 +15,7 @@ use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Core\Schemes\Typography;
 use ATA\Admin\Views\AtaElementorEnquee;
+use ATA\Utils\AtaWidgetManage;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -37,7 +38,6 @@ class Ata_Hero_slider extends Widget_Base { //phpcs:ignore.
 	 */
 	public function __construct( $data = array(), $args = null ) {
 		parent::__construct( $data, $args );
-
         $widget_name                = $this->get_name(); // You can make this dynamic
         $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
 	}
@@ -435,7 +435,8 @@ class Ata_Hero_slider extends Widget_Base { //phpcs:ignore.
 		$settings     = $this->get_settings_for_display();
 		$style        = $settings['slider_style'];
 		$widget_title = $this->get_title(); // Get the widget title dynamically.
-		require ATA_WIDGET_DIR . 'slider/style-' . $style . '.php';
+        $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
 	}
 
 	

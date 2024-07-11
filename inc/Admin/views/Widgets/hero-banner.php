@@ -15,9 +15,8 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Core\Schemes\Typography;
-use ATA\Utils\GoPro;
+use ATA\Utils\AtaWidgetManage;
 use ATA\Admin\Views\AtaElementorEnquee;
-
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -56,7 +55,7 @@ class Ata_Banner extends Widget_Base {
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'ata-banner';
+		return 'ata-hero-banner';
 	}
 
 	/**
@@ -69,7 +68,7 @@ class Ata_Banner extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Banner', 'themes-assistant' );
+		return esc_html__( 'Hero Banner', 'themes-assistant' );
 	}
 
 	/**
@@ -530,10 +529,7 @@ class Ata_Banner extends Widget_Base {
 		$settings     = $this->get_settings_for_display();
 		$style        = $settings['banner_layout'];
 		$widget_title = $this->get_title(); // Get the widget title dynamically.
-        // $gopro = new GoPro;
-        // $gopro->ata_gopro($widget_title);
-        
-        // var_dump( ATA_WIDGET_DIR . 'banner/style-' . $style . '.php');
-		require ATA_WIDGET_DIR . 'banner/style-' . $style . '.php';
+        $widget_name  = $this->get_name(); // You can make this dynamic
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
 	}
 }

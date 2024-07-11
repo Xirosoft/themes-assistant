@@ -135,7 +135,8 @@ final class ATA_Main {
 		define( 'ATA_URL', plugins_url( '/', ATA__FILE__ ) );
 		define( 'ATA_ASSETS_URL', ATA_URL . 'assets/' );
 		define( 'ATA_MODULES_URL', ATA_URL . 'modules/' );
-		define( 'ATA_WIDGET_DIR', plugin_dir_path( __FILE__ ) . 'inc/Admin/views/widgets/style/' );
+		define( 'ATA_WIDGET_DIR', plugin_dir_path( __FILE__ ) . 'inc/Admin/Views/Widgets/style/' );
+        define( 'ATA_BASE_PRO', 'https://wpborax.com/');
 	}
 
 

@@ -16,6 +16,8 @@ use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Core\Schemes\Typography;
 use ATA\Admin\Views\AtaElementorEnquee;
+use ATA\Utils\AtaWidgetManage;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -619,7 +621,7 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
 		$settings     = $this->get_settings_for_display();
 		$style        = $settings['image_layout'];
 		$widget_title = $this->get_title(); // Get the widget title dynamically.
-		// Load Widget design.
-		require ATA_WIDGET_DIR . 'image-box/style-' . $style . '.php';
+        $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
 	}
 }
