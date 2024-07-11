@@ -15,14 +15,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 					>
 						<?php foreach ( $settings['list'] as $item ) { ?>
 							<div class="item">
-								<img src="<?php echo esc_url( $item['image']['url'] ); ?>" alt="
-													<?php
-														printf(
-															esc_attr__( '%s', 'themes-assistant' ),
-															esc_attr( $settings['title'] )
-														);
-													?>
-								" width="1920" height="750">
+								<img 
+                                src="<?php echo esc_url( $item['image']['url'] ); ?>" 
+                                alt="
+                                    <?php
+                                        printf(
+                                            esc_attr__( '%s', 'themes-assistant' ),
+                                            esc_attr( $item['title'] )
+                                        );
+                                    ?>
+								" 
+                                width="1920" 
+                                height="750">
 								<div class="ImageOverlay"></div>
 								<div class="container">
 									<div class="row">		
@@ -33,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 													<?php
 														printf(
 															esc_html__( '%s', 'themes-assistant' ),
-															esc_html( $settings['top_title'] )
+															esc_html( $item['top_title'] )
 														);
 													?>
 												</span>
@@ -41,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 													<?php
 														printf(
 															esc_html__( '%s', 'themes-assistant' ),
-															esc_html( $settings['title'] )
+															esc_html( $item['title'] )
 														);
 													?>
 												</h2>
@@ -49,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 													<?php
 														printf(
 															esc_html__( '%s', 'themes-assistant' ),
-															esc_html( $settings['content_txt'] )
+															esc_html( $item['content_txt'] )
 														);
 													?>
 												</p>
@@ -57,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 													<?php
 														printf(
 															esc_html__( '%s', 'themes-assistant' ),
-															esc_html( $settings['button_text'] )
+															esc_html( $item['button_text'] )
 														);
 													?>
 												</a>
@@ -67,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 														<?php
 															printf(
 																esc_html__( '%s', 'themes-assistant' ),
-																esc_html( $settings['button_text2'] )
+																esc_html( $item['button_text2'] )
 															);
 														?>
 													</a>

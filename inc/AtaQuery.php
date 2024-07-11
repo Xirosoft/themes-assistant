@@ -1,7 +1,8 @@
 <?php 
-namespace AT_Assistant;
+namespace ATA;
 
 if ( ! class_exists( 'AtaQuery' ) ) {
+    
     class AtaQuery {
 
         private $wpdb;

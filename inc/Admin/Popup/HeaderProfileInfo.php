@@ -2,12 +2,12 @@
 /**
  * Popup Header Profile Info Class File
  *
- * @package AT_Assistant\Admin\Popup
+ * @package ATA\Admin\Popup
  */
 
-namespace AT_Assistant\Admin\Popup;
+namespace ATA\Admin\Popup;
 
-use AT_Assistant\Admin\Route;
+use ATA\Admin\Route;
 
 /**
  * Class HeaderProfileInfo

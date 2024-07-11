@@ -4,10 +4,10 @@
  *
  * This class manages all admin-related functionality.
  *
- * @package AT_Assistant
+ * @package ATA
  */
 
-namespace AT_Assistant;
+namespace ATA;
 
 /**
  * AdminPanel class used for managing
@@ -50,5 +50,6 @@ class AdminPanel {
 		* Route define class
 		*/
 		new Admin\Route();
+
 	}
 }

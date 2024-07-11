@@ -1,13 +1,13 @@
 <?php
 
-namespace AT_Assistant\Admin;
+namespace ATA\Admin;
 
-use AT_Assistant\Admin\Views\Panel\AtaGeneral;
-use AT_Assistant\Admin\Views\Panel\AtaElements;
-use AT_Assistant\Admin\Views\Panel\AtaExtensions;
-use AT_Assistant\Admin\Views\Panel\AtaTools;
-use AT_Assistant\Admin\Views\Panel\AtaIntegrations;
-use AT_Assistant\Admin\Views\Panel\AtaPremium;
+use ATA\Admin\Views\Panel\AtaGeneral;
+use ATA\Admin\Views\Panel\AtaElements;
+use ATA\Admin\Views\Panel\AtaExtensions;
+use ATA\Admin\Views\Panel\AtaTools;
+use ATA\Admin\Views\Panel\AtaIntegrations;
+use ATA\Admin\Views\Panel\AtaPremium;
 
 
 class AtAssistantControls {

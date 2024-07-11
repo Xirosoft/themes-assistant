@@ -1,6 +1,6 @@
 <?php 
 
-namespace AT_Assistant\Admin\Views\Panel;
+namespace ATA\Admin\Views\Panel;
 
 class AtaTools{
     public function __construct() {

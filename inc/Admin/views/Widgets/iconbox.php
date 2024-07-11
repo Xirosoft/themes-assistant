@@ -4,11 +4,11 @@
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package AT_Assistant\Widgets\AT_Assistant_icon_box
+ * @package ATA\Widgets\AT_Assistant_icon_box
  * @since 1.0.0
  */
 
-namespace AT_Assistant\Widgets;
+namespace ATA\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class AT_Assistant_icon_box extends Widget_Base { //phpcs:ignore.
+class Ata_icon_box extends Widget_Base { //phpcs:ignore.
 
 	/**
 	 * Retrieve the widget name.
@@ -477,6 +477,6 @@ class AT_Assistant_icon_box extends Widget_Base { //phpcs:ignore.
 		$settings     = $this->get_settings_for_display();
 		$style        = $settings['style'];
 		$widget_title = $this->get_title(); // Get the widget title dynamically.
-		require AT_ASSISTANT_WIDGET_DIR . 'icon-box/' . $style . '.php';
+		require ATA_WIDGET_DIR . 'icon-box/' . $style . '.php';
 	}
 }

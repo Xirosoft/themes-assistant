@@ -4,10 +4,10 @@
  *
  * This class manages all API functionality.
  *
- * @package AT_Assistant
+ * @package ATA
  */
 
-namespace AT_Assistant;
+namespace ATA;
 
 /**
  * This class using for manage all Frontend raleted class
@@ -33,5 +33,7 @@ class FrontendPanel {
 		 * Dom Mange class
 		 */
 		new Frontend\views\DomHandle();
+
+        
 	}
 }

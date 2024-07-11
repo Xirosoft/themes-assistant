@@ -13,12 +13,12 @@ class ComposerStaticInit7ddc01d5030a1474b661e3c0acdf73f4
     public static $prefixLengthsPsr4 = array (
         'A' => 
         array (
-            'AT_Assistant\\' => 13,
+            'ATA\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'AT_Assistant\\' => 
+        'ATA\\' => 
         array (
             0 => __DIR__ . '/../..' . '/inc',
         ),

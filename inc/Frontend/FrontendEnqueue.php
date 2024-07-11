@@ -1,8 +1,9 @@
 <?php
 // Enqueue assets
-namespace AT_Assistant\Frontend;
+namespace ATA\Frontend;
 
 class FrontendEnqueue {
+
 	function __construct() {
 		/**
 		 * This Enquee method for script and style
@@ -22,7 +23,7 @@ class FrontendEnqueue {
 		 * Enquee All Scripts
 		 */
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'themes-assistant-fontend-script', AT_ASSISTANT_ASSETS_URL . 'frontend/js/themes-assistant-fontend-script.js', array( 'jquery' ), time(), true );
+		wp_enqueue_script( 'themes-assistant-fontend-script', ATA_ASSETS_URL . 'frontend/js/themes-assistant-fontend-script.js', array( 'jquery' ), time(), true );
 		wp_localize_script(
 			'themes-assistant-fontend-script',
 			'at_assistant_ajax_object',
@@ -35,6 +36,6 @@ class FrontendEnqueue {
 		/**
 		 * Enquee All Styles
 		 */
-		wp_enqueue_style( 'themes-assistant-frontend-style', AT_ASSISTANT_ASSETS_URL . 'frontend/css/themes-assistant-frontend-style.css', array(), time(), 'all' );
+		wp_enqueue_style( 'themes-assistant-frontend-style', ATA_ASSETS_URL . 'frontend/css/themes-assistant-frontend-style.css', array(), time(), 'all' );
 	}
 }

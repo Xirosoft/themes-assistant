@@ -37,7 +37,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * AT_Assistant_Main class
  */
-final class AT_Assistant_Main {
+final class ATA_Main {
 
 	/**
 	 * Plugin Version
@@ -45,7 +45,7 @@ final class AT_Assistant_Main {
 	 * @since 1.0.0
 	 * @var string The plugin version.
 	 */
-	const AT_ASSISTANT_VERSION = '1.0.2';
+	const ATA_VERSION = '1.0.2';
 
 	/**
 	 * Minimum PHP Version
@@ -53,7 +53,7 @@ final class AT_Assistant_Main {
 	 * @since 1.2.0
 	 * @var string Minimum PHP version required to run the plugin.
 	 */
-	const AT_ASSISTANT_MINIMUM_PHP_VERSION = '7.4';
+	const ATA_MINIMUM_PHP_VERSION = '7.4';
 
 
 	/**
@@ -68,7 +68,7 @@ final class AT_Assistant_Main {
 		 */
 		$this->define_constants();
 
-        register_activation_hook( AT_ASSISTANT__FILE__ , [$this, 'activate'] );
+        register_activation_hook( ATA__FILE__ , [$this, 'activate'] );
 
 		// Load translation.
 		add_action( 'init', array( $this, 'i18n' ) );
@@ -106,17 +106,17 @@ final class AT_Assistant_Main {
 		/**
 		 * Global function Initial
 		 */
-		new AT_Assistant\GlobalFunctions();
+		new ATA\GlobalFunctions();
 
 		/**
 		 * Checking admin or frontend
 		 */
 		if ( is_admin() ) {
 			// Enqueue all admin styles and scripts.
-			new AT_Assistant\AdminPanel();
+			new ATA\AdminPanel();
 		} else {
 			// Manage All frontend functionality.
-			new AT_Assistant\FrontendPanel();
+			new ATA\FrontendPanel();
 		}
 	}
 
@@ -126,16 +126,16 @@ final class AT_Assistant_Main {
 	 * @return void
 	 */
 	public function define_constants() {
-		define( 'AT_ASSISTANT_VERSION', self::AT_ASSISTANT_VERSION );
-		define( 'AT_ASSISTANT__FILE__', __FILE__ );
-		define( 'AT_ASSISTANT_PLUGIN_BASE', plugin_basename( AT_ASSISTANT__FILE__ ) );
-		define( 'AT_ASSISTANT_PATH', plugin_dir_path( AT_ASSISTANT__FILE__ ) );
-		define( 'AT_ASSISTANT_ASSETS_PATH', AT_ASSISTANT_PATH . 'assets/' );
-		define( 'AT_ASSISTANT_MODULES_PATH', AT_ASSISTANT_PATH . 'modules/' );
-		define( 'AT_ASSISTANT_URL', plugins_url( '/', AT_ASSISTANT__FILE__ ) );
-		define( 'AT_ASSISTANT_ASSETS_URL', AT_ASSISTANT_URL . 'assets/' );
-		define( 'AT_ASSISTANT_MODULES_URL', AT_ASSISTANT_URL . 'modules/' );
-		define( 'AT_ASSISTANT_WIDGET_DIR', plugin_dir_path( __FILE__ ) . 'inc/Admin/views/widgets/style/' );
+		define( 'ATA_VERSION', self::ATA_VERSION );
+		define( 'ATA__FILE__', __FILE__ );
+		define( 'ATA_PLUGIN_BASE', plugin_basename( ATA__FILE__ ) );
+		define( 'ATA_PATH', plugin_dir_path( ATA__FILE__ ) );
+		define( 'ATA_ASSETS_PATH', ATA_PATH . 'assets/' );
+		define( 'ATA_MODULES_PATH', ATA_PATH . 'modules/' );
+		define( 'ATA_URL', plugins_url( '/', ATA__FILE__ ) );
+		define( 'ATA_ASSETS_URL', ATA_URL . 'assets/' );
+		define( 'ATA_MODULES_URL', ATA_URL . 'modules/' );
+		define( 'ATA_WIDGET_DIR', plugin_dir_path( __FILE__ ) . 'inc/Admin/views/widgets/style/' );
 	}
 
 
@@ -145,7 +145,7 @@ final class AT_Assistant_Main {
 	 * @return void
 	 */
 	public function activate() {
-        $installer = new AT_Assistant\AtAssistant_Installer(); 
+        $installer = new ATA\AtaInstaller(); 
         $installer->run();
 	}
 
@@ -173,11 +173,11 @@ final class AT_Assistant_Main {
 			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'themes-assistant' ),
 			'<strong>' . esc_html__( 'Themes Assistant Plugin', 'themes-assistant' ) . '</strong>',
 			'<strong>' . esc_html__( 'PHP', 'themes-assistant' ) . '</strong>',
-			self::AT_ASSISTANT_MINIMUM_PHP_VERSION
+			self::ATA_MINIMUM_PHP_VERSION
 		);
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', esc_html( $message ) );
 	}
 }
 
 // Instantiate Themeie_Assistant_Plugin.
-new AT_Assistant_Main();
+new ATA_Main();

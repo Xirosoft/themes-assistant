@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AT_Assistant\\' => array($baseDir . '/inc'),
+    'ATA\\' => array($baseDir . '/inc'),
 );

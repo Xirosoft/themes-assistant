@@ -4,14 +4,14 @@
  *
  * This function manage all globlal functions
  *
- * @package AT_Assistant
+ * @package ATA
  */
 
-namespace AT_Assistant;
+namespace ATA;
 
-use AT_Assistant\Admin\Popup\HeaderProfileInfo;
-use AT_Assistant\Admin\Route;
-use AT_Assistant\Admin\Views\ElementorWidgets;
+use ATA\Admin\Popup\HeaderProfileInfo;
+use ATA\Admin\Route;
+use ATA\Admin\Views\ElementorWidgets;
 use is_plugin_active;
 
 /**
@@ -39,8 +39,6 @@ class GlobalFunctions {
 		}
 	}
 
-
-
 	/**
 	 * MSFROM Custom Header function
 	 *
@@ -63,7 +61,7 @@ class GlobalFunctions {
 						<img src="<?php echo esc_url( AT_ASSISTANT_ASSETS_URL . '/img/logo-icon.svg' ); ?>" alt="themes-assistant-logo" />  
 					</a>
 					<div class="wpheader__name">
-						<small class="wpheader_title_version"><?php echo esc_html( 'AT_Assistant-v1.0.0' ); ?> <span class="version-beta"><?php echo esc_html__( 'Beta', 'themes-assistant' ); ?></span></small>  
+						<small class="wpheader_title_version"><?php echo esc_html( 'ATA-v1.0.0' ); ?> <span class="version-beta"><?php echo esc_html__( 'Beta', 'themes-assistant' ); ?></span></small>  
 						<h2>
 							<?php
 								// Check if it's the "Add New" page for the "themes-assistant" post type.

@@ -4,11 +4,11 @@
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package AT_Assistant\Widgets\AT_Assistant_section_header
+ * @package ATA\Widgets\AT_Assistant_section_header
  * @since 1.0.0
  */
 
-namespace AT_Assistant\Widgets;
+namespace ATA\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class AT_Assistant_section_header extends Widget_Base { //phpcs:ignore.
+class Ata_section_header extends Widget_Base { //phpcs:ignore.
 
 	/**
 	 * Retrieve the widget name.

@@ -2,10 +2,10 @@
 /**
  * Hook Class File
  *
- * @package AT_Assistant\Admin
+ * @package ATA\Admin
  */
 
-namespace AT_Assistant\Admin;
+namespace ATA\Admin;
 
 /**
  * Class Hook

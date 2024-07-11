@@ -4,10 +4,10 @@
  *
  * This class manages all API functionality.
  *
- * @package AT_Assistant
+ * @package ATA
  */
 
-namespace AT_Assistant;
+namespace ATA;
 
 /**
  * Class API

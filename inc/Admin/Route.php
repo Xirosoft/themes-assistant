@@ -2,12 +2,12 @@
 /**
  * Route Class File
  *
- * @package AT_Assistant\Admin
+ * @package ATA\Admin
  */
 
-namespace AT_Assistant\Admin;
+namespace ATA\Admin;
 
-use AT_Assistant\Query;
+use ATA\Query;
 
 /**
  * Class Route

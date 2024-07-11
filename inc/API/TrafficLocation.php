@@ -4,10 +4,10 @@
  *
  * This class manages all TrafficLocation functionality.
  *
- * @package AT_Assistant
+ * @package ATA
  */
 
-namespace AT_Assistant\API;
+namespace ATA\API;
 
 /**
  * Class TrafficLocation

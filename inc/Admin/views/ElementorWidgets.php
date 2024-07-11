@@ -4,23 +4,20 @@
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package AT_Assistant\Admin\views
+ * @package ATA\Admin\views
  * @since 1.0.0
  */
 
-namespace AT_Assistant\Admin\Views;
-use AT_Assistant\AtaQuery;
+namespace ATA\Admin\Views;
+use ATA\AtaQuery;
 
-use AT_Assistant\Widgets\At_Assistant_Banner;
-use AT_Assistant\Widgets\AT_Assistant_Default_button;
-use AT_Assistant\Widgets\AT_Assistant_Hero_slider;
-use AT_Assistant\Widgets\AT_Assistant_icon_box;
-use AT_Assistant\Widgets\AT_Assistant_section_header;
-use AT_Assistant\Widgets\AT_Assistant_image_box;
-use AT_Assistant\Widgets\AT_Assistant_team_box;
-
-
-
+use ATA\Widgets\Ata_Banner;
+use ATA\Widgets\Ata_Default_button;
+use ATA\Widgets\Ata_Hero_slider;
+use ATA\Widgets\Ata_icon_box;
+use ATA\Widgets\Ata_section_header;
+use ATA\Widgets\Ata_image_box;
+use ATA\Widgets\Ata_team_box;
 
 /**
  * ElementorWidgets for manage all elementor widget
@@ -66,6 +63,13 @@ class ElementorWidgets {
 				'icon'  => 'fa fa-plug',
 			)
 		);
+		$elements_manager->add_category(
+			'themes-assistant-pro',
+			array(
+				'title' => __( 'Themes Assistant Pro', 'themes_assistant' ),
+				'icon'  => 'fa fa-plug',
+			)
+		);
 	}
 
 	/**
@@ -105,13 +109,13 @@ class ElementorWidgets {
     
         // List of widget classes to register, associated with their settings keys.
         $widget_classes = array(
-            'ata_banner' => At_Assistant_Banner::class,
-            'default_button' => AT_Assistant_Default_button::class,
-            'hero_slider' => AT_Assistant_Hero_slider::class,
-            'imagebox' => AT_Assistant_image_box::class,
-            'icon_box' => AT_Assistant_icon_box::class,
-            'section_header' => AT_Assistant_section_header::class,
-            'team_box' => AT_Assistant_team_box::class,
+            'ata_banner' => Ata_Banner::class,
+            'default_button' => Ata_Default_button::class,
+            'hero_slider' => Ata_Hero_slider::class,
+            'imagebox' => Ata_image_box::class,
+            'icon_box' => Ata_icon_box::class,
+            'section_header' => Ata_section_header::class,
+            'team_box' => Ata_team_box::class,
         );
     
         $widget_manager = \Elementor\Plugin::instance()->widgets_manager;

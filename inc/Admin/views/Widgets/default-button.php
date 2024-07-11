@@ -4,11 +4,11 @@
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package AT_Assistant\Widgets\AT_Assistant_Default_button
+ * @package ATA\Widgets\AT_Assistant_Default_button
  * @since 1.0.0
  */
 
-namespace AT_Assistant\Widgets;
+namespace ATA\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class AT_Assistant_Default_button extends Widget_Base { // phpcs:ignore.
+class Ata_Default_button extends Widget_Base { // phpcs:ignore.
 
 	/**
 	 * Retrieve the widget name.
@@ -146,18 +146,18 @@ class AT_Assistant_Default_button extends Widget_Base { // phpcs:ignore.
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-
 		$btn_link   = ( ! empty( $settings['btn_link']['url'] ) ) ? $settings['btn_link']['url'] : '';
 		$btn_target = ( $settings['btn_link']['is_external'] ) ? '_blank' : '_self';
+        
 		?>
-		<a href="<?php echo esc_url( $btn_link ); ?>" target="<?php echo esc_html( $btn_target ); ?>" class="btn">
-		<?php
-			printf(
-                esc_html__( '%s', 'themes-assistant' ), // phpcs:ignore.
-				esc_html( $settings['btn'] )
-			);
-		?>
-		</a>
+            <a href="<?php echo esc_url( $btn_link ); ?>" target="<?php echo esc_html( $btn_target ); ?>" class="btn">
+                <?php
+                    printf(
+                        esc_html__( '%s', 'themes-assistant' ), // phpcs:ignore.
+                        esc_html( $settings['btn'] )
+                    );
+                ?>
+            </a>
 		<?php
 	}
 }

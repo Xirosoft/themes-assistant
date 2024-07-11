@@ -1,9 +1,10 @@
 <?php 
 
-namespace AT_Assistant;
+namespace ATA;
 
 if ( ! class_exists( 'AtAssistant_Installer' ) ) {
-    class AtAssistant_Installer{
+
+    class AtaInstaller{
 
         /**
         * run function
@@ -25,10 +26,10 @@ if ( ! class_exists( 'AtAssistant_Installer' ) ) {
             if(!$installed){
                 update_option( 'ata_installed', time(), );	
             }
-            update_option( 'ata_version', AT_ASSISTANT_VERSION );
+            update_option( 'ata_version', ATA_VERSION );
         }
         /**
-        * DB table create for at_assistant settings function
+        * DB table create for ATA settings function
         *
         * @return void
         */

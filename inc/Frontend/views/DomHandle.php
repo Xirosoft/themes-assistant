@@ -1,6 +1,6 @@
 <?php
 
-namespace AT_Assistant\Frontend\views;
+namespace ATA\Frontend\views;
 
 class DomHandle {
 

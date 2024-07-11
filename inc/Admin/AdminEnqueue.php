@@ -4,10 +4,10 @@
  *
  * This class manages all Javascript and Css file loadng functionality.
  *
- * @package AT_Assistant
+ * @package ATA
  */
 
-namespace AT_Assistant\Admin;
+namespace ATA\Admin;
 
 /**
  * Class AdminEnqueue
@@ -34,8 +34,8 @@ class AdminEnqueue {
 		// Check if you're on the appropriate admin page(s) where you want to include your script.
 		if ( $current_screen && 'themes-assistant' === $current_screen->post_type ) {
         }
-        wp_enqueue_script('ata-dashboard-scripts', AT_ASSISTANT_ASSETS_URL . 'admin/js/dashboard.js', array('jquery'), '1.0', true);
-        wp_enqueue_style( 'ata-dashboard-css', AT_ASSISTANT_ASSETS_URL . 'admin/css/dashboard.css', array(), time(), 'all' );
+        wp_enqueue_script('ata-dashboard-scripts', ATA_ASSETS_URL . 'admin/js/dashboard.js', array('jquery'), '1.0', true);
+        wp_enqueue_style( 'ata-dashboard-css', ATA_ASSETS_URL . 'admin/css/dashboard.css', array(), time(), 'all' );
 	}
 
 

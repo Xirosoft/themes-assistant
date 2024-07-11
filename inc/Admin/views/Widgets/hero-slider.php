@@ -4,11 +4,11 @@
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package AT_Assistant\Widgets\AT_Assistant_Hero_slider
+ * @package ATA\Widgets\AT_Assistant_Hero_slider
  * @since 1.0.0
  */
 
-namespace AT_Assistant\Widgets;
+namespace ATA\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class AT_Assistant_Hero_slider extends Widget_Base { //phpcs:ignore.
+class Ata_Hero_slider extends Widget_Base { //phpcs:ignore.
 
 	/**
 	 * Construction load for assets.

@@ -5,7 +5,7 @@
     "license": "GPLv2",
     "autoload": {
         "psr-4": {
-            "AT_Assistant\\": "inc/"
+            "ATA\\": "inc/"
         },
         "files": [ "inc/functions.php" ]
     },
