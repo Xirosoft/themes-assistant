@@ -1,10 +1,10 @@
 <?php
 /**
- * Class AT_Assistant_team_box
+ * Class Ata_team_box
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\AT_Assistant_team_box
+ * @package ATA\Widgets\Ata_team_box
  * @since 1.0.0
  */
 
@@ -16,17 +16,34 @@ use Elementor\Icons_Manager;
 use Elementor\Utils;
 use Elementor\Repeater;
 use Elementor\Core\Schemes\Typography;
-
+use ATA\Admin\Views\AtaElementorEnquee;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * AT_Assistant_team_box class extend from Elementor Widget_Base class
+ * Ata_team_box class extend from Elementor Widget_Base class
  *
  * @since 1.1.0
  */
 class Ata_team_box extends Widget_Base { //phpcs:ignore.
+
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
 
 	/**
 	 * Retrieve the widget name.

@@ -12,7 +12,7 @@ namespace ATA\Admin;
 /**
  * Custom post Hander calass class
  */
-class CustomPost {
+class AtaCustomPost {
 
     /**
 	 * CustomPost constructor.

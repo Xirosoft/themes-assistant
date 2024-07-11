@@ -14,7 +14,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Core\Schemes\Typography;
-
+use ATA\Admin\Views\AtaElementorEnquee;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -25,6 +25,23 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.1.0
  */
 class Ata_icon_box extends Widget_Base { //phpcs:ignore.
+
+    
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
 
 	/**
 	 * Retrieve the widget name.
@@ -110,9 +127,12 @@ class Ata_icon_box extends Widget_Base { //phpcs:ignore.
 				'type'    => Controls_Manager::SELECT,
 				'label'   => esc_html__( 'Choose Style', 'themes-assistant' ),
 				'default' => 'style1',
-				'options' => array(
-					'style1' => esc_html__( 'Style 1', 'themes-assistant' ),
-				),
+				'options' => [
+                    'style1' => esc_html__('Style 1', 'borax'),
+                    'style2' => esc_html__('Style 2', 'borax'),
+                    'style3' => esc_html__('Style 3', 'borax'),
+                    'style4' => esc_html__('Style 4', 'borax'),
+                ],
 			)
 		);
 
@@ -478,5 +498,80 @@ class Ata_icon_box extends Widget_Base { //phpcs:ignore.
 		$style        = $settings['style'];
 		$widget_title = $this->get_title(); // Get the widget title dynamically.
 		require ATA_WIDGET_DIR . 'icon-box/' . $style . '.php';
+	}
+
+    /**
+	 * Enqueue scripts and styles for this widget.
+	 */
+	public function ata_el_enqueue_scripts() {
+
+		// Register and enqueue JS file.
+		wp_register_script( 'icon-box-script', ATA_ASSETS_URL . 'frontend/js/widget/icon-box.js', array( 'jquery' ), ATA_VERSION, true );
+		wp_enqueue_script( 'icon-box-script' );
+
+		// Register and enqueue CSS file.
+		wp_register_style( 'icon-box-style', ATA_ASSETS_URL . 'frontend/css/widget/icon-box.css', array(), ATA_VERSION );
+		wp_enqueue_style( 'icon-box-style' );
+	}
+
+
+	/**
+	 * Conditionally checking script
+	 */
+	public function conditionally_enqueue_scripts() {
+		if ( $this->is_elementor_edit_mode() || $this->is_widget_present() ) {
+			$this->ata_el_enqueue_scripts();
+		} else {
+			$this->ata_el_enqueue_scripts();
+		}
+	}
+
+	/**
+	 * Checking elementor Edit mode.
+	 */
+	protected function is_elementor_edit_mode() {
+		// Check if we are in Elementor editor mode.
+		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() || wp_doing_ajax() ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Checking Present widget
+	 */
+	protected function is_widget_present() {
+		if ( ! did_action( 'elementor/loaded' ) ) {
+			return false;
+		}
+
+		$document = \Elementor\Plugin::instance()->documents->get( get_the_ID() );
+		if ( ! $document ) {
+			return false;
+		}
+
+		$elements_data = $document->get_elements_data();
+		return $this->is_widget_in_element_data( $elements_data );
+	}
+
+	/**
+	 * Check if the widget is present in the Elementor data.
+	 *
+	 * @param array $elements_data The Elementor elements data to check.
+	 * @return bool True if the widget is found, false otherwise.
+	 */
+	protected function is_widget_in_element_data( $elements_data ) {
+		foreach ( $elements_data as $element_data ) {
+			if ( 'widget' === $element_data['elType'] && $this->get_name() === $element_data['widgetType'] ) {
+				return true;
+			}
+
+			if ( ! empty( $element_data['elements'] ) ) {
+				if ( $this->is_widget_in_element_data( $element_data['elements'] ) ) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

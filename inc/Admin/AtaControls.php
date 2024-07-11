@@ -10,7 +10,7 @@ use ATA\Admin\Views\Panel\AtaIntegrations;
 use ATA\Admin\Views\Panel\AtaPremium;
 
 
-class AtAssistantControls {
+class AtaControls {
 
     private $ata_general;
     private $ata_elements;

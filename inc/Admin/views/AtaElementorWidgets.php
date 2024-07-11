@@ -22,7 +22,7 @@ use ATA\Widgets\Ata_team_box;
 /**
  * ElementorWidgets for manage all elementor widget
  */
-class ElementorWidgets {
+class AtaElementorWidgets {
 
     private $query; 
     private $wpdb;
@@ -45,8 +45,8 @@ class ElementorWidgets {
         $query = "SELECT * FROM %1s";
         $this->where = array('id' => 1);
 		// Register widgets.
-		add_action( 'elementor/elements/categories_registered', array( $this, 'themes_assistant_elementor_widget_categories' ) );
-		add_action( 'elementor/widgets/widgets_registered', array( $this, 'at_assistant_register_widgets' ) );
+		add_action( 'elementor/elements/categories_registered', array( $this, 'ata_elementor_widget_categories' ) );
+		add_action( 'elementor/widgets/widgets_registered', array( $this, 'ata_register_widgets' ) );
 	}
 
 	/**
@@ -55,7 +55,7 @@ class ElementorWidgets {
 	 * @param object $elements_manager Elementor elements manager.
 	 * @since 1.2.0
 	 */
-	public function themes_assistant_elementor_widget_categories( $elements_manager ) {
+	public function ata_elementor_widget_categories( $elements_manager ) {
 		$elements_manager->add_category(
 			'themes-assistant',
 			array(
@@ -96,7 +96,7 @@ class ElementorWidgets {
 	 * @since 1.0.0
 	 */
 
-    public function at_assistant_register_widgets() {
+    public function ata_register_widgets() {
         // It is now safe to include Widgets files.
         $this->include_widgets_files();
     

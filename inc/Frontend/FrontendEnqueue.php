@@ -23,19 +23,19 @@ class FrontendEnqueue {
 		 * Enquee All Scripts
 		 */
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'themes-assistant-fontend-script', ATA_ASSETS_URL . 'frontend/js/themes-assistant-fontend-script.js', array( 'jquery' ), time(), true );
+		wp_enqueue_script( 'themes-assistant-fontend-script', ATA_ASSETS_URL . 'frontend/js/ata-fontend-script.js', array( 'jquery' ), time(), true );
 		wp_localize_script(
-			'themes-assistant-fontend-script',
+			'ata-fontend-script',
 			'at_assistant_ajax_object',
 			array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
-				'nonce'   => wp_create_nonce( 'themes-assistant-nonce' ),
+				'nonce'   => wp_create_nonce( 'ata-nonce' ),
 			)
 		);
 
 		/**
 		 * Enquee All Styles
 		 */
-		wp_enqueue_style( 'themes-assistant-frontend-style', ATA_ASSETS_URL . 'frontend/css/themes-assistant-frontend-style.css', array(), time(), 'all' );
+		wp_enqueue_style( 'ata-frontend-style', ATA_ASSETS_URL . 'frontend/css/ata-frontend-style.css', array(), time(), 'all' );
 	}
 }

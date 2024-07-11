@@ -16,7 +16,7 @@ use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Core\Schemes\Typography;
 use ATA\Utils\GoPro;
-
+use ATA\Admin\Views\AtaElementorEnquee;
 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,6 +29,22 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.1.0
  */
 class Ata_Banner extends Widget_Base {
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
 
 	/**
 	 * Retrieve the widget name.

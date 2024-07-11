@@ -19,7 +19,7 @@ use is_plugin_active;
  *
  * @GlobalFunctions
  */
-class GlobalFunctions {
+class AtaGlobalControl {
 
 	/**
 	 * Construct function for Gloabal
@@ -27,15 +27,15 @@ class GlobalFunctions {
 	public function __construct() {
 		/**
 		 * Custom Header action
-		 * callback @formit_custom_dashboard_header
+		 * callback @ata_dashboard_header
 		 */
-		add_action( 'admin_head', array( $this, 'formit_custom_dashboard_header' ) );
+		add_action( 'admin_head', array( $this, 'ata_dashboard_header' ) );
 
 		/**
 		 * Elementor addon will be active if Elementor active
 		 */
 		if ( did_action( 'elementor/loaded' ) ) {
-            new Admin\Views\ElementorWidgets();
+            new Admin\Views\AtaElementorWidgets();
 		}
 	}
 
@@ -44,7 +44,7 @@ class GlobalFunctions {
 	 *
 	 * @return void
 	 */
-	public function formit_custom_dashboard_header() {
+	public function ata_dashboard_header() {
 		global $post_type;
 		$route = new Route();
 
@@ -64,15 +64,12 @@ class GlobalFunctions {
 						<small class="wpheader_title_version"><?php echo esc_html( 'ATA-v1.0.0' ); ?> <span class="version-beta"><?php echo esc_html__( 'Beta', 'themes-assistant' ); ?></span></small>  
 						<h2>
 							<?php
-								// Check if it's the "Add New" page for the "themes-assistant" post type.
 							if ( isset( $_GET['post_type'] ) && 'themes-assistant' === sanitize_text_field( wp_unslash( $_GET['post_type'] ) ) && isset( $_SERVER['REQUEST_URI'] ) && false !== strpos( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), 'post-new.php' ) ) {
-								// Verify nonce before processing the form data.
 								if ( isset( $_POST['at_assistant_nonce_field'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['at_assistant_nonce_field'] ) ), 'at_assistant_nonce_action' ) ) {
 									echo esc_html__( 'Create New Form', 'themes-assistant' );
 								}
 							} else {
 								printf(
-									/* translators: %s: This is the page title */
 									esc_html__( 'Title: %s', 'themes-assistant' ),
 									esc_html( $page_title )
 								);

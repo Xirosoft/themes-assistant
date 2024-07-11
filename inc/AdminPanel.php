@@ -31,7 +31,7 @@ class AdminPanel {
 		 * Instantiate the 'AtAssistantControls'
 		 * class from the 'Admin' namespace.
 		 */
-		new Admin\AtAssistantControls();
+		new Admin\AtaControls();
 
 		/**
 		 * Instantiate the 'AdminEnqueue' class
@@ -43,7 +43,7 @@ class AdminPanel {
 		 * Manages custom post types.
 		 * Custom Post define class
 		 */
-		new Admin\CustomPost();
+		new Admin\AtaCustomPost();
 
 		/**
 		* Manages All Route and URL.

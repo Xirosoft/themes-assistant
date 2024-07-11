@@ -1,10 +1,10 @@
 <?php
 /**
- * Class AT_Assistant_Hero_slider
+ * Class ATA_Hero_slider
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\AT_Assistant_Hero_slider
+ * @package ATA\Widgets\ATA_Hero_slider
  * @since 1.0.0
  */
 
@@ -14,16 +14,20 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Core\Schemes\Typography;
+use ATA\Admin\Views\AtaElementorEnquee;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * AT_Assistant_Hero_slider class extend from Elementor Widget_Base class
+ * ATA_Hero_slider class extend from Elementor Widget_Base class
  *
  * @since 1.1.0
  */
 class Ata_Hero_slider extends Widget_Base { //phpcs:ignore.
+
+    protected $ata_elementor_enquee;
 
 	/**
 	 * Construction load for assets.
@@ -33,8 +37,9 @@ class Ata_Hero_slider extends Widget_Base { //phpcs:ignore.
 	 */
 	public function __construct( $data = array(), $args = null ) {
 		parent::__construct( $data, $args );
-		add_action( 'elementor/frontend/after_enqueue_scripts', array( $this, 'conditionally_enqueue_scripts' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'conditionally_enqueue_scripts' ) );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
 	}
 
 	/**
@@ -47,7 +52,7 @@ class Ata_Hero_slider extends Widget_Base { //phpcs:ignore.
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'hero_slider_borax';
+		return 'ata-hero-slider';
 	}
 
 	/**
@@ -119,9 +124,12 @@ class Ata_Hero_slider extends Widget_Base { //phpcs:ignore.
 				'type'    => Controls_Manager::SELECT,
 				'label'   => esc_html__( 'Choose Style', 'themes-assistant' ),
 				'default' => '1',
-				'options' => array(
-					'1' => esc_html__( 'Style 1', 'themes-assistant' ),
-				),
+				'options' => [
+                    '1' => esc_html__('Style 1', 'themes-assistant'),
+                    '2' => esc_html__('Style 2', 'themes-assistant'),
+                    '3' => esc_html__('Style 3', 'themes-assistant'),
+                    '4' => esc_html__('Style 4', 'themes-assistant'),
+                ],
 			)
 		);
 
@@ -427,82 +435,8 @@ class Ata_Hero_slider extends Widget_Base { //phpcs:ignore.
 		$settings     = $this->get_settings_for_display();
 		$style        = $settings['slider_style'];
 		$widget_title = $this->get_title(); // Get the widget title dynamically.
-
-		require AT_ASSISTANT_WIDGET_DIR . 'slider/style-' . $style . '.php';
+		require ATA_WIDGET_DIR . 'slider/style-' . $style . '.php';
 	}
 
-	/**
-	 * Enqueue scripts and styles for this widget.
-	 */
-	public function at_assistant_el_enqueue_scripts() {
-
-		// Register and enqueue JS file.
-		wp_register_script( 'hero-slider-script', AT_ASSISTANT_ASSETS_URL . 'frontend/js/widget/hero-slider.js', array( 'jquery' ), AT_ASSISTANT_VERSION, true );
-		wp_enqueue_script( 'hero-slider-script' );
-
-		// Register and enqueue CSS file.
-		wp_register_style( 'hero-slider-style', AT_ASSISTANT_ASSETS_URL . 'frontend/css/widget/hero-slider.css', array(), AT_ASSISTANT_VERSION );
-		wp_enqueue_style( 'hero-slider-style' );
-	}
-
-
-	/**
-	 * Conditionally checking script
-	 */
-	public function conditionally_enqueue_scripts() {
-		if ( $this->is_elementor_edit_mode() || $this->is_widget_present() ) {
-			$this->at_assistant_el_enqueue_scripts();
-		} else {
-			$this->at_assistant_el_enqueue_scripts();
-		}
-	}
-
-	/**
-	 * Checking elementor Edit mode.
-	 */
-	protected function is_elementor_edit_mode() {
-		// Check if we are in Elementor editor mode.
-		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() || wp_doing_ajax() ) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Checking Present widget
-	 */
-	protected function is_widget_present() {
-		if ( ! did_action( 'elementor/loaded' ) ) {
-			return false;
-		}
-
-		$document = \Elementor\Plugin::instance()->documents->get( get_the_ID() );
-		if ( ! $document ) {
-			return false;
-		}
-
-		$elements_data = $document->get_elements_data();
-		return $this->is_widget_in_element_data( $elements_data );
-	}
-
-	/**
-	 * Check if the widget is present in the Elementor data.
-	 *
-	 * @param array $elements_data The Elementor elements data to check.
-	 * @return bool True if the widget is found, false otherwise.
-	 */
-	protected function is_widget_in_element_data( $elements_data ) {
-		foreach ( $elements_data as $element_data ) {
-			if ( 'widget' === $element_data['elType'] && $this->get_name() === $element_data['widgetType'] ) {
-				return true;
-			}
-
-			if ( ! empty( $element_data['elements'] ) ) {
-				if ( $this->is_widget_in_element_data( $element_data['elements'] ) ) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+	
 }

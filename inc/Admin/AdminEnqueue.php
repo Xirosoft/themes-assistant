@@ -21,14 +21,14 @@ class AdminEnqueue {
 	 * Adds the action to initialize the REST API.
 	 */
 	public function __construct() {
-		add_action( 'admin_enqueue_scripts', array( $this, 'at_assistant_enqueue_dashboard_scripts' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'at_assistant_ajax_localie' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'ata_enqueue_dashboard_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'ata_ajax_localie' ) );
 	}
 
 	/**
 	 * CSS and JS enquee for dashboard.
 	 */
-	public function at_assistant_enqueue_dashboard_scripts() {
+	public function ata_enqueue_dashboard_scripts() {
 
 		$current_screen = get_current_screen();
 		// Check if you're on the appropriate admin page(s) where you want to include your script.
@@ -45,7 +45,7 @@ class AdminEnqueue {
 	 *
 	 * @return void
 	 */
-	public function at_assistant_ajax_localie() {
+	public function ata_ajax_localie() {
 		wp_localize_script(
 			'ata-dashboard-scripts',
 			'ata_ajax_localize',

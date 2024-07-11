@@ -1,10 +1,10 @@
 <?php
 /**
- * Class AT_Assistant_section_header
+ * Class Ata_section_header
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\AT_Assistant_section_header
+ * @package ATA\Widgets\Ata_section_header
  * @since 1.0.0
  */
 
@@ -18,17 +18,34 @@ use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Core\Schemes;
 use Elementor\Utils;
-
+use ATA\Admin\Views\AtaElementorEnquee;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * AT_Assistant_section_header class extend from Elementor Widget_Base class
+ * Ata_section_header class extend from Elementor Widget_Base class
  *
  * @since 1.1.0
  */
 class Ata_section_header extends Widget_Base { //phpcs:ignore.
+
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
 
 	/**
 	 * Retrieve the widget name.
@@ -369,12 +386,26 @@ class Ata_section_header extends Widget_Base { //phpcs:ignore.
 			}
 			?>
 			<?php if ( ! empty( $settings['top_title'] ) ) { ?>
-				<span class="tagline"><?php echo esc_html( $settings['top_title'] ); ?></span>
+				<span class="tagline">
+                    <?php
+                        printf(
+                            esc_html__( '%s', 'themes-assistant' ),
+                            esc_html( $settings['top_title'] )
+                        );
+                    ?>
+                </span>
 				<?php
 			}
 			if ( ! empty( $settings['title'] ) ) {
 				?>
-				<h2 class="sec-title"><?php echo wp_kses_post( $settings['title'] ); ?></h2>
+				<h2 class="sec-title">
+                    <?php
+                        printf(
+                            esc_html__( '%s', 'themes-assistant' ),
+                            esc_html( $settings['title'] )
+                        );
+                    ?>
+                </h2>
 				<?php
 			}
 			if ( 'icon' === $settings['icon_type'] ) :
@@ -394,7 +425,14 @@ class Ata_section_header extends Widget_Base { //phpcs:ignore.
 			endif;
 			if ( ! empty( $settings['description'] ) ) {
 				?>
-				<div class="paragraph"><?php echo wp_kses_post( $settings['description'] ); ?></div>
+				<div class="paragraph">
+                    <?php
+                        printf(
+                            esc_html__( '%s', 'themes-assistant' ),
+                            esc_html( $settings['description'] )
+                        );
+                    ?>    
+                </div>
 			<?php } ?>
 		</div>
 		<?php

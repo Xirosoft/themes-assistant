@@ -106,7 +106,7 @@ final class ATA_Main {
 		/**
 		 * Global function Initial
 		 */
-		new ATA\GlobalFunctions();
+		new ATA\AtaGlobalControl();
 
 		/**
 		 * Checking admin or frontend

@@ -1,10 +1,10 @@
 <?php
 /**
- * Class AT_Assistant_Default_button
+ * Class Ata_Default_button
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\AT_Assistant_Default_button
+ * @package ATA\Widgets\Ata_Default_button
  * @since 1.0.0
  */
 
@@ -13,17 +13,34 @@ namespace ATA\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
-
+use ATA\Admin\Views\AtaElementorEnquee;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * AT_Assistant_Default_button class extend from elementor Widget_Base class
+ * Ata_Default_button class extend from elementor Widget_Base class
  *
  * @since 1.1.0
  */
 class Ata_Default_button extends Widget_Base { // phpcs:ignore.
+
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
 
 	/**
 	 * Retrieve the widget name.

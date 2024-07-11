@@ -15,7 +15,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use Elementor\Core\Schemes\Typography;
-
+use ATA\Admin\Views\AtaElementorEnquee;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -27,6 +27,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Ata_image_box extends Widget_Base { //phpcs:ignore.
 
+
+    protected $ata_elementor_enquee;
+
 	/**
 	 * Construction load for assets.
 	 *
@@ -35,8 +38,9 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
 	 */
 	public function __construct( $data = array(), $args = null ) {
 		parent::__construct( $data, $args );
-		add_action( 'elementor/frontend/after_enqueue_scripts', array( $this, 'conditionally_enqueue_scripts' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'conditionally_enqueue_scripts' ) );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
 	}
 
 	/**
@@ -49,7 +53,7 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'image-box';
+		return 'ata-image-box';
 	}
 
 	/**
@@ -117,14 +121,102 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
 		$this->add_control(
 			'image_layout',
 			array(
-				'label'   => esc_html__( 'Image box layout', 'themes-assistant' ),
+                'label'   => esc_html__( 'Image box layout', 'themes-assistant' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '1',
-				'options' => array(
-					'1' => esc_html__( 'Layout 1', 'themes-assistant' ),
-				),
-			)
+				'options' => [
+                    '1' => esc_html__( 'Layout 1', 'borax' ),
+                    '2' => esc_html__( 'Layout 2', 'borax' ),
+                    '3' => esc_html__( 'Layout 3', 'borax' ),
+                    '4' => esc_html__( 'Layout 4', 'borax' ),
+                    '5' => esc_html__( 'Layout 5', 'borax' ),
+                    '6' => esc_html__( 'Layout 6', 'borax' ),
+                    '7' => esc_html__( 'Layout 7', 'borax' ),
+                ],
+            )
 		);
+
+        $this->add_control(
+            'image_shape',
+            array(
+                'label' => esc_html__( 'Image Style', 'borax' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'none',
+                'options' => [
+                    'none' => esc_html__( 'None', 'borax' ),
+                    'Triangle' => esc_html__( 'Triangle', 'borax' ),
+                    'Trapezoid' => esc_html__( 'Trapezoid', 'borax' ),
+                    'Parallelogram' => esc_html__( 'Parallelogram', 'borax' ),
+                    'Rhombus' => esc_html__( 'Rhombus', 'borax' ),
+                    'Pentagon' => esc_html__( 'Pentagon', 'borax' ),
+                    'Hexagon' => esc_html__( 'Hexagon', 'borax' ),
+                    'Heptagon' => esc_html__( 'Heptagon', 'borax' ),
+                    'Octagon' => esc_html__( 'Octagon', 'borax' ),
+                    'Nonagon' => esc_html__( 'Nonagon', 'borax' ),
+                    'Decagon' => esc_html__( 'Decagon', 'borax' ),
+                    'Bevel' => esc_html__( 'Bevel', 'borax' ),
+                    'Rabbet' => esc_html__( 'Rabbet', 'borax' ),
+                    'Left-arrow' => esc_html__( 'Left arrow', 'borax' ),
+                    'Right-arrow' => esc_html__( 'Right arrow', 'borax' ),
+                    'Left-Point' => esc_html__( 'Left Point', 'borax' ),
+                    'Right-Point' => esc_html__( 'Right Point', 'borax' ),
+                    'Left-Chevron' => esc_html__( 'Left Chevron', 'borax' ),
+                    'Right-Chevron' => esc_html__( 'Right Chevron', 'borax' ),
+                    'Star' => esc_html__( 'Star', 'borax' ),
+                    'Cross' => esc_html__( 'Cross', 'borax' ),
+                    'Message' => esc_html__( 'Message', 'borax' ),
+                    'Close' => esc_html__( 'Close', 'borax' ),
+                    'Frame' => esc_html__( 'Frame', 'borax' ),
+                    'Inset' => esc_html__( 'Inset', 'borax' ),
+                    'Custom Polygon' => esc_html__( 'Custom Polygon', 'borax' ),
+                    'Circle' => esc_html__( 'Circle', 'borax' ),
+                    'Ellipse' => esc_html__( 'Ellipse', 'borax' ),
+                ],
+                'condition' => [
+                  'image_layout' => ['1','2','3','4','5','6'],
+                ]	
+            )
+        );
+        $this->add_control(
+            'image_shadow',
+            array(
+                'label' => esc_html__( 'Image Shadow', 'borax' ),
+                'type' 	=> Controls_Manager::SWITCHER,
+                'label_on' => esc_html__( 'Show', 'borax' ),
+                'label_off' => esc_html__( 'Hide', 'borax' ),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => [
+                    'image_layout' => ['1','2','3','4','5','6'],
+                ]	
+            )
+        );
+      
+        $this->add_control(
+          'imageround',
+            array(
+                'label' => esc_html__( 'Image Round', 'borax' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ '%'],
+                'range' => [
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 5,
+                    ],				
+                    ],
+                    'default' => [
+                    'unit' => '%',
+                    'size' => 0,
+                    ],
+                    'selectors' => [
+                    '{{WRAPPER}} img' => 'border-radius: {{SIZE}}{{UNIT}};',
+                    ],
+                    'condition' => [
+                    'image_layout' => ['1','2','3','4','5','6'],
+                ]
+            )
+        );
 
 		$this->add_control(
 			'image_max_size',
@@ -528,81 +620,6 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
 		$style        = $settings['image_layout'];
 		$widget_title = $this->get_title(); // Get the widget title dynamically.
 		// Load Widget design.
-		require AT_ASSISTANT_WIDGET_DIR . 'image-box/style-' . $style . '.php';
-	}
-
-	/**
-	 * Enqueue scripts and styles for this widget.
-	 */
-	public function at_assistant_el_enqueue_scripts() {
-
-		// Register and enqueue JS file.
-		wp_register_script( 'image-box-script', AT_ASSISTANT_ASSETS_URL . 'frontend/js/widget/image-box.js', array( 'jquery' ), AT_ASSISTANT_VERSION, true );
-		wp_enqueue_script( 'image-box-script' );
-
-		// Register and enqueue CSS file.
-		wp_register_style( 'image-box-style', AT_ASSISTANT_ASSETS_URL . 'frontend/css/widget/image-box.css', array(), AT_ASSISTANT_VERSION );
-		wp_enqueue_style( 'image-box-style' );
-	}
-
-
-	/**
-	 * Conditionally checking script
-	 */
-	public function conditionally_enqueue_scripts() {
-		if ( $this->is_elementor_edit_mode() || $this->is_widget_present() ) {
-			$this->at_assistant_el_enqueue_scripts();
-		} else {
-			$this->at_assistant_el_enqueue_scripts();
-		}
-	}
-
-	/**
-	 * Checking elementor Edit mode.
-	 */
-	protected function is_elementor_edit_mode() {
-		// Check if we are in Elementor editor mode.
-		if ( \Elementor\Plugin::$instance->editor->is_edit_mode() || \Elementor\Plugin::$instance->preview->is_preview_mode() || wp_doing_ajax() ) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Checking Present widget
-	 */
-	protected function is_widget_present() {
-		if ( ! did_action( 'elementor/loaded' ) ) {
-			return false;
-		}
-
-		$document = \Elementor\Plugin::instance()->documents->get( get_the_ID() );
-		if ( ! $document ) {
-			return false;
-		}
-
-		$elements_data = $document->get_elements_data();
-		return $this->is_widget_in_element_data( $elements_data );
-	}
-
-	/**
-	 * Check if the widget is present in the Elementor data.
-	 *
-	 * @param array $elements_data The Elementor elements data to check.
-	 * @return bool True if the widget is found, false otherwise.
-	 */
-	protected function is_widget_in_element_data( $elements_data ) {
-		foreach ( $elements_data as $element_data ) {
-			if ( 'widget' === $element_data['elType'] && $this->get_name() === $element_data['widgetType'] ) {
-				return true;
-			}
-
-			if ( ! empty( $element_data['elements'] ) ) {
-				if ( $this->is_widget_in_element_data( $element_data['elements'] ) ) {
-					return true;
-				}
-			}
-		}
-		return false;
+		require ATA_WIDGET_DIR . 'image-box/style-' . $style . '.php';
 	}
 }

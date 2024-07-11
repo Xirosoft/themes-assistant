@@ -12,8 +12,8 @@ if ( ! class_exists( 'AtAssistant_Installer' ) ) {
         * @return void
         */
         function run(){
-            $this->at_assistant_add_version();
-            $this->at_assistant_config_table();
+            $this->ata_add_version();
+            $this->ata_config_table();
         }   
         
         /**
@@ -21,7 +21,7 @@ if ( ! class_exists( 'AtAssistant_Installer' ) ) {
         *
         * @return void
         */
-        public function at_assistant_add_version(){
+        public function ata_add_version(){
             $installed = get_option('ata_installed');
             if(!$installed){
                 update_option( 'ata_installed', time(), );	
@@ -33,7 +33,7 @@ if ( ! class_exists( 'AtAssistant_Installer' ) ) {
         *
         * @return void
         */
-        public function at_assistant_config_table(){
+        public function ata_config_table(){
             global $wpdb;
             $at_assistant_submissions_table = $wpdb->prefix . 'at_assistant_settings';
         
