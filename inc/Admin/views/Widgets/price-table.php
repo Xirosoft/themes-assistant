@@ -24,7 +24,22 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since 1.1.0 
  */
 class Ata_Price_Table extends Widget_Base {
-      /**
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+    /**
    * Retrieve the widget name.
    *
    * @since 1.1.0
@@ -103,7 +118,7 @@ class Ata_Price_Table extends Widget_Base {
         $this->add_control(
             'table_style',
             [
-                    'label' =>esc_html__( 'Table Style', 'themes-assistant' ),
+                'label' =>esc_html__( 'Table Style', 'themes-assistant' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => '1',
                 'options' => [
@@ -466,6 +481,8 @@ class Ata_Price_Table extends Widget_Base {
         $settings       = $this->get_settings_for_display();
         $style  		= $settings['table_style'];
         $widget_title = $this->get_title(); // Get the widget title dynamically
+        $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
         if (LICFY_TYPE == 1 || LICFY_TYPE === null || LICFY_TYPE === 'undefined') {
             ?>
                 <div class="pro-widget">

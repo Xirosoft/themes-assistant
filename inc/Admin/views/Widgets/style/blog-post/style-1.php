@@ -25,22 +25,72 @@
                 <?php endif; ?>
             </div>
             <?php endif; ?>
-            <div class="entry-meta">
-                <span>
-                <i class="ti-alarm-clock"></i> <?php the_time( 'd M, Y' ); ?> &nbsp;&nbsp;<i
-                        class="ti-bookmark"></i>
-                    <?php $categories = get_the_category(); 
-                if ( ! empty( $categories ) ) {
-                        echo esc_html( $categories[0]->name );   
-                } ?>
+        <div class="entry-meta">
+            <span>
+                <i class="ti-alarm-clock"></i> 
+                <?php
+                    printf(
+                        esc_html__( '%s', 'themes-assistant' ),
+                        esc_html( the_time( 'd M, Y' ))
+                    );
+                ?>
+                    &nbsp;&nbsp;<i class="ti-bookmark"></i>
+                <?php 
+                    $categories = get_the_category(); 
+                    if ( ! empty( $categories ) ) {
+                            echo esc_html( $categories[0]->name );   
+                    } 
+                ?>
             </span>
         </div><!-- .entry-meta -->
-            <hr>
-            <h3><a href="<?php echo esc_url( get_permalink() );  ?>"><?php the_title(); ?></a></h3>
-            <p><?php echo esc_html__( borax_plugin_excerpt(19), 'themes-assistant'); ?></p>
-            <a href="<?php echo esc_url( get_permalink() );  ?>" area-label="<?php the_title(); ?>"  class="btn">
-                <?php esc_html_e($settings['see_more_text'], 'themes-assistant') ?>
+        <hr>
+        <h3>
+            <a 
+                href="<?php echo esc_url( get_permalink() );  ?>"
+                area-label="
+                <?php
+                    printf(
+                        esc_html__( '%s', 'themes-assistant' ),
+                        esc_html( the_title())
+                    );
+                ?>
+                "
+                >
+                <?php
+                    printf(
+                        esc_html__( '%s', 'themes-assistant' ),
+                        esc_html( the_title())
+                    );
+                ?>
+            </a>
+            </h3>
+            <p>
+                <?php
+                    printf(
+                        esc_html__( '%s', 'themes-assistant' ),
+                        esc_html( ata_excerpt(19) )
+                    );
+                ?>
+                <?php echo esc_html__( ata_excerpt(19), 'themes-assistant'); ?>
+            </p>
+            <a 
+                href="<?php echo esc_url( get_permalink() );  ?>" 
+                title="
+                    <?php
+                        printf(
+                            esc_html__( '%s', 'themes-assistant' ),
+                            esc_html( the_title())
+                        );
+                    ?>
+                " 
+                class="btn">
+                <?php
+                    printf(
+                        esc_html__( '%s', 'themes-assistant' ),
+                        esc_html($settings['see_more_text'])
+                    );
+                ?>
                 <i class="ti-arrow-right"></i>
-        </a>
+            </a>
     </article>
 </div>

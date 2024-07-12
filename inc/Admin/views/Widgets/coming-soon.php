@@ -22,6 +22,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Ata_Coming_soon extends Widget_Base {
 
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
     /**
      * Retrieve the widget name.
      *
@@ -105,7 +120,7 @@ class Ata_Coming_soon extends Widget_Base {
                 'default' => '1',
                 'options' => [
                     '1' => esc_html__( 'Style 1', 'themes-assistant' ),
-                    // '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+                    '2' => esc_html__( 'Style 2', 'themes-assistant' ),
                 ],
             ]
         );
@@ -253,6 +268,8 @@ class Ata_Coming_soon extends Widget_Base {
         // Settings
         $settings = $this->get_settings_for_display();
         $style = $settings['counter_style'];
+        $widget_name    = $this->get_name(); // You can make this dynamic
+        $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
         require ATA_WIDGET_DIR . 'coming/style-' . $style . '.php';
     }
 

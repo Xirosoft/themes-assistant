@@ -131,6 +131,7 @@ class Ata_Team_Box extends Widget_Base { //phpcs:ignore.
 				'default' => '1',
 				'options' => array(
 					'1' => esc_html__( 'Style 1', 'themes-assistant' ),
+					// '2' => esc_html__( 'Style 2', 'themes-assistant' ),
 				),
 			)
 		);

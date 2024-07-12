@@ -21,11 +21,23 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Ata_Trust_Pilot extends Widget_Base {
 
-    public function __construct() {
-        parent::__construct();
-    
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
         add_action('wp_enqueue_scripts', array($this, 'trustpilot_enqueue_scripts'));
-    }
+	}
+    
+    
     function trustpilot_enqueue_scripts() {
         wp_enqueue_script('trustpilot-widget', 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js', array(), '1.0', true);
     }
@@ -121,7 +133,7 @@ class Ata_Trust_Pilot extends Widget_Base {
     	); 
         
         $this->add_control(
-            'testimonial_style',
+            'trust_pilot_style',
             [
                 'label' => esc_html__( 'Testimonial style', 'themes-assistant' ),
                 'type' => Controls_Manager::SELECT,
@@ -353,7 +365,8 @@ class Ata_Trust_Pilot extends Widget_Base {
 		
 		$settings       = $this->get_settings_for_display();
         $style  		= $settings['testimonial_style'];
-
+        $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
     
         // Output the Trustpilot widget
         ob_start();

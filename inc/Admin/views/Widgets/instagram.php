@@ -30,7 +30,23 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0
  */
 class Ata_Instagram_Gallery extends Widget_Base {
-     /**
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
+   /**
    * Retrieve the widget name.
    *
    * @since 1.1.0
@@ -102,6 +118,18 @@ protected function _register_controls() {
                 'instagram_section',
             [
                     'label' => esc_html__( 'Instagram Gallery Settings', 'themes-assistant' ),
+            ]
+        );
+        $this->add_control(
+            'instagram_style',
+            [
+                'label' => esc_html__( 'Select Style', 'themes-assistant' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => '1',
+                'options' => [
+                    '1' => esc_html__( 'Style 1', 'themes-assistant' ),
+                    // '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+                ],
             ]
         );
         $this->add_control(
@@ -214,6 +242,9 @@ protected function _register_controls() {
         // call load widget script
         // $this->load_widget_script();
         $settings   = $this->get_settings();
+        $style = $settings['instagram_style'];
+        $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
         $access_token    = !empty( $settings['inst_id'] ) ? $settings['inst_id'] : '';
         $inst_item  = !empty( $settings['inst_item'] ) ? $settings['inst_item'] : '';
         $widget_title = $this->get_title(); // Get the widget title dynamically

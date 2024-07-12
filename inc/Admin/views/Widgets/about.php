@@ -24,6 +24,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @since 1.1.0
  */
 class Ata_about_box extends Widget_Base {
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
  
   /**
    * Retrieve the widget name.
@@ -104,7 +119,6 @@ class Ata_about_box extends Widget_Base {
     );
 
     $this->add_control(
-
         'style', [
             'type' => Controls_Manager::SELECT,
             'label' => esc_html__('Choose Style', 'themes-assistant'),
@@ -117,7 +131,6 @@ class Ata_about_box extends Widget_Base {
         ]
     );
  
-
     $this->add_control(
         'image',
         [
@@ -126,6 +139,9 @@ class Ata_about_box extends Widget_Base {
             'default' => [
                 'url' => Utils::get_placeholder_image_src(),
             ],
+            'condition' => [
+				'style' => ['1','2'],
+			],
         ]
     );
     $this->add_control(
@@ -138,6 +154,9 @@ class Ata_about_box extends Widget_Base {
           'width' => '300',
           'height' => '300',
         ],
+        'condition' => [
+            'style' => ['1','2'],
+        ],
       ]
     );
     $this->add_control(
@@ -148,6 +167,9 @@ class Ata_about_box extends Widget_Base {
             'default' => [
                 'url' => Utils::get_placeholder_image_src(),
             ],
+            'condition' => [
+				'style' => ['1','2'],
+			],
         ]
     );
     $this->add_control(
@@ -160,6 +182,9 @@ class Ata_about_box extends Widget_Base {
           'width' => '200',
           'height' => '250',
         ],
+        'condition' => [
+            'style' => ['1','2'],
+        ],
       ]
     );
     $this->add_control(
@@ -170,6 +195,9 @@ class Ata_about_box extends Widget_Base {
             'default' => [
                 'url' => ATA_IMAGE .'/bg.png'
             ],
+            'condition' => [
+				'style' => ['1','2'],
+			],
         ]
     );
     $this->add_control(
@@ -182,6 +210,9 @@ class Ata_about_box extends Widget_Base {
           'width' => '530',
           'height' => '444',
         ],
+       'condition' => [
+            'style' => ['1','2'],
+        ],
       ]
     );
     $this->add_control(
@@ -192,29 +223,6 @@ class Ata_about_box extends Widget_Base {
         'default' => esc_attr__( '25 Years Working Experience', 'themes-assistant' ),
       ]
     );
-    $this->add_control(
-        'about_content_sw',
-        [
-            'label' => __( 'Enable Content', 'themes-assistant' ),
-            'type' => Controls_Manager::SWITCHER,
-            'label_on' => __( 'Enable', 'themes-assistant' ),
-            'label_off' => __( 'Disable', 'themes-assistant' ),
-            'return_value' => 'yes',
-            'default' => 'yes',
-        ]
-    );
-    $this->end_controls_section();
-
-    $this->start_controls_section(
-        'about_box_content',
-        [
-            'label' => esc_html__( 'Text Section', 'themes-assistant' ),
-            'condition' => [
-                'about_content_sw' => 'yes',
-            ],	
-        ]
-    );
-
     $this->add_control(
       'about_text_align',
       [
@@ -426,7 +434,7 @@ class Ata_about_box extends Widget_Base {
 				'align-right' => esc_html__( 'Icon Right', 'themes-assistant' ),
             ],
             'condition' => [
-				'style' => 'style1',
+				'style' => '1',
 			],
         ]
     );
@@ -544,24 +552,12 @@ class Ata_about_box extends Widget_Base {
    * @access protected
    */
   	protected function render() {
-    $settings = $this->get_settings_for_display();
-    $content_align = $settings['about_text_align'];
-    $style = $settings['style'];
-    $lists       = $settings[ 'list' ];
-	$widget_title = $this->get_title(); // Get the widget title dynamically
-	if (LICFY_TYPE == 1 || LICFY_TYPE === null || LICFY_TYPE === 'undefined') {
-		?>
-			<div class="pro-widget">
-				<h3 class="borax_pro_title"><?php echo esc_html__($widget_title. ' Widget', 'themes-assistant'); ?></h3>
-				<div class="dialog-message"><?php echo esc_html__('Leverage this feature, along with numerous other premium features, to expand your Website, enabling faster and superior website development.', 'themes-assistant'); ?> </div>
-				<a href="<?php echo WPBORAX; ?>" target="_blank" class="dialog-button button-success"><?php echo esc_html__('Go Pro', 'themes-assistant') ?></a> 
-			</div>
-		<?php
-		return false; 
-	}
-    	require BORAX_WIDGET_DIR .'about/style-'.$style.'.php';
+        $settings       = $this->get_settings_for_display();
+        $content_align  = $settings['about_text_align'];
+        $style          = $settings['style'];
+        $widget_title   = $this->get_title(); // Get the widget title dynamically
+        $widget_name    = $this->get_name(); // You can make this dynamic
+        $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
   	}
-  	protected function _content_template() {
 
-	}	
 }

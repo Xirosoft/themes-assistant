@@ -14,10 +14,27 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Utils;
 use \Elementor\Group_Control_Css_Filter;
- 
+use ATA\Utils\AtaWidgetManage;
+use ATA\Admin\Views\AtaElementorEnquee;
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Ata_Logo_Slider extends Widget_Base {
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
 
  /**
    * Retrieve the widget name.
@@ -96,6 +113,18 @@ class Ata_Logo_Slider extends Widget_Base {
 				'label' => esc_html__( 'Logo Slider', 'themes-assistant' ),
 			]
 		);
+        $this->add_control(
+            'logo_slider_style',
+            [
+                'label' => esc_html__( 'Select Style', 'themes-assistant' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => '1',
+                'options' => [
+                    '1' => esc_html__( 'Style 1', 'themes-assistant' ),
+                    // '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+                ],
+            ]
+        );
 
 		$repeater = new \Elementor\Repeater();
 
@@ -327,6 +356,9 @@ class Ata_Logo_Slider extends Widget_Base {
     // call load widget script
     $this->load_widget_script();
 		$settings = $this->get_settings_for_display();
+        $style = $settings['logo_slider_style'];
+        $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
 
 		if ( $settings['list'] ) {
 			echo '<div class="partners-logo owl-carousel"  data-nav="'. esc_attr($settings['nav']) .'" data-control="'. esc_attr($settings['control']) .'" data-autoplay="'. esc_attr($settings['autoplay']) .'" data-loop="'. esc_attr($settings['loop']) .'" data-rtl="'. esc_attr($settings['rtl']) .'">';

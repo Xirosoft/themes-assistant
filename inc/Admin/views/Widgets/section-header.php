@@ -18,6 +18,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
 use Elementor\Core\Schemes;
 use Elementor\Utils;
+use ATA\Utils\AtaWidgetManage;
 use ATA\Admin\Views\AtaElementorEnquee;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -124,6 +125,18 @@ class Ata_Section_Header extends Widget_Base { //phpcs:ignore.
 				'label' => esc_html__( 'Section Header', 'themes-assistant' ),
 			)
 		);
+        $this->add_control(
+            'section_header_style',
+            [
+                'label' => esc_html__( 'Select Style', 'themes-assistant' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => '1',
+                'options' => [
+                    '1' => esc_html__( 'Style 1', 'themes-assistant' ),
+                    // '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+                ],
+            ]
+        );
 
 		$this->add_control(
 			'top_title',
@@ -377,7 +390,9 @@ class Ata_Section_Header extends Widget_Base { //phpcs:ignore.
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-
+        $style = $settings['section_header_style'];
+        $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
 		?>
 		<div class="sec-heading m-auto text-<?php echo esc_attr( $settings['align'] ); ?>">
 			<?php

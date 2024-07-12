@@ -23,6 +23,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Ata_Background_Animation extends Widget_Base {
    
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
     /**
    * Retrieve the widget name.
    *
@@ -300,75 +315,9 @@ class Ata_Background_Animation extends Widget_Base {
    * @access protected
    */
 	protected function render() {
-  		// call load widget script
-		$this->load_widget_script();
-		// Settings
 		$settings = $this->get_settings_for_display();
         $style = $settings['animation_style'];
-        
-		?>
-<!-- Coming section start -->
-<div class="background_animation">
-      <?php 
-                require BORAX_WIDGET_DIR .'bg-animation/style-'.$style.'.php';
-            ?>
-</div>
-<?php
+        $widget_name  = $this->get_name(); // You can make this dynamic
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
    }
-  	public function load_widget_script(){
-  		if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) { ?>
-<script>
-(function($) {
-      // $(window).on("load", function () {
-      var els = $('.ael')
-    for (let index = 1; index < els.length + 1; index++) {
-          animateDiv(".el" + index);
-    }
-    // });
-    function makeNewPosition() {
-          // Get viewport dimensions (remove the dimension of the div)
-        var h = $(window).height() - 50;
-        var w = $(window).width() - 50;
-        var nh = Math.floor(Math.random() * h);
-        var nw = Math.floor(Math.random() * w);
-        return [nh, nw];
-    }
-    function animateDiv(myclass) {
-          var newq = makeNewPosition();
-        $(myclass).animate({
-                  top: newq[0],
-                left: newq[1],
-            },
-            10000,
-            function() {
-                  animateDiv(myclass);
-            }
-        );
-    }
-    var divs = document.getElementsByClassName('ael');
-    // get window width and height
-    var winWidth = window.innerWidth;
-    var winHeight = window.innerHeight;
-    // i stands for "index". you could also call this banana or haircut. it's a variable
-    for (var i = 0; i < divs.length; i++) {
-          // shortcut! the current div in the list
-        var thisDiv = divs[i];
-        // get random numbers for each element
-        var randomTop = getRandomNumber(0, winHeight);
-        var randomLeft = getRandomNumber(0, winWidth);
-        // console.log(randomTop);
-        // update top and left position
-        thisDiv.style.opacity = 1;
-        thisDiv.style.top = randomTop + "px";
-        thisDiv.style.left = randomLeft + "px";
-    }
-    // function that returns a random number between a min and max
-    function getRandomNumber(min, max) {
-          return Math.random() * (max - min) + min;
-    }
-})(jQuery);
-</script>
-<?php 
-		}
-	}
 }

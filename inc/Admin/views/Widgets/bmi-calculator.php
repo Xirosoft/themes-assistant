@@ -24,6 +24,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Ata_Bmi_Calculator extends Widget_Base {
  
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
   /**
    * Retrieve the widget name.
    *
@@ -102,6 +117,16 @@ protected function _register_controls() {
 			'label' => esc_html__( 'BMI Calculator', 'themes-assistant' ),
 		]
     );
+    $this->add_control(
+        'bmi_style', [
+            'type' => Controls_Manager::SELECT,
+            'label' => esc_html__('Choose Style', 'themes-assistant'),
+            'default' => '1',
+            'options' => [
+                '1' => esc_html__('Style 1', 'themes-assistant'),
+            ],
+        ]
+    );
 
    
 
@@ -120,57 +145,10 @@ protected function _register_controls() {
    * @access protected
    */
     protected function render() {
-        $settings = $this->get_settings_for_display(); 
-        $widget_title = $this->get_title(); // Get the widget title dynamically
-        if (LICFY_TYPE == 1 || LICFY_TYPE === null || LICFY_TYPE === 'undefined') {
-            ?>
-                <div class="pro-widget">
-                    <h3 class="borax_pro_title"><?php echo esc_html__($widget_title. ' Widget', 'themes-assistant'); ?></h3>
-                    <div class="dialog-message"><?php echo esc_html__('Leverage this feature, along with numerous other premium features, to expand your Website, enabling faster and superior website development.', 'themes-assistant'); ?> </div>
-                    <a href="<?php echo WPBORAX; ?>" target="_blank" class="dialog-button button-success"><?php echo esc_html__('Go Pro', 'themes-assistant') ?></a> 
-                </div>
-            <?php
-            return false; 
-        }
-    ?>
-
-    <form class="bmi-form bmi" id="form" onsubmit="return validateForm()">
-        <div class="form-row">
-            <div class="form-field col-12">
-                <p class="text"><?php echo esc_html__('Age', 'themes-assistant'); ?></p>
-                <input type="number" class="text-input form-control" id="age" autocomplete="off" required  placeholder="<?php echo esc_attr('Enter Your age', 'themes-assistant'); ?>"/>
-            </div>
-
-            <div class="form-field col-sm-6">
-                <label class="custom-label">
-                    <input type="radio" name="radio" id="f">
-                    <p class="text"><?php echo esc_html__('Female', 'themes-assistant'); ?></p>
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="form-field col-sm-6">
-                <label class="custom-label">
-                    <input type="radio" name="radio" id="m">
-                    <p class="text"><?php echo esc_html__('Male', 'themes-assistant'); ?></p>
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="col-12">
-                <div class="form-field">
-                    <p class="text"><?php echo esc_html__('Height (cm)', 'themes-assistant'); ?></p>
-                    <input type="number" class="text-input form-control" id="height" autocomplete="off" required  placeholder="<?php echo esc_attr('Enter Your height', 'themes-assistant'); ?>">
-                </div>
-                <div class="form-field">
-                    <p class="text"><?php echo esc_html__('Weight (kg)', 'themes-assistant'); ?></p>
-                    <input type="number" class="text-input form-control" id="weight" autocomplete="off" required  placeholder="<?php echo esc_attr('Enter Your weight', 'themes-assistant'); ?>">
-                </div>
-            </div>
-        </div>
-        <button type="button" id="submit" class="btn "><?php echo esc_html__('Submit', 'themes-assistant'); ?></button>
-        <div id="message"></div>
-    </form>
-
-    <?php
-
-  }
+        $settings       = $this->get_settings_for_display(); 
+        $widget_title   = $this->get_title(); // Get the widget title dynamically
+        $style          = $settings['bmi_style'];
+        $widget_name    = $this->get_name(); // You can make this dynamic
+        $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
+    }
 }

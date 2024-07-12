@@ -30,6 +30,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Ata_faq extends Widget_Base {
    
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
     /**
    * Retrieve the widget name.
    *
@@ -107,7 +122,7 @@ protected function _register_controls() {
       ]
     );
     $this->add_control(
-          'style',
+        'faq_style',
         [
               'label' => esc_html__( 'FAQ style', 'themes-assistant' ),
             'type' => Controls_Manager::SELECT,
@@ -395,6 +410,9 @@ protected function _register_controls() {
    */
 protected function render() {
       $settings = $this->get_settings_for_display();
+      $style = $settings['faq_style'];
+      $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
     ?>
 	<div class="faq">
   		<div class="accordion <?php if('version-2' == $settings['style'] ){ echo 'version-2'; } ?>" id="accordionExample">

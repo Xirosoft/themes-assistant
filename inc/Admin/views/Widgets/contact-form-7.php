@@ -12,6 +12,8 @@ namespace ATA\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
+use ATA\Utils\AtaWidgetManage;
+use ATA\Admin\Views\AtaElementorEnquee;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
@@ -21,6 +23,22 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
  * @since 1.0.0
  */
 class Ata_Contact_Form_7 extends Widget_Base { // this name is added to plugin.php of the root folder
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
     /**
      * Retrieve the widget name.
      *
@@ -87,6 +105,18 @@ class Ata_Contact_Form_7 extends Widget_Base { // this name is added to plugin.p
             'section_content',
             [
                 'label' => esc_html__('Contact Form 7', 'themes-assistant'), // section name for control view
+            ]
+        );
+        $this->add_control(
+            'vf7_style',
+            [
+                'label' => esc_html__( 'Select Style', 'themes-assistant' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => '1',
+                'options' => [
+                    '1' => esc_html__( 'Style 1', 'themes-assistant' ),
+                    // '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+                ],
             ]
         );
 
@@ -169,6 +199,9 @@ class Ata_Contact_Form_7 extends Widget_Base { // this name is added to plugin.p
     protected function render() {
         static $data = 0;
         $settings = $this->get_settings_for_display();
+        $style = $settings['cf7_style'];
+        $widget_name    = $this->get_name(); // You can make this dynamic
+        $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
 
         if (!empty($settings['cf7'])) {
             echo '<div class="elementor-shortcode borax-cf7-' . esc_attr($data) . '">';

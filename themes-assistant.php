@@ -130,7 +130,7 @@ final class ATA_Main {
 		define( 'ATA__FILE__', __FILE__ );
 		define( 'ATA_PLUGIN_BASE', plugin_basename( ATA__FILE__ ) );
 		define( 'ATA_PATH', plugin_dir_path( ATA__FILE__ ) );
-        define( 'ATA_IMAGE', ATA_PATH . 'assets/images' );
+        define( 'ATA_IMAGE', ATA_PATH . 'assets/img' );
 		define( 'ATA_ASSETS_PATH', ATA_PATH . 'assets/' );
 		define( 'ATA_MODULES_PATH', ATA_PATH . 'modules/' );
 		define( 'ATA_URL', plugins_url( '/', ATA__FILE__ ) );

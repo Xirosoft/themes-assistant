@@ -25,6 +25,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * 
 */
 class Ata_blog_post extends Widget_Base {
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
     
 	/**
 	 * Retrieve the widget name.
@@ -328,27 +343,22 @@ class Ata_blog_post extends Widget_Base {
    * @access protected
    */
   	protected function render() {
+        global $post;
        	$settings 		= $this->get_settings_for_display();
 		$style  		= $settings['blogs_style'];
 		$content_align  = $settings['content_align'];
-		$p 				= $settings['post_show'];
-
-global $post;
-          $args = array( 'numberposts' => $p,   );
-          $myposts = get_posts( $args ); ?>
-
-		<div class="row">
-			<?php
-			foreach( $myposts as $post ) :  setup_postdata($post);
-			
-			require BORAX_WIDGET_DIR .'blog/style-'.$style.'.php';
-
-		    endforeach; wp_reset_postdata(); 
-
-			?>
-
-		</div>
-	<?php
-
-}
+		$total_posts    = $settings['post_show'];
+        $widget_name    = $this->get_name(); // You can make this dynamic
+        $args           = array( 'numberposts' => $total_posts,   );
+        $myposts        = get_posts( $args ); 
+        ?>
+            <div class="row">
+                <?php
+                    foreach( $myposts as $post ) :  setup_postdata($post);
+                        $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
+                    endforeach; wp_reset_postdata(); 
+                ?>
+            </div>
+	    <?php
+    }
 }

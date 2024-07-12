@@ -23,6 +23,21 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 class Ata_Google_Reviews extends Widget_Base {
 
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
 	protected $google_place_url = "https://maps.googleapis.com/maps/api/place/";
 
 	public function get_name() {
@@ -65,6 +80,18 @@ class Ata_Google_Reviews extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
+        $this->add_control(
+        'google_rwview_style',
+        [
+            'label' => esc_html__( 'Select Style', 'themes-assistant' ),
+            'type' => Controls_Manager::SELECT,
+            'default' => '1',
+            'options' => [
+                '1' => esc_html__( 'Style 1', 'themes-assistant' ),
+                '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+            ],
+        ]
+    );
 
 		$this->add_control(
 			'google_api',
@@ -1818,6 +1845,9 @@ class Ata_Google_Reviews extends Widget_Base {
 
 	protected function render_header() {
 		$settings = $this->get_settings_for_display();
+        $style = $settings['google_rwview_style'];
+        $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
 		$reviewData     = $this->getReviews();
 		// $is_editor      = Plugin::instance()->editor->is_edit_mode();
 
@@ -1962,7 +1992,7 @@ class Ata_Google_Reviews extends Widget_Base {
 
 		protected function render() {
 			$settings = $this->get_settings_for_display();
-
+            $style = $settings['google_rwview_style'];
 			if (empty($settings['google_place_id'])) {
 				echo '<div class="borax-alert borax-alert-warning">' . __('Please type google place id From Setting!', 'themes-assistant') . '</div>';
 				return;

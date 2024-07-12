@@ -25,14 +25,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Ata_Lottie_Animation extends Widget_Base {
 
-	// use \ElementsKit\Widgets\Widget_Notice;
-
-    public $base;
-    
 	
+    protected $ata_elementor_enquee;
+    public $base;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
     public function __construct( $data = [], $args = null ) {
         parent::__construct( $data, $args );
 		add_filter( 'wp_check_filetype_and_ext', [ $this, 'handle_file_type' ], 10, 3 );
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
     }
 
 
@@ -77,15 +84,15 @@ class Ata_Lottie_Animation extends Widget_Base {
 		] );
 
 		$this->add_control(
-			'lottie-style',
+			'lottie_style',
 			[
 				'label' => __( 'Lottie Style', 'themes-assistant' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'style-1',
+				'default' => '1',
 				'options' => [
-					'style-1' => __( 'Style 1', 'themes-assistant' ),
-					'style-2' => __( 'style 2', 'themes-assistant' ),
-					'style-3' => __( 'style 3', 'themes-assistant' ),
+					'1' => __( 'Style 1', 'themes-assistant' ),
+					'2' => __( 'style 2', 'themes-assistant' ),
+					'3' => __( 'style 3', 'themes-assistant' ),
 				],
 				'frontend_available' => true,
 			]
@@ -645,7 +652,10 @@ class Ata_Lottie_Animation extends Widget_Base {
 	protected function render() {
 		$this->load_widget_script();
 		$settings = $this->get_settings_for_display();
+        $style = $settings['lottie_style'];
 		// $caption = $this->get_caption( $settings );
+        $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
 
 		$style = $settings['lottie-style'];
 		$title = $settings['title'];

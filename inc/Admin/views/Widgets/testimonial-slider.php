@@ -127,7 +127,6 @@ class Ata_Testimonial_Slider extends Widget_Base {
                     '3' => esc_html__( 'Style 3', 'themes-assistant' ),
                     '4' => esc_html__( 'Style 4', 'themes-assistant' ),
                     '5' => esc_html__( 'Style 5', 'themes-assistant' ),
-                    // '6' => esc_html__( 'Style 6', 'themes-assistant' ),
                 ],
             ]
         );
@@ -509,8 +508,6 @@ class Ata_Testimonial_Slider extends Widget_Base {
  
 	protected function render() {
 		// call load widget script
-		$this->load_widget_script();
-		
 		$settings       = $this->get_settings_for_display();
         $style  		= $settings['testimonial_style'];
         $widget_title = $this->get_title(); // Get the widget title dynamically

@@ -28,6 +28,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Ata_Cta_Section extends Widget_Base {
 
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
       /**
    * Retrieve the widget name.
    *
@@ -103,6 +118,18 @@ protected function _register_controls() {
       [
             'label' =>esc_html__( 'CTA Box', 'themes-assistant' ),
       ]
+    );
+    $this->add_control(
+        'cta_style',
+        [
+            'label' => esc_html__( 'Select Style', 'themes-assistant' ),
+            'type' => Controls_Manager::SELECT,
+            'default' => '1',
+            'options' => [
+                '1' => esc_html__( 'Style 1', 'themes-assistant' ),
+                // '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+            ],
+        ]
     );
 
     $this->add_control(
@@ -292,6 +319,9 @@ protected function _register_controls() {
    */
   protected function render() {
         $settings = $this->get_settings_for_display();
+        $style = $settings['cta_style'];
+        $widget_name    = $this->get_name(); // You can make this dynamic
+    $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
     // require_once __DIR__ . '/widgets/style/heading/'.$style.'.php';
     ?>
 	<div class="call-action-section">

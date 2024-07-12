@@ -25,8 +25,22 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 /**
  * @since 1.1.0
  */
-class Ata_contact_info extends Widget_Base
-  {
+class Ata_contact_info extends Widget_Base{
+
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
 
   /**
    * Retrieve the widget name.
@@ -108,6 +122,18 @@ class Ata_contact_info extends Widget_Base
       [
         'label' => esc_html__('Contact Page Info', 'themes-assistant'),
       ]
+    );
+    $this->add_control(
+        'contact_info_style',
+        [
+            'label' => esc_html__( 'Select Style', 'themes-assistant' ),
+            'type' => Controls_Manager::SELECT,
+            'default' => '1',
+            'options' => [
+                '1' => esc_html__( 'Style 1', 'themes-assistant' ),
+                // '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+            ],
+        ]
     );
     $this->add_control(
       'address_icon_type',
@@ -477,9 +503,11 @@ class Ata_contact_info extends Widget_Base
    *
    * @access protected
    */
-  protected function render()
-    {
+  protected function render(){
     $settings = $this->get_settings_for_display();
+    $style = $settings['contact_info_style'];
+    $widget_name    = $this->get_name(); // You can make this dynamic
+    $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
     ?>
     <div class="contact">
 

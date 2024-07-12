@@ -123,7 +123,7 @@ class Ata_icon_box extends Widget_Base { //phpcs:ignore.
 		);
 
 		$this->add_control(
-			'style',
+			'icon_box_style',
 			array(
 				'type'    => Controls_Manager::SELECT,
 				'label'   => esc_html__( 'Choose Style', 'themes-assistant' ),
@@ -496,7 +496,7 @@ class Ata_icon_box extends Widget_Base { //phpcs:ignore.
 	 */
 	protected function render() {
 		$settings     = $this->get_settings_for_display();
-		$style        = $settings['style'];
+		$style        = $settings['icon_box_style'];
 		$widget_title = $this->get_title(); // Get the widget title dynamically.
         $widget_name  = $this->get_name(); // You can make this dynamic
 		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);

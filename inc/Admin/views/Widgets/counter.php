@@ -23,6 +23,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Ata_Counter extends Widget_Base {
  
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+
   /**
    * Retrieve the widget name.
    *
@@ -104,18 +119,17 @@ class Ata_Counter extends Widget_Base {
 
     $this->add_control(
 
-      'style', [
+      'counter_style', [
           'type' => Controls_Manager::SELECT,
           'label' => esc_html__('Choose Style', 'themes-assistant'),
           'default' => 'style1',
           'options' => [
-              'style1' => esc_html__('Style 1', 'themes-assistant'),
-              'style2' => esc_html__('Style 2', 'themes-assistant'),
-              'style3' => esc_html__('Style 3', 'themes-assistant'),
+              '1' => esc_html__('Style 1', 'themes-assistant'),
+            //   '2' => esc_html__('Style 2', 'themes-assistant'),
           ],
       ]
   );
-
+  
     $this->add_control(
         'image',
         [
@@ -163,6 +177,9 @@ protected function render() {
     $this->load_widget_script();
 
     $settings = $this->get_settings_for_display();
+    $style = $settings['counter_style'];
+    $widget_name    = $this->get_name(); // You can make this dynamic
+    $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
     ?>
 		<div class="single-fun <?php echo $settings['style']; ?>">
 			<?php echo '<img src="' . esc_url($settings['image']['url']) . '" alt="'.  esc_html__($settings['text'], 'themes-assistant') . '" width="50" height="50">'; ?>

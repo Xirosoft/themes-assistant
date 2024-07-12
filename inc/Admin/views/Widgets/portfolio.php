@@ -31,7 +31,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Ata_Portfolio extends Widget_Base {
 
-	  /**
+    protected $ata_elementor_enquee;
+
+	/**
+	 * Construction load for assets.
+	 *
+	 * @param array $data Data for construction.
+	 * @param mixed $args Optional arguments for construction.
+	 */
+	public function __construct( $data = array(), $args = null ) {
+		parent::__construct( $data, $args );
+
+        $widget_name                = $this->get_name(); // You can make this dynamic
+        $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+	}
+  /**
    * Retrieve the widget name.
    *
    * @since 1.1.0
@@ -113,11 +127,10 @@ protected function _register_controls() {
 	            'label' =>esc_html__( 'Portfolio Style', 'themes-assistant' ),
             'type' => Controls_Manager::SELECT,
             'options' => [
-	                'style-1'      => esc_html__( 'Style 1', 'themes-assistant' ),
-                'style-2'      => esc_html__( 'Style 2', 'themes-assistant' ),
-                'style-3'      => esc_html__( 'Style 3', 'themes-assistant' ),
-                'style-4'      => esc_html__( 'Style 4', 'themes-assistant' ),
-                // 'style-5'      => esc_html__( 'Style 5', 'themes-assistant' ),
+	            '1'      => esc_html__( 'Style 1', 'themes-assistant' ),
+                '2'      => esc_html__( 'Style 2', 'themes-assistant' ),
+                '3'      => esc_html__( 'Style 3', 'themes-assistant' ),
+                '4'      => esc_html__( 'Style 4', 'themes-assistant' ),
             ],
             'prefix_class' => 'elementor%s-align-',
             'default' => 'style-1',
@@ -658,6 +671,8 @@ protected function _register_controls() {
     // Settings
 	$settings = $this->get_settings_for_display(); 
 	$style = $settings['portfolio_style'];
+    $widget_name  = $this->get_name(); // You can make this dynamic
+		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
   	require BORAX_WIDGET_DIR .'portfolio/'.$style.'.php';
  
 	}
