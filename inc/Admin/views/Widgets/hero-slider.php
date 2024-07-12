@@ -99,7 +99,7 @@ class Ata_Hero_slider extends Widget_Base { //phpcs:ignore.
 	 * Add Elementor category.
 	 */
 	public function get_categories() {
-			return array( 'themes-assistant' );
+        return array( 'themes-assistant' );
 	}
 	/**
 	 * Register the widget controls.

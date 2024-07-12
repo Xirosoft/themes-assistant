@@ -10,11 +10,11 @@ use Elementor\Icons_Manager;
         </span>
             <?php elseif( $settings['icon_type'] == 'iconclass'):?>
             <span class="icon">
-                <i class="<?php echo esc_html__($settings['iconclass'], 'borax'); ?>"></i>
+                <i class="<?php echo esc_html__($settings['iconclass'], 'themes-assistant'); ?>"></i>
         </span>
             <?php elseif( $settings['icon_type'] == 'image'):?>
             <span class="icon">
-                <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="<?php echo esc_attr__($settings['title'],'borax'); ?>" class="img-icon" width="40" height="40">
+                <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="<?php echo esc_attr__($settings['title'],'themes-assistant'); ?>" class="img-icon" width="40" height="40">
         </span>
             <?php endif;?>
             <a href="<?php echo esc_url($settings['link']['url']); ?>" class="flex-grow-1 flex-shrink-1">

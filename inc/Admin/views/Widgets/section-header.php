@@ -1,10 +1,10 @@
 <?php
 /**
- * Class Ata_section_header
+ * Class Ata_Section_Header
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\Ata_section_header
+ * @package ATA\Widgets\Ata_Section_Header
  * @since 1.0.0
  */
 
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class Ata_section_header extends Widget_Base { //phpcs:ignore.
+class Ata_Section_Header extends Widget_Base { //phpcs:ignore.
 
 
     protected $ata_elementor_enquee;
@@ -57,7 +57,7 @@ class Ata_section_header extends Widget_Base { //phpcs:ignore.
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'section-header';
+		return 'ata-section-header';
 	}
 
 	/**

@@ -1,10 +1,10 @@
 <?php
 /**
- * Class Ata_Default_button
+ * Class Ata_Default_Button
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\Ata_Default_button
+ * @package ATA\Widgets\Ata_Default_Button
  * @since 1.0.0
  */
 
@@ -14,16 +14,16 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Background;
 use ATA\Admin\Views\AtaElementorEnquee;
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
+
 
 /**
- * Ata_Default_button class extend from elementor Widget_Base class
+ * Ata_Default_Button class extend from elementor Widget_Base class
  *
  * @since 1.1.0
  */
-class Ata_Default_button extends Widget_Base { // phpcs:ignore.
+class Ata_Default_Button extends Widget_Base { // phpcs:ignore.
 
 
     protected $ata_elementor_enquee;
@@ -52,7 +52,7 @@ class Ata_Default_button extends Widget_Base { // phpcs:ignore.
 	 * @return string Widget name.
 	 */
 	public function get_name() {
-		return 'default-button';
+		return 'ata-default-button';
 	}
 
 	/**

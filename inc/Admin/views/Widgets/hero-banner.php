@@ -18,16 +18,14 @@ use Elementor\Core\Schemes\Typography;
 use ATA\Utils\AtaWidgetManage;
 use ATA\Admin\Views\AtaElementorEnquee;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+if ( ! defined( 'ABSPATH' ) )  exit; // Exit if accessed directly. 
 
 /**
  * Ata_Banner class extend Elementor Widget_Base
  *
  * @since 1.1.0
  */
-class Ata_Banner extends Widget_Base {
+class Ata_Hero_Banner extends Widget_Base {
 
     protected $ata_elementor_enquee;
 
@@ -102,7 +100,7 @@ class Ata_Banner extends Widget_Base {
 	 * Add Elementor category.
 	 */
 	public function get_categories() {
-		return array( 'themes-assistant-pro' );
+        return array( 'themes-assistant' );
 	}
 
 	/**

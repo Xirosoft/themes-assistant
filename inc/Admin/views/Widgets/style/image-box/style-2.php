@@ -21,7 +21,7 @@
                                 esc_attr( $settings['title'] )
                             );
                         ?>
-                        <?php echo esc_html__($settings['title'],'borax'); ?>
+                        <?php echo esc_html__($settings['title'],'themes-assistant'); ?>
                     </h2> 
                 
                 <?php }

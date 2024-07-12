@@ -1,10 +1,10 @@
 <?php
 /**
- * Class AT_Assistant_image_box
+ * Class Ata_image_box
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\AT_Assistant_image_box
+ * @package ATA\Widgets\Ata_image_box
  * @since 1.0.0
  */
 
@@ -99,7 +99,7 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return array( 'themes-assistant' );
+        return array( 'themes-assistant' );
 	}
 
 	/**
@@ -127,13 +127,13 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
 				'type'    => Controls_Manager::SELECT,
 				'default' => '1',
 				'options' => [
-                    '1' => esc_html__( 'Layout 1', 'borax' ),
-                    '2' => esc_html__( 'Layout 2', 'borax' ),
-                    '3' => esc_html__( 'Layout 3', 'borax' ),
-                    '4' => esc_html__( 'Layout 4', 'borax' ),
-                    '5' => esc_html__( 'Layout 5', 'borax' ),
-                    '6' => esc_html__( 'Layout 6', 'borax' ),
-                    '7' => esc_html__( 'Layout 7', 'borax' ),
+                    '1' => esc_html__( 'Layout 1', 'themes-assistant' ),
+                    '2' => esc_html__( 'Layout 2', 'themes-assistant' ),
+                    '3' => esc_html__( 'Layout 3', 'themes-assistant' ),
+                    '4' => esc_html__( 'Layout 4', 'themes-assistant' ),
+                    '5' => esc_html__( 'Layout 5', 'themes-assistant' ),
+                    '6' => esc_html__( 'Layout 6', 'themes-assistant' ),
+                    '7' => esc_html__( 'Layout 7', 'themes-assistant' ),
                 ],
             )
 		);
@@ -141,38 +141,38 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
         $this->add_control(
             'image_shape',
             array(
-                'label' => esc_html__( 'Image Style', 'borax' ),
+                'label' => esc_html__( 'Image Style', 'themes-assistant' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'none',
                 'options' => [
-                    'none' => esc_html__( 'None', 'borax' ),
-                    'Triangle' => esc_html__( 'Triangle', 'borax' ),
-                    'Trapezoid' => esc_html__( 'Trapezoid', 'borax' ),
-                    'Parallelogram' => esc_html__( 'Parallelogram', 'borax' ),
-                    'Rhombus' => esc_html__( 'Rhombus', 'borax' ),
-                    'Pentagon' => esc_html__( 'Pentagon', 'borax' ),
-                    'Hexagon' => esc_html__( 'Hexagon', 'borax' ),
-                    'Heptagon' => esc_html__( 'Heptagon', 'borax' ),
-                    'Octagon' => esc_html__( 'Octagon', 'borax' ),
-                    'Nonagon' => esc_html__( 'Nonagon', 'borax' ),
-                    'Decagon' => esc_html__( 'Decagon', 'borax' ),
-                    'Bevel' => esc_html__( 'Bevel', 'borax' ),
-                    'Rabbet' => esc_html__( 'Rabbet', 'borax' ),
-                    'Left-arrow' => esc_html__( 'Left arrow', 'borax' ),
-                    'Right-arrow' => esc_html__( 'Right arrow', 'borax' ),
-                    'Left-Point' => esc_html__( 'Left Point', 'borax' ),
-                    'Right-Point' => esc_html__( 'Right Point', 'borax' ),
-                    'Left-Chevron' => esc_html__( 'Left Chevron', 'borax' ),
-                    'Right-Chevron' => esc_html__( 'Right Chevron', 'borax' ),
-                    'Star' => esc_html__( 'Star', 'borax' ),
-                    'Cross' => esc_html__( 'Cross', 'borax' ),
-                    'Message' => esc_html__( 'Message', 'borax' ),
-                    'Close' => esc_html__( 'Close', 'borax' ),
-                    'Frame' => esc_html__( 'Frame', 'borax' ),
-                    'Inset' => esc_html__( 'Inset', 'borax' ),
-                    'Custom Polygon' => esc_html__( 'Custom Polygon', 'borax' ),
-                    'Circle' => esc_html__( 'Circle', 'borax' ),
-                    'Ellipse' => esc_html__( 'Ellipse', 'borax' ),
+                    'none' => esc_html__( 'None', 'themes-assistant' ),
+                    'Triangle' => esc_html__( 'Triangle', 'themes-assistant' ),
+                    'Trapezoid' => esc_html__( 'Trapezoid', 'themes-assistant' ),
+                    'Parallelogram' => esc_html__( 'Parallelogram', 'themes-assistant' ),
+                    'Rhombus' => esc_html__( 'Rhombus', 'themes-assistant' ),
+                    'Pentagon' => esc_html__( 'Pentagon', 'themes-assistant' ),
+                    'Hexagon' => esc_html__( 'Hexagon', 'themes-assistant' ),
+                    'Heptagon' => esc_html__( 'Heptagon', 'themes-assistant' ),
+                    'Octagon' => esc_html__( 'Octagon', 'themes-assistant' ),
+                    'Nonagon' => esc_html__( 'Nonagon', 'themes-assistant' ),
+                    'Decagon' => esc_html__( 'Decagon', 'themes-assistant' ),
+                    'Bevel' => esc_html__( 'Bevel', 'themes-assistant' ),
+                    'Rabbet' => esc_html__( 'Rabbet', 'themes-assistant' ),
+                    'Left-arrow' => esc_html__( 'Left arrow', 'themes-assistant' ),
+                    'Right-arrow' => esc_html__( 'Right arrow', 'themes-assistant' ),
+                    'Left-Point' => esc_html__( 'Left Point', 'themes-assistant' ),
+                    'Right-Point' => esc_html__( 'Right Point', 'themes-assistant' ),
+                    'Left-Chevron' => esc_html__( 'Left Chevron', 'themes-assistant' ),
+                    'Right-Chevron' => esc_html__( 'Right Chevron', 'themes-assistant' ),
+                    'Star' => esc_html__( 'Star', 'themes-assistant' ),
+                    'Cross' => esc_html__( 'Cross', 'themes-assistant' ),
+                    'Message' => esc_html__( 'Message', 'themes-assistant' ),
+                    'Close' => esc_html__( 'Close', 'themes-assistant' ),
+                    'Frame' => esc_html__( 'Frame', 'themes-assistant' ),
+                    'Inset' => esc_html__( 'Inset', 'themes-assistant' ),
+                    'Custom Polygon' => esc_html__( 'Custom Polygon', 'themes-assistant' ),
+                    'Circle' => esc_html__( 'Circle', 'themes-assistant' ),
+                    'Ellipse' => esc_html__( 'Ellipse', 'themes-assistant' ),
                 ],
                 'condition' => [
                   'image_layout' => ['1','2','3','4','5','6'],
@@ -182,10 +182,10 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
         $this->add_control(
             'image_shadow',
             array(
-                'label' => esc_html__( 'Image Shadow', 'borax' ),
+                'label' => esc_html__( 'Image Shadow', 'themes-assistant' ),
                 'type' 	=> Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Show', 'borax' ),
-                'label_off' => esc_html__( 'Hide', 'borax' ),
+                'label_on' => esc_html__( 'Show', 'themes-assistant' ),
+                'label_off' => esc_html__( 'Hide', 'themes-assistant' ),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => [
@@ -197,7 +197,7 @@ class Ata_image_box extends Widget_Base { //phpcs:ignore.
         $this->add_control(
           'imageround',
             array(
-                'label' => esc_html__( 'Image Round', 'borax' ),
+                'label' => esc_html__( 'Image Round', 'themes-assistant' ),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => [ '%'],
                 'range' => [

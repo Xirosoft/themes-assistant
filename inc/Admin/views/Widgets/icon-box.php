@@ -1,10 +1,10 @@
 <?php
 /**
- * Class AT_Assistant_icon_box
+ * Class Ata_icon_box
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\AT_Assistant_icon_box
+ * @package ATA\Widgets\Ata_icon_box
  * @since 1.0.0
  */
 
@@ -101,7 +101,7 @@ class Ata_icon_box extends Widget_Base { //phpcs:ignore.
 	 * Add Elementor category.
 	 */
 	public function get_categories() {
-		return array( 'themes-assistant' );
+        return array( 'themes-assistant' );
 	}
 
 	/**
@@ -129,10 +129,10 @@ class Ata_icon_box extends Widget_Base { //phpcs:ignore.
 				'label'   => esc_html__( 'Choose Style', 'themes-assistant' ),
 				'default' => '1',
 				'options' => [
-                    '1' => esc_html__('Style 1', 'borax'),
-                    '2' => esc_html__('Style 2', 'borax'),
-                    '3' => esc_html__('Style 3', 'borax'),
-                    '4' => esc_html__('Style 4', 'borax'),
+                    '1' => esc_html__('Style 1', 'themes-assistant'),
+                    '2' => esc_html__('Style 2', 'themes-assistant'),
+                    '3' => esc_html__('Style 3', 'themes-assistant'),
+                    '4' => esc_html__('Style 4', 'themes-assistant'),
                 ],
 			)
 		);

@@ -1,10 +1,10 @@
 <?php
 /**
- * Class Ata_team_box
+ * Class Ata_Team_Box
  *
  * Main Plugin class for Elementor Widgets
  *
- * @package ATA\Widgets\Ata_team_box
+ * @package ATA\Widgets\Ata_Team_Box
  * @since 1.0.0
  */
 
@@ -28,8 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  */
-class Ata_team_box extends Widget_Base { //phpcs:ignore.
-
+class Ata_Team_Box extends Widget_Base { //phpcs:ignore.
 
     protected $ata_elementor_enquee;
 

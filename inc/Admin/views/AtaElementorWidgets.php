@@ -11,13 +11,39 @@
 namespace ATA\Admin\Views;
 use ATA\AtaQuery;
 
-use ATA\Widgets\Ata_Banner;
+use ATA\Widgets\Ata_about_box;
+use ATA\Widgets\Ata_Advance_Button;
+use ATA\Widgets\Ata_Background_Animation;
+use ATA\Widgets\Ata_blog_post;
+use ATA\Widgets\Ata_Bmi_Calculator;
+use ATA\Widgets\Ata_Coming_soon;
+use ATA\Widgets\Ata_Contact_Form_7;
+use ATA\Widgets\Ata_contact_Info;
+use ATA\Widgets\Ata_Cta_Section;
 use ATA\Widgets\Ata_Default_button;
+use ATA\Widgets\Ata_faq;
+use ATA\Widgets\Ata_Counter;
+use ATA\Widgets\Ata_Google_Reviews;
+use ATA\Widgets\Ata_Hero_Banner;
 use ATA\Widgets\Ata_Hero_slider;
 use ATA\Widgets\Ata_icon_box;
-use ATA\Widgets\Ata_section_header;
 use ATA\Widgets\Ata_image_box;
-use ATA\Widgets\Ata_team_box;
+use ATA\Widgets\Ata_Image_Comparison;
+use ATA\Widgets\Ata_Instagram_Gallery;
+use ATA\Widgets\Ata_List_Items;
+use ATA\Widgets\Ata_Logo_Slider;
+use ATA\Widgets\Ata_Lottie_Animation;
+use ATA\Widgets\Ata_Office_Hours;
+use ATA\Widgets\Ata_Portfolio;
+use ATA\Widgets\Ata_Price_Table;
+use ATA\Widgets\Ata_Section_Header;
+use ATA\Widgets\Ata_Servie_Price;
+use ATA\Widgets\Ata_Team_Box;
+use ATA\Widgets\Ata_Testimonial_Slider;
+use ATA\Widgets\Ata_Timetable;
+use ATA\Widgets\Ata_Trust_Pilot;
+use ATA\Widgets\Ata_Video_Banner;
+use ATA\Widgets\Ata_Work_Flow;
 
 /**
  * ElementorWidgets for manage all elementor widget
@@ -59,14 +85,14 @@ class AtaElementorWidgets {
 		$elements_manager->add_category(
 			'themes-assistant',
 			array(
-				'title' => __( 'Themes Assistant', 'themes_assistant' ),
+				'title' => __( 'Themes Assistant', 'themes-assistant' ),
 				'icon'  => 'fa fa-plug',
 			)
 		);
 		$elements_manager->add_category(
 			'themes-assistant-pro',
 			array(
-				'title' => __( 'Themes Assistant Pro', 'themes_assistant' ),
+				'title' => __( 'Themes Assistant Pro', 'themes-assistant' ),
 				'icon'  => 'fa fa-plug',
 			)
 		);
@@ -109,13 +135,39 @@ class AtaElementorWidgets {
     
         // List of widget classes to register, associated with their settings keys.
         $widget_classes = array(
-            'ata_banner' => Ata_Banner::class,
-            'default_button' => Ata_Default_button::class,
-            'hero_slider' => Ata_Hero_slider::class,
-            'imagebox' => Ata_image_box::class,
-            'icon_box' => Ata_icon_box::class,
-            'section_header' => Ata_section_header::class,
-            'team_box' => Ata_team_box::class,
+            'ata_about_box' => Ata_about_box::class,
+            'ata_advance_button' => Ata_Advance_Button::class,
+            'ata_background_animation' => Ata_Background_Animation::class,
+            'ata_blog_post' => Ata_blog_post::class,
+            'ata_bmi_calculator' => Ata_Bmi_Calculator::class,
+            'ata_coming_soon' => Ata_Coming_soon::class,
+            'ata_contact_form_7' => Ata_Contact_Form_7::class,
+            'ata_contact_info' => Ata_contact_Info::class,
+            'ata_cta_section' => Ata_Cta_Section::class,
+            'ata_default_button' => Ata_Default_button::class,
+            'ata_faq' => Ata_faq::class,
+            'ata_counter' => Ata_Counter::class,
+            'ata_google_reviews' => Ata_Google_Reviews::class,
+            'ata_hero_banner' => Ata_Hero_Banner::class,
+            'ata_hero_slider' => Ata_Hero_slider::class,
+            'ata_icon_box' => Ata_icon_box::class,
+            'ata_image_box' => Ata_image_box::class,
+            'ata_image_comparison' => Ata_Image_Comparison::class,
+            'ata_instagram' => Ata_Instagram_Gallery::class,
+            'ata_list_items' => Ata_List_Items::class,
+            'ata_logo_slider' => Ata_Logo_Slider::class,
+            'ata_lottie_animation' => Ata_Lottie_Animation::class,
+            'ata_office_hour' => Ata_Office_Hours::class,
+            'ata_portfolio' => Ata_Portfolio::class,
+            'ata_price_table' => Ata_Price_Table::class,
+            'ata_section_header' => Ata_Section_Header::class,
+            'ata_service_price' => Ata_Servie_Price::class,
+            'ata_team' => Ata_Team_Box::class,
+            'ata_testimonial_slider' => Ata_Testimonial_Slider::class,
+            'ata_time_table' => Ata_Timetable::class,
+            'ata_trust_pilot' => Ata_Trust_Pilot::class,
+            'ata_video_banner' => Ata_Video_Banner::class,
+            'ata_work_flow' => Ata_Work_Flow::class,
         );
     
         $widget_manager = \Elementor\Plugin::instance()->widgets_manager;
