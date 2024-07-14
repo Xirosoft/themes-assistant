@@ -28,17 +28,17 @@
                     </span>
                     <?php elseif( $item['icon_type'] == 'iconclass'):?>
                     <span class="icon">
-                        <i class="<?php echo esc_html__($item['iconclass'], 'themes-assistant'); ?>"></i>
+                        <i class="<?php echo esc_attr($item['iconclass']); ?>"></i>
                     </span>
                     <?php elseif( $item['icon_type'] == 'image'):?>
                     <span class="icon">
-                        <img src="<?php echo esc_url($item['image']['url']); ?>" alt="<?php echo esc_html__($item['service_title'], 'themes-assistant'); ?>" class="img-icon" width="40" height="40">
+                        <img src="<?php echo esc_url($item['image']['url']); ?>" alt="<?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['service_title'] ) ); ?>" class="img-icon" width="40" height="40">
                     </span>
                     <?php endif;?>
                     
                     <div class="flex-grow-1 flex-shrink-1 content">
-                        <h2><?php echo esc_html__($item['service_title'], 'themes-assistant'); ?></h2>
-                        <p><?php echo esc_html__($item['service_subtitle'], 'themes-assistant'); ?></p>
+                        <h2><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['service_title'] ) ); ?></h2>
+                        <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['service_subtitle'] ) ); ?></p>
                     </div>
                     <div class="price">
                         <?php if ( $item['discount_rice'] ): ?>
@@ -46,14 +46,14 @@
                         <?php endif;?>
 
                         <?php if ( $item['price_labels'] == 'new' ): ?>
-                            <span class="new"><?php echo esc_html__($item['price_labels'], 'themes-assistant'); ?></span>
+                            <span class="new"><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['price_labels'] ) ); ?></span>
                         <?php elseif ( $item['price_labels'] == 'best' ):  ?>
-                            <span class="best"><?php echo esc_html__($item['price_labels'], 'themes-assistant'); ?></span>
+                            <span class="best"><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['price_labels'] ) ); ?></span>
                         <?php elseif ( $item['price_labels'] == 'popular' ):  ?>
-                            <span class="upc"><?php echo esc_html__($item['price_labels'], 'themes-assistant'); ?></span>
+                            <span class="upc"><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['price_labels'] ) ); ?></span>
                         <?php endif;?>
 
-                        <p><?php echo esc_html__($item['service_price'], 'themes-assistant'); ?></p>								
+                        <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['service_price'] ) ); ?></p>								
                     </div>
                 </div>	
         <?php  if ( $item['link']['url'] ):  ?>

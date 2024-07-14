@@ -9,7 +9,7 @@
                                 <div class="<?php if ( 'yes' === $settings['image_shadow'] ) {echo 'ImgShadow'; }  ?>">
                                     <div class="<?php echo $settings['image_shape']; ?>">
                                         <span>
-                                            <img src="<?php echo esc_url($item['t_image']['url']); ?>" alt="<?php echo esc_html__($item['name']); ?>" width="50" height="50">
+                                            <img src="<?php echo esc_url($item['t_image']['url']); ?>" alt="<?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?>" width="50" height="50">
                                     </span>
                                 </div>
                             </div>
@@ -30,15 +30,15 @@
             </span>
                 <?php elseif( $settings['icon_type'] == 'image'):?>
                 <span class="icon">
-                    <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="<?php echo esc_html__($item['name']); ?>" class="img-icon" width="50" height="50">
+                    <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="<?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?>" class="img-icon" width="50" height="50">
             </span>
                 <?php endif;?>
                     <div class="test-caro owl-carousel" data-slider-id="2">
                         <?php foreach (  $settings['list'] as $item ): ?>
                             <div class="single-tst">
-                                <p><?php echo esc_html__($item['content'],'themes-assistant'); ?> </p>
+                                <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $list['content'] ) ); ?> </p>
                                 <div class="client-info">                
-                                    <p><b><?php echo esc_html__($item['name']); ?></b>, <span><?php echo esc_html__($item['position']); ?></span></p>
+                                    <p><b><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?></b>, <span><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['position'] ) ); ?></span></p>
                             </div>
                         </div>
                         <?php endforeach; ?> 

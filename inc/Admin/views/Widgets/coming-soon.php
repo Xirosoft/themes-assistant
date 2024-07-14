@@ -113,7 +113,7 @@ class Ata_Coming_soon extends Widget_Base {
         );
 
         $this->add_control(
-            'counter_style',
+            'counter_down_style',
             [
                 'label' => esc_html__( 'Select Style', 'themes-assistant' ),
                 'type' => Controls_Manager::SELECT,
@@ -263,36 +263,13 @@ class Ata_Coming_soon extends Widget_Base {
      * @access protected
      */
     protected function render() {
-        // call load widget script
-        $this->load_widget_script();
         // Settings
-        $settings = $this->get_settings_for_display();
-        $style = $settings['counter_style'];
+        $settings       = $this->get_settings_for_display();
+        $style          = $settings['counter_down_style'];
         $widget_name    = $this->get_name(); // You can make this dynamic
         $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
-        require ATA_WIDGET_DIR . 'coming/style-' . $style . '.php';
+
     }
 
-    public function load_widget_script(){
-        if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) { ?>
-            <script>
-            (function($) {
-                var clock = $('#clock');
-                if ($(clock).length > 0) {
-                    var date = $(clock).data('date');
-                    $(clock).countdown(date).on('update.countdown', function(event) {
-                        var $this = $(this).html(event.strftime('' +
-                            '<p><span>week%!w</span> <span>%-w</span> </p>' +
-                            '<p><span>day%!d</span> <span>%-d</span> </p>' +
-                            '<p><span>hr</span> <span>%H</span> </p>' +
-                            '<p><span>min</span> <span>%M</span> </p>' +
-                            '<p><span>sec</span> <span>%S</span> </p>'));
-                    });
-                }
-            })(jQuery);
-            </script>
-        <?php 
-        }
-    }
 }
 ?>

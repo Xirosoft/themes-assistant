@@ -64,7 +64,7 @@ class Ata_Office_Hours extends Widget_Base {
    * @return string Widget title.
    */
 	public function get_title() {
-		return esc_html__( 'Opening Hour', 'themes-assistant' );
+		return esc_html__( 'Office Hour', 'themes-assistant' );
 	}
  
   /**
@@ -388,71 +388,12 @@ class Ata_Office_Hours extends Widget_Base {
    *
    * @access protected
    */
-protected function render() {
-	$settings = $this->get_settings_for_display();
-    $style = $settings['opening_hour_style'];
-    $widget_title = $this->get_title(); // Get the widget title dynamically
-    $widget_name  = $this->get_name(); // You can make this dynamic
-		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
-	if (LICFY_TYPE == 1 || LICFY_TYPE === null || LICFY_TYPE === 'undefined') {
-		?>
-			<div class="pro-widget">
-				<h3 class="borax_pro_title"><?php echo esc_html__($widget_title. ' Widget', 'themes-assistant'); ?></h3>
-				<div class="dialog-message"><?php echo esc_html__('Leverage this feature, along with numerous other premium features, to expand your Website, enabling faster and superior website development.', 'themes-assistant'); ?> </div>
-				<a href="<?php echo WPBORAX; ?>" target="_blank" class="dialog-button button-success"><?php echo esc_html__('Go Pro', 'themes-assistant') ?></a> 
-			</div>
-		<?php
-		return false; 
-	}
-	?>
-    <div class="service-widget open_hours">
-        <?php 
-            if ( 'yes' === $settings['show_border'] ) {
-                echo '<span class="open_border"></span>';
-            }
-        ?>
-        
-        <?php if( $settings['icon_type'] == 'icon'):?>
-        <span class="icon">
-            <?php Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
-        </span>
-        <?php elseif( $settings['icon_type'] == 'iconclass'):?>
-        <span class="icon">
-            <i class="<?php echo esc_html__($settings['iconclass'], 'themes-assistant'); ?>"></i>
-        </span>
-        <?php elseif( $settings['icon_type'] == 'image'):?>
-        <span class="icon">
-            <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="" class="img-icon" width="40" height="40">
-        </span>
-        <?php endif;?>
-
-        <h3><?php echo esc_html__($settings['heading'],'themes-assistant'); ?></h3>
-        <p><?php echo esc_html__($settings['sub_heading'],'themes-assistant'); ?></p>
-        <div class="sp-wrapper">
-			<?php if ( $settings['open_hours'] ): 
-                foreach (  $settings['open_hours'] as $item ): ?>
-					<div class="pricing-list-item <?php if($item['closed'] == 'no'){echo esc_attr('closeday'); } ?>">
-						<div class="d-flex justify-content-between">
-							<div class="content">
-								<p><?php echo esc_html__($item['day_name'], 'themes-assistant'); ?></p>
-                            </div>
-							<div class="content">
-                                <?php if($item['closed'] == 'no'): ?>
-                                <span><?php echo esc_html__('Closed', 'themes-assistant'); ?></span>
-                                <?php else: ?>
-                                    <span><?php echo esc_html__($item['start_time_value'], 'themes-assistant'); ?></span>
-                                    <span><?php echo esc_html__('---', 'themes-assistant'); ?></span>
-                                    <span><?php echo esc_html__($item['end_time_value'], 'themes-assistant'); ?></span>
-                                <?php endif; ?>
-							</div>
-						</div>	
-					</div>
-				<?php endforeach; ?>
-			<?php endif; ?>
-		</div>
-    </div>
-    <?php
-
-}
+    protected function render() {
+        $settings = $this->get_settings_for_display();
+        $style = $settings['opening_hour_style'];
+        $widget_title = $this->get_title(); // Get the widget title dynamically
+        $widget_name  = $this->get_name(); // You can make this dynamic
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
+    }
 
 }

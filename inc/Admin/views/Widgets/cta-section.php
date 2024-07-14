@@ -317,44 +317,10 @@ protected function _register_controls() {
    *
    * @access protected
    */
-  protected function render() {
+    protected function render() {
         $settings = $this->get_settings_for_display();
         $style = $settings['cta_style'];
         $widget_name    = $this->get_name(); // You can make this dynamic
-    $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
-    // require_once __DIR__ . '/widgets/style/heading/'.$style.'.php';
-    ?>
-	<div class="call-action-section">
-    		<div class="call-inner">
-    			<div class="container">
-    				<div class="row <?php if($settings['select_style'] == 'align-left'){ echo 'align-items-center'; }  ?>">
-                    <?php if($settings['select_style'] == 'align-center'): ?>
-					<div class="col-md-12">
-    						<div class="call-content text-center">
-    							<h2><?php echo esc_html__($settings['title'], 'themes-assistant'); ?></h2>
-							<p><?php echo esc_html__($settings['text'], 'themes-assistant'); ?></p>
-							<a href="<?php echo esc_url($settings['link']['url']); ?>"
-								class="btn"><?php echo esc_html__($settings['btn'], 'themes-assistant'); ?></a>
-						</div>
-					</div>
-                    <?php elseif($settings['select_style'] == 'align-left'): ?>
-                        <div class="col-md-8">
-                                <div class="call-content text-left">
-                                    <h2 class="text-left"><?php echo esc_html__($settings['title'], 'themes-assistant'); ?></h2>
-                                <p><?php echo esc_html__($settings['text'], 'themes-assistant'); ?></p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                                <div class="call-content text-right">
-                                    <a href="<?php echo esc_url($settings['link']['url']); ?>"
-                                    class="btn"><?php echo esc_html__($settings['btn'], 'themes-assistant'); ?></a>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-				</div>
-			</div>
-		</div>
-	</div>
-	<?php
+        $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
 	}
 }

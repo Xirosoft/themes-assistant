@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly
 			<div class="">
 				<img 
 					src="<?php echo esc_url( $settings['image']['url'] ); ?>" 
-					alt="<?php echo esc_attr( $settings['name'] ); ?>"
+					alt="<?php printf( esc_attr__( '%s', 'themes-assistant' ), esc_html( $settings['name'] ) ); ?>"
 					width="<?php echo esc_attr( $settings['team_image_dimension']['width'] ); ?>"
 					height="<?php echo esc_attr( $settings['team_image_dimension']['height'] ); ?>"
 				>
@@ -17,10 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly
 		</div>
 		<div class="memb-details">
 			<h3>
-				<?php echo esc_html( $settings['name'] ); ?>
+                <?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['name'] ) ); ?>
 			</h3>
 			<span>
-				<?php esc_html( $settings['position'] ); ?>
+                <?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['position'] ) ); ?>
 			</span>
 			<div class="memb-social">
 				<?php if ( ! empty( $socials ) ) : ?>
@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; // Exit if accessed directly
 							    </span>
 								<?php elseif ( $social['icon_type'] == 'image' ) : ?>
 								<span class="icon">
-									<img src="<?php echo esc_html( $settings['name'] ); ?>" class="img-icon" width="40" height="40">
+									<img src="<?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['name'] ) ); ?>" class="img-icon" width="40" height="40">
 							    </span>
 							<?php endif; ?>
 						</a>

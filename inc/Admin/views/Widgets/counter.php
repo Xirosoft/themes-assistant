@@ -122,7 +122,7 @@ class Ata_Counter extends Widget_Base {
       'counter_style', [
           'type' => Controls_Manager::SELECT,
           'label' => esc_html__('Choose Style', 'themes-assistant'),
-          'default' => 'style1',
+          'default' => '1',
           'options' => [
               '1' => esc_html__('Style 1', 'themes-assistant'),
             //   '2' => esc_html__('Style 2', 'themes-assistant'),
@@ -171,65 +171,10 @@ class Ata_Counter extends Widget_Base {
    *
    * @access protected
    */
-protected function render() {
-
-	// call load widget script
-    $this->load_widget_script();
-
-    $settings = $this->get_settings_for_display();
-    $style = $settings['counter_style'];
-    $widget_name    = $this->get_name(); // You can make this dynamic
-    $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
-    ?>
-		<div class="single-fun <?php echo $settings['style']; ?>">
-			<?php echo '<img src="' . esc_url($settings['image']['url']) . '" alt="'.  esc_html__($settings['text'], 'themes-assistant') . '" width="50" height="50">'; ?>
-			<div class="count-box">
-				<span class="stat-count" data-count="<?php echo esc_attr__($settings['number']) ?>">0</span> 
-				<h3 class="text"><?php echo esc_html__($settings['text'], 'themes-assistant'); ?> </h3>
-			</div>
-		</div> 
-	<?php
-
-}
-
-public function load_widget_script(){
-	if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
-	?>
-		<script>
-			(function($) {
-				$('.stat-count').onScreen({
-					container: window,
-					direction: 'vertical',
-					doIn: function() {
-						$('.stat-count').each(function() {
-							var $this = $(this),
-								countTo = $this.attr('data-count');
-							$({
-								countNum: $this.text()
-							}).animate({
-								countNum: countTo
-							}, {
-								duration: 1000,
-								easing: 'linear',
-								step: function() {
-									$this.text(Math.floor(this.countNum));
-								},
-								complete: function() {
-									$this.text(this.countNum);
-									//alert('finished');
-								}
-							});
-						});
-
-					},
-					doOut: function() {
-						// Do something to the matched elements as they get off scren
-					}
-				});
-			})(jQuery);
-		</script>
-	<?php 
-	}
-}
-
+    protected function render() {
+        $settings = $this->get_settings_for_display();
+        $style = $settings['counter_style'];
+        $widget_name    = $this->get_name(); // You can make this dynamic
+        $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
+    }
 }

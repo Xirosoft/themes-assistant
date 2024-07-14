@@ -559,5 +559,4 @@ class Ata_about_box extends Widget_Base {
         $widget_name    = $this->get_name(); // You can make this dynamic
         $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
   	}
-
 }

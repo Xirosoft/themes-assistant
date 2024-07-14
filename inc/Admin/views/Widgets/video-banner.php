@@ -120,7 +120,7 @@ class Ata_Video_Banner extends Widget_Base {
                 'default' => '1',
                 'options' => [
                     '1' => esc_html__( 'Style 1', 'themes-assistant' ),
-                    '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+                    // '2' => esc_html__( 'Style 2', 'themes-assistant' ),
                 ],
             ]
         );
@@ -214,42 +214,9 @@ class Ata_Video_Banner extends Widget_Base {
    * @access protected
    */
   	protected function render() {
-			$settings = $this->get_settings_for_display();
-            $style = $settings['video_banner_style'];
-            $widget_name  = $this->get_name(); // You can make this dynamic
-		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
-		?>
-		<!-- Banner section start -->
-		<section class="banner v3">
-				<div class="video-item">
-					<video autoplay poster="<?php echo esc_attr($settings['poster']['url']); ?>" id="bgvid" loop>
-					<source src="<?php echo esc_url($settings['video']['url']); ?>" type="video/mp4">
-				</video>
-				<div id="polina">
-						<button type="button" id="video-btn"></button>
-				</div>
-			</div>
-			<div class="container">
-					<div class="row align-items-center">
-						<div class="col-md-6 order-1 order-md-0">
-							<div class="content-box">
-								<span class="tagline"><?php echo esc_html__($settings['top_title']); ?></span>
-							<h2><?php echo esc_html__($settings['title']); ?></h2>
-							<?php echo wp_kses_post($settings['content']); ?>
-							<a href="<?php echo esc_url($settings['link']['url']); ?>" class="btn btn-default">
-								<?php echo esc_html__($settings['button_text']); ?> 
-							</a>
-						</div>
-					</div>
-					<div class="col-md-6 order-0 order-md-1">
-							<figure class="ban-img">
-								<?php echo '<img src="' . esc_url($settings['image']['url']) . '" width="600" height="350">'; ?>
-						</figure>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Banner section end -->
-		<?php
+        $settings = $this->get_settings_for_display();
+        $style = $settings['video_banner_style'];
+        $widget_name  = $this->get_name(); // You can make this dynamic
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
  	}
 }

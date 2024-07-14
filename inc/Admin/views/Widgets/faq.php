@@ -126,10 +126,10 @@ protected function _register_controls() {
         [
               'label' => esc_html__( 'FAQ style', 'themes-assistant' ),
             'type' => Controls_Manager::SELECT,
-            'default' => 'version-1',
+            'default' => '1',
             'options' => [
-                  'version-1' => esc_html__( 'Style 1', 'themes-assistant' ),
-                'version-2' => esc_html__( 'Style 2', 'themes-assistant' ),
+                '1' => esc_html__( 'Style 1', 'themes-assistant' ),
+                '2' => esc_html__( 'Style 2', 'themes-assistant' ),
             ],
             'frontend_available' => true,
         ]
@@ -408,55 +408,10 @@ protected function _register_controls() {
    *
    * @access protected
    */
-protected function render() {
-      $settings = $this->get_settings_for_display();
-      $style = $settings['faq_style'];
-      $widget_name  = $this->get_name(); // You can make this dynamic
-		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
-    ?>
-	<div class="faq">
-  		<div class="accordion <?php if('version-2' == $settings['style'] ){ echo 'version-2'; } ?>" id="accordionExample">
-			<?php
-				if ( $settings['list'] ) {
-  					$i = 0;
-					foreach (  $settings['list'] as $item ) {
-  						$i++;
-						if($i === 1) { ?> 
-						<div class="card">
-  							<div class="card-header" id="headingOne">
-  								<button class="a-btn btn-link" type="button" data-toggle="collapse" data-target="#aa<?php echo $i ?>"
-									aria-expanded="true" aria-controls="collapseOne">
-									<?php echo esc_html($item['title'],'themes-assistant') ?>
-								</button> 
-							</div>
-							<div id="aa<?php echo $i ?>" class="collapse show" aria-labelledby="headingOne"
-								data-parent="#accordionExample">
-								<div class="card-body">
-  									<?php echo wp_kses_post($item['text']); ?>
-								</div>
-							</div>
-						</div> <?php
-									}else{?>
-						<div class="card">
-  							<div class="card-header" id="headingOne">
-  								<button class="a-btn btn-link collapsed" type="button" data-toggle="collapse"
-									data-target="#aa<?php echo esc_attr($i); ?>" aria-expanded="false" aria-controls="collapseOne">
-									<?php echo esc_html($item['title']); ?>
-								</button>
-							</div>
-							<div id="aa<?php echo $i ?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-								<div class="card-body">
-  									<?php echo wp_kses_post($item['text']); ?>
-								</div>
-							</div>
-						</div>
-						<?php
-						}
-					}
-				}
-				?>
-		</div>
-	</div>
-	<?php
-}
+    protected function render() {
+        $settings = $this->get_settings_for_display();
+        $style = $settings['faq_style'];
+        $widget_name  = $this->get_name(); // You can make this dynamic
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
+    }
 }

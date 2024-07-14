@@ -18,9 +18,36 @@ class AtaElementorEnquee {
      * Enqueue scripts and styles for this widget.
      */
     public function ata_el_enqueue_scripts() {
+
+        //Manage All CSS and Js Lib
+
+        if($this->widget_name == 'ata-testimonial-slider' || $this->widget_name == 'ata-hero-slider' || $this->widget_name == 'ata-logo-slider'){
+            ata_assets_manager( 'owl-carousel' );
+        }
+        if($this->widget_name == 'ata-portfolio'){
+            ata_assets_manager( 'isotope' );
+            ata_assets_manager( 'fancybox' );
+        }
+        if($this->widget_name == 'ata-counter'){
+            ata_assets_manager( 'counter' );
+        }
+        if($this->widget_name == 'ata-coming-soon'){
+            // ata_assets_manager( 'owl-carousel' );
+        }
+        if($this->widget_name == 'ata-blog-post'){
+            ata_assets_manager( 'tilt' );
+        }
+        if($this->widget_name == 'ata-lottie-animation'){
+            ata_assets_manager( 'lottie' );
+        }
+        if($this->widget_name == 'ata-image-comparison'){
+            ata_assets_manager( 'twentytwenty' );
+            ata_assets_manager( 'event-move' );
+        }
+
+
         $js_path = ATA_ASSETS_PATH . 'frontend/js/widget/' . $this->widget_name . '.js';
         $css_path = ATA_ASSETS_PATH . 'frontend/css/widget/' . $this->widget_name . '.css';
-
         // Check if JS file exists and enqueue it.
         if (file_exists($js_path)) {
             wp_register_script($this->widget_name . '-script', ATA_ASSETS_URL . 'frontend/js/widget/' . $this->widget_name . '.js', array('jquery'), ATA_VERSION, true);
@@ -29,12 +56,14 @@ class AtaElementorEnquee {
             // Localize the script after it's been enqueued
             $this->ata_widget_localize();
         }
-
+        
         // Check if CSS file exists and enqueue it.
         if (file_exists($css_path)) {
             wp_register_style($this->widget_name . '-style', ATA_ASSETS_URL . 'frontend/css/widget/' . $this->widget_name . '.css', array(), ATA_VERSION);
             wp_enqueue_style($this->widget_name . '-style');
         }
+
+
     }
 
     /**

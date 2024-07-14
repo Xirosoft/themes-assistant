@@ -204,38 +204,12 @@ class Ata_List_Items extends Widget_Base {
    *
    * @access protected
    */
-protected function render() {
-	$settings = $this->get_settings_for_display();
-    $style = $settings['list_style'];
-  $widget_title = $this->get_title(); // Get the widget title dynamically
-  $widget_name  = $this->get_name(); // You can make this dynamic
-		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
-	if (LICFY_TYPE == 1 || LICFY_TYPE === null || LICFY_TYPE === 'undefined') {
-		?>
-			<div class="pro-widget">
-				<h3 class="borax_pro_title"><?php echo esc_html__($widget_title. ' Widget', 'themes-assistant'); ?></h3>
-				<div class="dialog-message"><?php echo esc_html__('Leverage this feature, along with numerous other premium features, to expand your Website, enabling faster and superior website development.', 'themes-assistant'); ?> </div>
-				<a href="<?php echo WPBORAX; ?>" target="_blank" class="dialog-button button-success"><?php echo esc_html__('Go Pro', 'themes-assistant') ?></a> 
-			</div>
-		<?php
-		return false; 
-	}
-	?>
-	<div class="service-widget">
-		<h3><?php echo esc_html__($settings['title'], 'themes-assistant'); ?></h3>
-		<?php 
-			if ( $settings['list'] ) { ?>
-			<ul class="serviceList"> 
-				<?php
-				foreach (  $settings['list'] as $item ) { ?>
-					<li class="<?php echo esc_html__($item['active'], 'themes-assistant'); ?>">
-					<a href="<?php echo esc_url($item['link']['url']); ?>"><?php echo esc_html__($item['service_a'],'themes-assistant'); ?></a></li> <?php
-				} ?>
-		</ul>
-		<?php } ?>
-	</div>
-<?php
-
-}
+    protected function render() {
+        $settings     = $this->get_settings_for_display();
+        $style        = $settings['list_style'];
+        $widget_title = $this->get_title(); // Get the widget title dynamically
+        $widget_name  = $this->get_name(); // You can make this dynamic
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
+    }
 
 }

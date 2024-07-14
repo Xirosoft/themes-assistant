@@ -1,4 +1,6 @@
 <?php
+
+use ATA\Admin\Views\AtaAssetsManager;
 /**
  * Global functions
  *
@@ -22,4 +24,12 @@ if(!function_exists('ata_excerpt')){
 		$excerpt = preg_replace('`[[^]]*]`','',$excerpt);
 		return $excerpt;
 	}
+}
+
+/*------------------------------------------*
+*				Global Function             *
+*-------------------------------------------*/
+function ata_assets_manager( $handle, $type = null, $deps = [], $ver = false, $in_footer_or_media = 'all' ) {
+    $assets_manager = AtaAssetsManager::get_instance();
+    $assets_manager->ata_enqueue_asset( $handle, $type, $deps, $ver, $in_footer_or_media );
 }

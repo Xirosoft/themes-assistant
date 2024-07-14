@@ -108,8 +108,8 @@ class AtaElementorWidgets {
 	 */
 	private function include_widgets_files() {
 		/* All files includes */
-		$borax_widget = array_map( 'basename', glob( __DIR__ . '/widgets/*.php' ) );
-		foreach ( $borax_widget as $key => $value ) {
+		$ata_el_widget = array_map( 'basename', glob( __DIR__ . '/widgets/*.php' ) );
+		foreach ( $ata_el_widget as $key => $value ) {
 			require_once __DIR__ . '/widgets/' . $value;
 		}
 	}

@@ -5,7 +5,7 @@
             <div class="<?php echo esc_attr($settings['image_shape']); ?>">
                 <img 
                     src="<?php echo esc_url($settings['image']['url']); ?>" 
-                    alt="<?php echo esc_attr($settings['name']); ?>"
+                    alt="<?php printf( esc_attr__( '%s', 'themes-assistant' ), esc_html( $settings['name'] ) ); ?>"
                     width="<?php echo esc_attr($settings['team_image_dimension']['width']); ?>"
                     height="<?php echo esc_attr($settings['team_image_dimension']['height']); ?>"
                 >
@@ -13,8 +13,8 @@
         </div>
     </div>
     <div class="team-info text-center">
-        <h3><?php echo $settings['name'] ?></h3>
-        <p><?php echo $settings['position'] ?></p>
+        <h3><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['name'] ) ); ?></h3>
+        <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['position'] ) ); ?></p>
         <div class="social-link">
             <?php if (!empty($socials)): ?>
                 <?php foreach ($socials as $social): ?>

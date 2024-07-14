@@ -23,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Ata_Image_Comparison extends Widget_Base {
 
+    protected $comporisionValues;
     protected $ata_elementor_enquee;
 
 	/**
@@ -36,6 +37,7 @@ class Ata_Image_Comparison extends Widget_Base {
 
         $widget_name                = $this->get_name(); // You can make this dynamic
         $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
+        // add_action('wp_enqueue_scripts', array($this, 'ata_comparision_localize'));
 	}
 
       /**
@@ -285,12 +287,10 @@ protected function _register_controls() {
    * @access protected
    */
 protected function render() {
-        // call load widget script
-    $this->load_widget_script();
     $settings           = $this->get_settings_for_display();
-    $style = $settings['image_cmparision_style'];
-    $widget_name  = $this->get_name(); // You can make this dynamic
-		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
+    $style              = $settings['image_cmparision_style'];
+    $widget_name        = $this->get_name(); // You can make this dynamic
+	$AtaWidget          = new AtaWidgetManage($widget_name, $settings, $style);
     $image_offset       = $settings['Image_offset']['size'];
     $orientation        = $settings['comparison_orientation'];
     $beforelabel        = $settings['before_title'];
@@ -305,73 +305,17 @@ protected function render() {
         'no_overlay'            => $no_overlay,
         'click_to_move'         => $clickOption,
      );
-    wp_localize_script( 'twentytwenty-lib', 'comporision', $comporisionValues );
-    $widget_title = $this->get_title(); // Get the widget title dynamically
-	if (LICFY_TYPE == 1 || LICFY_TYPE === null || LICFY_TYPE === 'undefined') {
-		?>
-			<div class="pro-widget">
-				<h3 class="borax_pro_title"><?php echo esc_html__($widget_title. ' Widget', 'themes-assistant'); ?></h3>
-				<div class="dialog-message"><?php echo esc_html__('Leverage this feature, along with numerous other premium features, to expand your Website, enabling faster and superior website development.', 'themes-assistant'); ?> </div>
-				<a href="<?php echo WPBORAX; ?>" target="_blank" class="dialog-button button-success"><?php echo esc_html__('Go Pro', 'themes-assistant') ?></a> 
-			</div>
-		<?php
-		return false; 
-	}
-    ?>
-    <div class="comporision-slider" data-offset="<?php echo esc_attr($image_offset); ?>" data-orient="<?php echo esc_attr($orientation); ?>" data-belabel="<?php echo esc_attr($beforelabel); ?>" data-aflabel="<?php echo esc_attr($afterlabel); ?>" data-overl="<?php echo esc_attr($no_overlay); ?>" data-click="<?php echo esc_attr($clickOption); ?>">
-        <div class="imageDiff">
-            <img src="<?php echo esc_url($settings['before_image']['url']); ?>" alt="<?php esc_attr__($settings['before_title'], 'themes-assistant'); ?>" width="442" height="571">
-            <img src="<?php echo esc_url($settings['after_image']['url']); ?>" alt="<?php esc_attr__($settings['after_title'], 'themes-assistant'); ?>" width="442" height="571">
-        </div>
-        <?php if($settings['overlay_swicher'] == 'yes'): ?>
-            <img src="<?php echo esc_url($settings['overlay_image']['url']); ?>" alt="<?php echo esc_html__( $settings['after_title'],'themes-assistant' ); ?>" class="overlay" width="442" height="571">
-        <?php endif; ?>
-    </div> 
-    <?php
+    
+    //  $this->comporisionValues = $comporisionValues ;
+
 	}	
-  	protected function _content_template() {
 
+    public function ata_comparision_localize() {
+        wp_localize_script(
+            $this->get_name() . '-script',
+            'ata_comparision_localize',
+            $this->comporisionValues
+        );
     }
 
-public function load_widget_script(){
-        if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
-        ?>
-        <script>
-            ( function( $ ){
-                    /* 
-                Before/After
-                */
-                var image_offset    = $('.comporision-slider').data('offset');
-                var orientation     = $('.comporision-slider').data('orient');
-                var beforelabel     = $('.comporision-slider').data('belabel');
-                var afterlabel      = $('.comporision-slider').data('aflabel');
-                var no_overlay      = $('.comporision-slider').data('overl');
-                var clickOption     = $('.comporision-slider').data('click');
-                if (clickOption == 'yes') {
-                        clickOption = false;
-                }else{
-                        clickOption = true;
-                }
-                if (no_overlay == 'yes') {
-                        no_overlay = true;
-                }else{
-                        no_overlay = false;
-                }
-                if($('.imageDiff').length > 0){
-                    $(".imageDiff").twentytwenty({
-                        default_offset_pct: image_offset, // How much of the before image is visible when the page loads
-                    orientation: orientation, // Orientation of the before and after images ('horizontal' or 'vertical')
-                    before_label: beforelabel, // Set a custom before label
-                    after_label: afterlabel, // Set a custom after label
-                    no_overlay: no_overlay, //Do not show the overlay with before and after
-                    move_slider_on_hover: clickOption, // Move slider on mouse hover?
-                    move_with_handle_only: true, // Allow a user to swipe anywhere on the image to control slider movement. 
-                    click_to_move: false, // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
-                    });
-                }
-            })(jQuery);
-        </script>
-    <?php 
-    }
-}
 }

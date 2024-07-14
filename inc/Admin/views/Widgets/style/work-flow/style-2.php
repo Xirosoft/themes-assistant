@@ -17,12 +17,12 @@
                 </span>
                     <?php elseif( $list['icon_type'] == 'image'):?>
                     <span class="icon-box">
-                        <img src="<?php echo esc_url($list['image']['url']); ?>" alt="<?php echo esc_html($list['title']);?>" class="img-icon" width="50" height="50">
+                        <img src="<?php echo esc_url($list['image']['url']); ?>" alt="<?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $list['title'] ) ); ?>" class="img-icon" width="50" height="50">
                 </span>
                     <?php endif;?>
                     <div class="process-content">
-                        <h3><?php echo esc_html($list['title']);?></h3>
-                        <p><?php echo esc_html($list['text']);?></p>
+                        <h3><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $list['title'] ) ); ?></h3>
+                        <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $list['text'] ) ); ?></p>
                 </div>
             </div>
                 <?php if($list['link']['url']): ?>

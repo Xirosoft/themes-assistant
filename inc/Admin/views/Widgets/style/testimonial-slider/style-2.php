@@ -16,17 +16,17 @@
             </span>
                 <?php elseif( $settings['icon_type'] == 'iconclass'):?>
                 <span class="icon">
-                    <i class="<?php echo esc_html__($settings['iconclass'], 'themes-assistant'); ?>"></i>
+                    <i class="<?php echo esc_attr($settings['iconclass']); ?>"></i>
             </span>
                 <?php elseif( $settings['icon_type'] == 'image'):?>
                 <span class="icon">
-                    <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="<?php echo esc_html__($item['name']); ?>" class="img-icon" width="50" height="50">
+                    <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="<?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?>" class="img-icon" width="50" height="50">
             </span>
                 <?php endif;?>
-                    <p><?php echo esc_html__($item['content'],'themes-assistant'); ?> </p>
+                    <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $list['content'] ) ); ?></p>
                     <div class="testi-info">
-                        <p class="name"><b><?php echo esc_html__($item['name']); ?></b></p>
-                        <span class="desigration"><?php echo esc_html__($item['position']); ?></span>
+                        <p class="name"><b><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?></b></p>
+                        <span class="desigration"><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['position'] ) ); ?></span>
                 </div>
 
             </div> 
@@ -34,7 +34,7 @@
         </div>
             <div id="carousel-custom-dots"  class="owl-thumbs"  data-slider-id="1">
                 <?php foreach (  $settings['list'] as $item ): ?>    
-                    <div class="thumb"><img src="<?php echo esc_url($item['t_image']['url']); ?>" class="avatar" alt="<?php echo esc_html($item['name']); ?>" width="80" height="80"></div>
+                    <div class="thumb"><img src="<?php echo esc_url($item['t_image']['url']); ?>" class="avatar" alt="<?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?>" width="80" height="80"></div>
                 <?php endforeach; ?>                                 
         </div>
     </div>

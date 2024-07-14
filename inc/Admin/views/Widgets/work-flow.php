@@ -456,23 +456,13 @@ protected function _register_controls() {
    *
    * @access protected
    */
-  protected function render() {
-    $settings   = $this->get_settings_for_display();
-    $style = $settings['work_flow_style'];
-    $lists       = $settings[ 'list' ];
-    $widget_title = $this->get_title(); // Get the widget title dynamically
-    $widget_name  = $this->get_name(); // You can make this dynamic
-		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
-	if (LICFY_TYPE == 1 || LICFY_TYPE === null || LICFY_TYPE === 'undefined') {
-		?>
-			<div class="pro-widget">
-				<h3 class="borax_pro_title"><?php echo esc_html__($widget_title. ' Widget', 'themes-assistant'); ?></h3>
-				<div class="dialog-message"><?php echo esc_html__('Leverage this feature, along with numerous other premium features, to expand your Website, enabling faster and superior website development.', 'themes-assistant'); ?> </div>
-				<a href="<?php echo WPBORAX; ?>" target="_blank" class="dialog-button button-success"><?php echo esc_html__('Go Pro', 'themes-assistant') ?></a> 
-			</div>
-		<?php
-		return false; 
-	}
-    require BORAX_WIDGET_DIR .'work-flow/style-'.$style.'.php';
-  }
+    protected function render() {
+        $settings   = $this->get_settings_for_display();
+        $style = $settings['work_flow_style'];
+        $lists       = $settings[ 'list' ];
+        $widget_title = $this->get_title(); // Get the widget title dynamically
+        $widget_name  = $this->get_name(); // You can make this dynamic
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
+
+    }
 }

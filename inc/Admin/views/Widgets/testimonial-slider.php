@@ -344,10 +344,6 @@ class Ata_Testimonial_Slider extends Widget_Base {
             [
                 'label' => esc_html__( 'Icon Type', 'themes-assistant' ),
                 'type' => Controls_Manager::CHOOSE,
-                // 'condition' => [
-                //     'testimonial_style' => '2',
-                //     'testimonial_style' => '5',
-                // ],
                 'options' => [
                     'none' => [
                         'title' => esc_html__( 'None', 'themes-assistant' ),
@@ -497,13 +493,8 @@ class Ata_Testimonial_Slider extends Widget_Base {
                 ],
             ]
         );  
-    
-    
-    
-    
       $this->end_controls_section();
     
-
 	}
  
 	protected function render() {

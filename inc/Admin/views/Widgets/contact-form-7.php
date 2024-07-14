@@ -200,11 +200,9 @@ class Ata_Contact_Form_7 extends Widget_Base { // this name is added to plugin.p
         static $data = 0;
         $settings = $this->get_settings_for_display();
         $style = $settings['cf7_style'];
-        $widget_name    = $this->get_name(); // You can make this dynamic
-        $AtaWidget      = new AtaWidgetManage($widget_name, $settings, $style);
 
         if (!empty($settings['cf7'])) {
-            echo '<div class="elementor-shortcode borax-cf7-' . esc_attr($data) . '">';
+            echo '<div class="ata-shortcode ata-cf7-' . esc_attr($data) . '">';
             echo do_shortcode('[contact-form-7 id="' . esc_attr($settings['cf7']) . '"]');
             echo '</div>';
         }
@@ -241,8 +239,18 @@ class Ata_Contact_Form_7 extends Widget_Base { // this name is added to plugin.p
      * @return array List of Contact Form 7 posts.
      */
     private function get_contact_form_7_posts() {
-        // Your logic to get Contact Form 7 posts
-        return [];
+        $args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
+        $catlist=[];
+
+        if( $categories = get_posts($args)){
+            foreach ( $categories as $category ) {
+                (int)$catlist[$category->ID] = $category->post_title; 
+            }
+        }
+        else{
+            (int)$catlist['0'] = esc_html__('No contect From 7 form found', 'borax');
+        }
+        return $catlist;
     }
 
     /**
@@ -255,7 +263,17 @@ class Ata_Contact_Form_7 extends Widget_Base { // this name is added to plugin.p
      * @return array List of all WordPress pages.
      */
     private function get_all_wp_pages() {
-        // Your logic to get all WordPress pages
-        return [];
+        $args = array('post_type' => 'page', 'posts_per_page' => -1);
+        $catlist=[];
+
+        if( $categories = get_posts($args)){
+            foreach ( $categories as $category ) {
+                (int)$catlist[$category->ID] = $category->post_title;
+            }
+        }
+        else{
+            (int)$catlist['0'] = esc_html__('No Pages Found!', 'borax');
+        }
+        return $catlist;
     }
 }
