@@ -11,7 +11,7 @@ class AtaWidgetManage{
         $clean_widget_name  = str_replace('ata-', '', $this->widget_name);
         $ata_file_path      = ATA_WIDGET_DIR . $clean_widget_name . '/style-' . $style . '.php';
 
-        // var_dump( $ata_file_path);
+        // echo $ata_file_path;
         // Check if the file exists before requiring it.
         if (file_exists($ata_file_path)) {
             require $ata_file_path;

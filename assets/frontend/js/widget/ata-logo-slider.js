@@ -1,9 +1,10 @@
+
 (function($) {
 	"use strict";
     var widgetName = ata_widget_localize.widget_name
-    var AtaHeroSlider = function($scope, $) {
-        console.log('aad');
-        function feedbackfunc(selector, next, prev) {
+    var AtaLogoSlider = function($scope, $) {
+
+        function AtaSlider(selector, next, prev) {
             var snav = $(selector).data('nav');
             var scontrol = $(selector).data('control');
             var sautoplay = $(selector).data('autoplay');
@@ -11,12 +12,11 @@
             var rtlSlide = $(selector).data('rtl');
             var feedCaro = $(selector);
             if (rtlSlide == 'yes') {
-                    rtlSlide = true;
+                rtlSlide = true;
             } else {
-                    rtlSlide = false;
+                rtlSlide = false;
             }
             $(feedCaro).owlCarousel({
-                    rtl: rtlSlide,
                 loop: sloop,
                 center: true,
                 margin: 30,
@@ -25,30 +25,30 @@
                 autoplay: sautoplay,
                 autoplayHoverPause: true,
                 responsive: {
-                        0: {
-                            items: 1
+                    0: {
+                        items: 1
                     },
                     992: {
-                            items: 1
+                        items: 3
                     },
                     1000: {
-                            items: 1
+                        items: 4
                     }
                 }
             });
             var owl = $(feedCaro);
             owl.owlCarousel();
             $(next).on('click', function() {
-                    owl.trigger('next.owl.carousel');
+                owl.trigger('next.owl.carousel');
             });
             $(prev).on('click', function() {
-                    owl.trigger('prev.owl.carousel', [300]);
+                owl.trigger('prev.owl.carousel', [300]);
             });
         }
-        feedbackfunc('.hero-slide', '.home-next', '.home-prev');
+        AtaSlider('.partners-logo', '.home-next', '.home-prev');
 	};
 	 $(window).on('elementor/frontend/init', function() {
-        elementorFrontend.hooks.addAction('frontend/element_ready/'+ widgetName +'.default', AtaHeroSlider);
+        elementorFrontend.hooks.addAction('frontend/element_ready/'+ widgetName +'.default', AtaLogoSlider);
     });
 
 })(jQuery);

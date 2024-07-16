@@ -1,6 +1,7 @@
 (function($) {
 	"use strict";
-    var BmiCalculator = function($scope, $) {
+    var widgetName    = ata_widget_localize.widget_name
+    var AtaBmiCalculator = function($scope, $) {
         if ($(".bmi").length > 0) {
             var age     = document.getElementById("age");
             var height  = document.getElementById("height");
@@ -63,7 +64,7 @@
         };		
 	};
 	 $(window).on('elementor/frontend/init', function() {
-        elementorFrontend.hooks.addAction('frontend/element_ready/'+ata_widget_localize.widget_name+'.default', BmiCalculator);
+        elementorFrontend.hooks.addAction('frontend/element_ready/'+ widgetName +'.default', AtaBmiCalculator);
     });
 
 })(jQuery);

@@ -353,76 +353,9 @@ class Ata_Logo_Slider extends Widget_Base {
 
 	protected function render() {
 
-    // call load widget script
-    $this->load_widget_script();
 		$settings = $this->get_settings_for_display();
         $style = $settings['logo_slider_style'];
         $widget_name  = $this->get_name(); // You can make this dynamic
 		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
-
-		if ( $settings['list'] ) {
-			echo '<div class="partners-logo owl-carousel"  data-nav="'. esc_attr($settings['nav']) .'" data-control="'. esc_attr($settings['control']) .'" data-autoplay="'. esc_attr($settings['autoplay']) .'" data-loop="'. esc_attr($settings['loop']) .'" data-rtl="'. esc_attr($settings['rtl']) .'">';
-			foreach (  $settings['list'] as $item ) {
-				echo '<img src="'.esc_url($item['image']['url']).'" alt="'. esc_attr__('Client Logo', 'themes-assistant' ) .'"  width="250" height="60">';
-			}
-      		echo '</div>';
-      
-		}
 	}
-
-	protected function _content_template() {
-  }
-  public function load_widget_script(){
-    if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
-    ?>
-<script>
-(function($) {
-    function feedbackfunc(selector, next, prev) {
-        var snav = $(selector).data('nav');
-        var scontrol = $(selector).data('control');
-        var sautoplay = $(selector).data('autoplay');
-        var sloop = $(selector).data('loop');
-        var rtlSlide = $(selector).data('rtl');
-        var feedCaro = $(selector);
-        if (rtlSlide == 'yes') {
-            rtlSlide = true;
-        } else {
-            rtlSlide = false;
-        }
-        $(feedCaro).owlCarousel({
-            loop: sloop,
-            center: true,
-            margin: 30,
-            nav: snav,
-            dots: scontrol,
-            autoplay: sautoplay,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                992: {
-                    items: 3
-                },
-                1000: {
-                    items: 4
-                }
-            }
-        });
-        var owl = $(feedCaro);
-        owl.owlCarousel();
-        $(next).on('click', function() {
-            owl.trigger('next.owl.carousel');
-        });
-        $(prev).on('click', function() {
-            owl.trigger('prev.owl.carousel', [300]);
-        });
-    }
-    feedbackfunc('.partners-logo', '.home-next', '.home-prev');
-})(jQuery);
-</script>
-<?php 
-    }
-}
-
 }

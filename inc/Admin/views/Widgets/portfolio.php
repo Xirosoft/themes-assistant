@@ -665,25 +665,9 @@ protected function _register_controls() {
    * @access protected
    */
   	protected function render() {
-
-	// call load widget script
-    $this->load_widget_script();
-    // Settings
-	$settings = $this->get_settings_for_display(); 
-	$style = $settings['portfolio_style'];
-    $widget_name  = $this->get_name(); // You can make this dynamic
-		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
-  	require BORAX_WIDGET_DIR .'portfolio/'.$style.'.php';
- 
+        $settings     = $this->get_settings_for_display(); 
+        $style        = $settings['portfolio_style'];
+        $widget_name  = $this->get_name(); // You can make this dynamic
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
 	}
-	public function load_widget_script(){
-		if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) { ?>
-		<script>
-			(function($) {
-			})(jQuery);
-		</script>
-		<?php 
-		}
-	}
-
 }

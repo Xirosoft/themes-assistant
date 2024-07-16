@@ -8,7 +8,7 @@
  * @since 1.0.0
  */
 
- namespace ATA\Widgets;
+namespace ATA\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -23,7 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class Ata_Image_Comparison extends Widget_Base {
 
-    protected $comporisionValues;
     protected $ata_elementor_enquee;
 
 	/**
@@ -37,7 +36,6 @@ class Ata_Image_Comparison extends Widget_Base {
 
         $widget_name                = $this->get_name(); // You can make this dynamic
         $this->ata_elementor_enquee = new AtaElementorEnquee($widget_name);
-        // add_action('wp_enqueue_scripts', array($this, 'ata_comparision_localize'));
 	}
 
       /**
@@ -65,14 +63,6 @@ class Ata_Image_Comparison extends Widget_Base {
     public function get_title() {
         return esc_html__( 'Image Comparison', 'themes-assistant' );
     }
-
-    // public function get_script_depends() {
-	// 	return [ 'twentytwenty-lib'];
-	// }
-
-	// public function get_style_depends() {
-	// 	return [ 'lottie' ];
-	// }
 
   /**
    * Retrieve the widget icon.
@@ -297,25 +287,5 @@ protected function render() {
     $afterlabel         = $settings['after_title'];
     $no_overlay         = $settings['no_overlay'];
     $clickOption        = $settings['click_to_move'];
-    $comporisionValues  = array( 
-        'default_offset_pct'    => $image_offset,
-        'orientation'           => $orientation,
-        'before_label'          => $beforelabel,
-        'after_label'           => $afterlabel,
-        'no_overlay'            => $no_overlay,
-        'click_to_move'         => $clickOption,
-     );
-    
-    //  $this->comporisionValues = $comporisionValues ;
-
 	}	
-
-    public function ata_comparision_localize() {
-        wp_localize_script(
-            $this->get_name() . '-script',
-            'ata_comparision_localize',
-            $this->comporisionValues
-        );
-    }
-
 }

@@ -1,6 +1,8 @@
 (function($) {
 	"use strict";
-    var BackgroundAniamation = function($scope, $) {
+
+    var widgetName           = ata_widget_localize.widget_name
+    var AtaBackgroundAniamation = function($scope, $) {
     var els = $('.ael')
         for (let index = 1; index < els.length + 1; index++) {
             animateDiv(".el" + index);
@@ -45,7 +47,7 @@
 		
 	};
 	 $(window).on('elementor/frontend/init', function() {
-        elementorFrontend.hooks.addAction('frontend/element_ready/'+ata_widget_localize.widget_name+'.default', BackgroundAniamation);
+        elementorFrontend.hooks.addAction('frontend/element_ready/'+ widgetName +'.default', AtaBackgroundAniamation);
     });
 
 })(jQuery);

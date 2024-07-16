@@ -91,7 +91,7 @@ class AtaAssetsManager {
             'first-visit-popup' => [
                 'src' => ATA_ASSETS_URL . 'lib/first-visit-popup/first-visit-popup.js',
                 'deps' => ['jquery'],
-                'ver' => '1.0.0',
+                'ver' => '1.0.0', 
                 'in_footer' => true
             ],
             'isotope' => [

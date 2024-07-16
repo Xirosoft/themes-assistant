@@ -1,6 +1,7 @@
 (function($) {
 	"use strict";
-    var Counter = function($scope, $) {
+    var widgetName  = ata_widget_localize.widget_name
+    var AtaCounter  = function($scope, $) {
         $('.stat-count').onScreen({
             container: window,
             direction: 'vertical',
@@ -32,7 +33,7 @@
         });
 	};
 	 $(window).on('elementor/frontend/init', function() {
-        elementorFrontend.hooks.addAction('frontend/element_ready/'+ata_widget_localize.widget_name+'.default', Counter);
+        elementorFrontend.hooks.addAction('frontend/element_ready/'+ widgetName +'.default', AtaCounter);
     });
 
 })(jQuery);

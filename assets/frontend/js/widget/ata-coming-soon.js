@@ -1,6 +1,7 @@
 (function($) {
 	"use strict";
-    var CountDownTimer = function($scope, $) {
+    var widgetName     = ata_widget_localize.widget_name
+    var AtaCountDownTimer = function($scope, $) {
         var clock = $('#clock');
         if ($(clock).length > 0) {
             var date = $(clock).data('date');
@@ -15,7 +16,7 @@
         }
 	};
 	 $(window).on('elementor/frontend/init', function() {
-        elementorFrontend.hooks.addAction('frontend/element_ready/'+ata_widget_localize.widget_name+'.default', CountDownTimer);
+        elementorFrontend.hooks.addAction('frontend/element_ready/'+ widgetName +'.default', AtaCountDownTimer);
     });
 
 })(jQuery);

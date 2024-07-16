@@ -1,6 +1,7 @@
 (function($) {
 	"use strict";
-    var ImageComparisaion = function($scope, $) {
+    var widgetName     = ata_widget_localize.widget_name
+    var AtaTestimonial = function($scope, $) {
         function feedbackfunc(selector, next, prev) {
             var snav        = $(selector).data('nav');
             var scontrol    = $(selector).data('control');
@@ -47,7 +48,7 @@
         feedbackfunc('.test-caro', '.owl-next', '.owl-prev');		
 	};
 	 $(window).on('elementor/frontend/init', function() {
-        elementorFrontend.hooks.addAction('frontend/element_ready/'+ata_widget_localize.widget_name+'.default', ImageComparisaion);
+        elementorFrontend.hooks.addAction('frontend/element_ready/'+ widgetName +'.default', AtaTestimonial);
     });
 
 })(jQuery);

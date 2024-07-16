@@ -29,10 +29,10 @@ class AtaElementorEnquee {
             ata_assets_manager( 'fancybox' );
         }
         if($this->widget_name == 'ata-counter'){
-            ata_assets_manager( 'counter' );
+            ata_assets_manager( 'onscreeen' );
         }
         if($this->widget_name == 'ata-coming-soon'){
-            // ata_assets_manager( 'owl-carousel' );
+            ata_assets_manager( 'counter' );
         }
         if($this->widget_name == 'ata-blog-post'){
             ata_assets_manager( 'tilt' );
@@ -41,8 +41,8 @@ class AtaElementorEnquee {
             ata_assets_manager( 'lottie' );
         }
         if($this->widget_name == 'ata-image-comparison'){
-            ata_assets_manager( 'twentytwenty' );
             ata_assets_manager( 'event-move' );
+            ata_assets_manager( 'twentytwenty' );
         }
 
 
@@ -54,7 +54,7 @@ class AtaElementorEnquee {
             wp_enqueue_script($this->widget_name . '-script');
             
             // Localize the script after it's been enqueued
-            $this->ata_widget_localize();
+            $this->ata_widget_localize($this->widget_name);
         }
         
         // Check if CSS file exists and enqueue it.
@@ -124,12 +124,12 @@ class AtaElementorEnquee {
         return false;
     }
 
-    public function ata_widget_localize() {
+    public function ata_widget_localize($handale) {
         wp_localize_script(
-            $this->widget_name . '-script',
+            $handale . '-script',
             'ata_widget_localize',
             array(
-                'widget_name' => $this->widget_name,
+                'widget_name' => $handale,
                 'site_url' => site_url(),
                 'ajax_url' => admin_url('admin-ajax.php'),
                 'nonce' => wp_create_nonce('ata-nonce'),
