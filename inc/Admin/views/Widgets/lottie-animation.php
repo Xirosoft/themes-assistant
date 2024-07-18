@@ -61,16 +61,8 @@ class Ata_Lottie_Animation extends Widget_Base {
 		return __( 'Lottie', 'themes-assistant' );
 	}
 
-	public function get_script_depends() {
-		return [ 'lottie-lib', 'borax-lottie'];
-	}
-
-	public function get_style_depends() {
-		return [ 'lottie' ];
-	}
-
 	public function get_icon() {
-		return 'eicon-lottie borax-el';
+		return 'eicon-lottie';
 	}
 
 	 
@@ -91,8 +83,8 @@ class Ata_Lottie_Animation extends Widget_Base {
 				'default' => '1',
 				'options' => [
 					'1' => __( 'Style 1', 'themes-assistant' ),
-					'2' => __( 'style 2', 'themes-assistant' ),
-					'3' => __( 'style 3', 'themes-assistant' ),
+					'2' => __( 'Style 2', 'themes-assistant' ),
+					'3' => __( 'Style 3', 'themes-assistant' ),
 				],
 				'frontend_available' => true,
 			]
@@ -202,7 +194,7 @@ class Ata_Lottie_Animation extends Widget_Base {
 				'render_type' => 'none',
 				'default' => 'Learn More',
 				'condition' => [
-					'lottie-style' => 'style-3',
+					'lottie_style' => 'style-3',
 				],
 				'dynamic' => [
 					'active' => true,
@@ -647,25 +639,24 @@ class Ata_Lottie_Animation extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+        
 	}
+    public function get_render_attribute_string($attribute) {
+        // Implement or call the parent method if it exists
+        return parent::get_render_attribute_string($attribute);
+    }
 
 	protected function render() {
-		$this->load_widget_script();
-		$settings = $this->get_settings_for_display();
-        $style = $settings['lottie_style'];
+		$settings       = $this->get_settings_for_display();
+        $style          = $settings['lottie_style'];
 		// $caption = $this->get_caption( $settings );
-        $widget_name  = $this->get_name(); // You can make this dynamic
-		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
-
-		$style = $settings['lottie-style'];
-		$title = $settings['title'];
-		$caption = $settings['caption'];
-		$btnText = $settings['btn-text'];
-
-		$style = $settings['lottie-style'];
-		
-		$widget_title = $title ? '<h3 class="e-lottie__title"> ' . $title . '</h3>' : '';
-		$widget_caption = $caption ? '<p class="e-lottie__caption"> ' . $caption . '</p>' : '';
+        $widget_name    = $this->get_name(); // You can make this dynamic
+		$title          = $settings['title'];
+		$caption        = $settings['caption'];
+		$btnText        = $settings['btn-text'];		
+		$widget_title   = $title ? '<h3 class="ata-lottie__title"> ' . $title . '</h3>' : '';
+		$widget_caption = $caption ? '<p class="ata-lottie__caption"> ' . $caption . '</p>' : '';
+        $widget_instance = $this;
 
 		if ( ! empty( $settings['source_json']['url'] ) ) {
 		$source_json = $settings['source_json']['url'];
@@ -682,9 +673,9 @@ class Ata_Lottie_Animation extends Widget_Base {
 			$this->add_render_attribute(
 				'wrapper',
 				[
-					'id'                    => 'lottie_' . $this->get_id(),
-					'data-class'                 => 'lottie-animation',
-					'data-path'				=>  $jsonData ,
+					'id'                    => 'ata-lottie_' . $this->get_id(),
+					'data-class'            => 'ata-lottie-animation',
+					'data-path'				=> $jsonData ,
 					'data-trigger'        	=> $settings['trigger'],
 					'data-loop'				=> $settings['loop'],
 					'data-anim_renderer'    => $settings['renderer'],
@@ -697,20 +688,7 @@ class Ata_Lottie_Animation extends Widget_Base {
 			echo '<h3 class="posts-not-found">'.esc_html__("Opps!! Please Enter JSON File Extension.",'themes-assistant').'</h3>';
 		}
 	
-
-		$widget_title = $this->get_title(); // Get the widget title dynamically
-		if (LICFY_TYPE == 1 || LICFY_TYPE === null || LICFY_TYPE === 'undefined') {
-			?>
-				<div class="pro-widget">
-					<h3 class="borax_pro_title"><?php echo esc_html__($widget_title. ' Widget', 'themes-assistant'); ?></h3>
-					<div class="dialog-message"><?php echo esc_html__('Leverage this feature, along with numerous other premium features, to expand your Website, enabling faster and superior website development.', 'themes-assistant'); ?> </div>
-					<a href="<?php echo WPBORAX; ?>" target="_blank" class="dialog-button button-success"><?php echo esc_html__('Go Pro', 'themes-assistant') ?></a> 
-				</div>
-			<?php
-			return false; 
-		}
-
-  		require BORAX_WIDGET_LOTTIE_DIR .'widgets/style/'.$style.'.php';
+        $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style, $widget_instance);
 		
 	}
 
@@ -727,12 +705,6 @@ class Ata_Lottie_Animation extends Widget_Base {
 		}
 
 		return $file_data;
-	}
-	
-	public function load_widget_script(){
-		if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
-
-		}
 	}
 	
 }

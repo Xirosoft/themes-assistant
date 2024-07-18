@@ -108,7 +108,7 @@ class Ata_Contact_Form_7 extends Widget_Base { // this name is added to plugin.p
             ]
         );
         $this->add_control(
-            'vf7_style',
+            'cf7_style',
             [
                 'label' => esc_html__( 'Select Style', 'themes-assistant' ),
                 'type' => Controls_Manager::SELECT,
@@ -210,7 +210,7 @@ class Ata_Contact_Form_7 extends Widget_Base { // this name is added to plugin.p
         if (!empty($settings['cf7_redirect_page']) || !empty($settings['cf7_redirect_external'])) { ?>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    var theform = document.querySelector('.borax-cf7-<?php echo esc_js($data); ?>');
+                    var theform = document.querySelector('.ata-cf7-<?php echo esc_js($data); ?>');
                     if (theform) {
                         theform.addEventListener('wpcf7mailsent', function(event) {
                             location.href = '<?php 

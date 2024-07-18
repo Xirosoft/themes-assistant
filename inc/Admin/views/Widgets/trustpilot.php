@@ -116,6 +116,26 @@ class Ata_Trust_Pilot extends Widget_Base {
    */
 	protected function _register_controls() {
 
+        $this->start_controls_section(
+            'content_section',
+            [
+                'label' => __('Content', 'trustpilot-elementor-widget'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'trustpilot_url',
+            [
+                'label' => __('Trustpilot URL', 'trustpilot-elementor-widget'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'input_type' => 'url',
+                'placeholder' => __('Enter your Trustpilot URL', 'trustpilot-elementor-widget'),
+            ]
+        );
+
+        $this->end_controls_section();
+
 		$this->start_controls_section(
 			'content_section',
 			[
@@ -135,7 +155,7 @@ class Ata_Trust_Pilot extends Widget_Base {
         $this->add_control(
             'trust_pilot_style',
             [
-                'label' => esc_html__( 'Testimonial style', 'themes-assistant' ),
+                'label' => esc_html__( 'Trust Pilot Style', 'themes-assistant' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => '1',
                 'options' => [
@@ -220,64 +240,6 @@ class Ata_Trust_Pilot extends Widget_Base {
             ],
           ]
         );
-
-
-		$repeater = new Repeater();
-
-		$repeater->add_control(
-			'name', [
-			'label' => __( 'Name', 'themes-assistant' ),
-			'description' => __('The client or customer name for the testimonial', 'themes-assistant'),
-				'type' => Controls_Manager::TEXT,
-				'default' => __( '' , 'themes-assistant' ),
-			]
-    	);
-		$repeater->add_control(
-			'position', [
-			'label' => __( 'Position', 'themes-assistant' ),
-			'description' => __('The details of the client/customer like company name, position held, company URL etc.', 'themes-assistant'),
-				'type' => Controls_Manager::TEXT,
-				'default' => __( '' , 'themes-assistant' ),
-			]
-    	); 
-
-		$repeater->add_control(
-		't_image',
-		[
-			'label' => __( 'Customer/Client Image', 'themes-assistant' ),
-			'type' => Controls_Manager::MEDIA,
-			'default' => [
-				'url' => Utils::get_placeholder_image_src(),
-			],
-		]
-		); 
-			$repeater->add_control(
-				'content', [
-				'label' => __( 'Reviewer Quote', 'themes-assistant' ),
-				'description' => __('What your customer/client had to say', 'themes-assistant'),
-					'type' => Controls_Manager::TEXTAREA,
-					'default' => __( '' , 'themes-assistant' ),
-				]
-		);
-
-		$this->add_control(
-			'list',
-			[
-				'label' => __( 'Repeater List', 'themes-assistant' ),
-				'type' => Controls_Manager::REPEATER,
-				'fields' => $repeater->get_controls(),
-				'default' => [
-					[
-						't_image' => __( '', 'themes-assistant' ),
-						'name' => __( 'John Doe', 'themes-assistant' ),
-						'position' => __( 'Position', 'themes-assistant' ),
-						'content' => __( 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'themes-assistant' ),
-					],
-				],
-				'title_field' => '{{{ name }}}',
-			]
-		);
-
         
         $this->end_controls_section();
         
@@ -364,23 +326,40 @@ class Ata_Trust_Pilot extends Widget_Base {
 		// call load widget script
 		
 		$settings       = $this->get_settings_for_display();
-        $style  		= $settings['testimonial_style'];
+        $style  		= $settings['trust_pilot_style'];
         $widget_name  = $this->get_name(); // You can make this dynamic
-		$AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
+		// $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);
     
         // Output the Trustpilot widget
         ob_start();
+
+        $settings = $this->get_settings_for_display();
+
+        if (!empty($settings['trustpilot_url'])) {
+            echo '<div class="trustpilot-widget">';
+            echo '<iframe src="' . esc_url($settings['trustpilot_url']) . '" width="100%" height="500" frameborder="0" scrolling="no"></iframe>';
+            echo '</div>';
+        } else {
+            echo '<div class="trustpilot-widget">';
+            echo '<p>' . __('Please enter a Trustpilot URL in the widget settings.', 'trustpilot-elementor-widget') . '</p>';
+            echo '</div>';
+        }
+        
         ?>
-        <div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="5e06f4c0ace5b50001743016" data-style-height="24px" data-style-width="100%" data-theme="light" data-min-review-count="10" data-style-alignment="center">
-        <a href="https://www.trustpilot.com/review/xirosoft.com" target="_blank" rel="noopener">Trustpilot</a>
+        
+        <h1>Trust Pilot</h1>
+        <div class="trustpilot-widget" 
+            data-locale="en-US" 
+            data-template-id="5419b6a8b0d04a076446a9ad" 
+            data-businessunit-id="5e06f4c0ace5b50001743016" 
+            data-style-height="24px" 
+            data-style-width="100%" 
+            data-theme="light" 
+            data-min-review-count="10" 
+            data-style-alignment="center">
+            <a href="https://www.trustpilot.com/review/xirosoft.com" target="_blank" rel="noopener">Trustpilot</a>
         </div>
         <?php
         return ob_get_clean();
 	}
-
-	protected function _content_template() {
-  	}
-  
-
-
 }

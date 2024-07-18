@@ -101,7 +101,7 @@ class AtaAssetsManager {
                 'in_footer' => true
             ],
             'lottie' => [
-                'src' => ATA_ASSETS_URL . 'lib/lottie/isotope.min.js',
+                'src' => ATA_ASSETS_URL . 'lib/lottie/lottie.min.js',
                 'deps' => ['jquery'],
                 'ver' => '1.0.0',
                 'in_footer' => true
