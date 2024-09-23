@@ -1,0 +1,65 @@
+#fvpp-blackout {
+  display: none;
+  z-index: 10000;
+  position: fixed;
+  width: 100%;
+  height: 100%; 
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+}
+
+#borax-welcome-message {
+  display: none;
+  position: fixed;
+  width: clamp(480px,75%,800px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 2%;
+  // font-family: $default;
+  background: #FFF;
+  border-radius: 16px;
+  box-shadow: 2px 4px 16px rgba(#000, 0.25);
+  overflow: hidden;
+  z-index: 10000;
+  @include respond(phone) {
+    width: calc(100% - 40px);
+  }
+  &.only-image {
+    padding: 0;
+  }
+}
+
+#fvpp-close {
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: #fff;
+  background-color: rgb(255, 85, 0);
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all .5s;
+  &:hover {
+    background-color: rgb(188, 36, 6);
+  }
+}
+
+#fvpp-dialog h2 {
+  font-size: 2em;
+  margin: 0;
+}
+
+#fvpp-dialog p {
+  margin: 0;
+}
