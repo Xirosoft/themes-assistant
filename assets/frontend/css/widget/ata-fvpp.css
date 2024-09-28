@@ -1,0 +1,143 @@
+@media screen and (min-width: 768px) {
+  .nopadd-ltf {
+    padding-left: 0;
+  }
+  .nopadd-rth {
+    padding-right: 0;
+  }
+  .nopadd {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  color: #888888;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 27px;
+}
+
+a {
+  color: #7c49dd;
+  transition: all 300ms ease-in-out;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  outline: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rufina', serif;
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+figure {
+  margin: 0;
+}
+
+section {
+  display: block;
+  position: relative;
+  padding: 0;
+  width: 100%;
+}
+
+section.page-section {
+  padding: 0 0;
+}
+
+#fvpp-blackout {
+  display: none;
+  z-index: 10000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+}
+
+#borax-welcome-message {
+  display: none;
+  position: fixed;
+  width: clamp(480px, 75%, 800px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 2%;
+  background: #FFF;
+  border-radius: 16px;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  z-index: 10000;
+}
+
+@media screen and (max-width: 575px) {
+  #borax-welcome-message {
+    width: calc(100% - 40px);
+  }
+}
+
+#borax-welcome-message.only-image {
+  padding: 0;
+}
+
+#fvpp-close {
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: #fff;
+  background-color: #ff5500;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all .5s;
+}
+
+#fvpp-close:hover {
+  background-color: #bc2406;
+}
+
+#fvpp-dialog h2 {
+  font-size: 2em;
+  margin: 0;
+}
+
+#fvpp-dialog p {
+  margin: 0;
+}

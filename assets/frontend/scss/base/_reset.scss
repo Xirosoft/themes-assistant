@@ -1,0 +1,54 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+html{
+	font-size: 15px;
+}
+body {
+	color: #888888;
+	background-color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 27px;
+}
+a {
+	color: $primary-clr;
+	transition: all 300ms ease-in-out;
+	&:hover, &:focus {
+		text-decoration: none;
+		outline: 0px;
+	}
+	
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Rufina', serif;
+	font-weight: 700;
+}
+
+img {
+	display: block;
+	width: 100%;
+	height: auto;	
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+figure {
+	margin: 0;
+}
+section {
+	display: block;
+	position: relative;
+	padding: 0;
+	width: 100%;
+
+	&.page-section{
+		padding: 0 0;
+	}
+}

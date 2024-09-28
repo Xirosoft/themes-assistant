@@ -1,0 +1,101 @@
+@import '../base/index.scss';
+
+.accordion {
+	position: relative;
+
+	&-item {
+        background: #fff;
+		color: $darkmid-clr;
+		box-shadow: 0px 8px 25px 0px rgba(172, 176, 181, 0.2);
+		border-radius: 8px;
+		padding: 20px 30px;
+		font-size: 24px;
+		font-family: $roboto;
+		font-weight: 700;
+		line-height: 32px;
+		margin-bottom: 10px;
+
+		.heading {
+			font-family: $roboto;
+            color: $darkmid-clr;
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 32px;
+            cursor: pointer;
+
+			@include respond(phone) {
+				font-size: 16px;
+			}
+		}
+
+		h5 {
+			margin-bottom: 0;
+			position: relative;
+
+			&:after {
+				content: "";
+				font-family: "themify";
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+
+			&.collapsed {
+				&:after {
+					content: "\e61a";
+				}
+			}
+			&:not(.collapsed) {
+				&:after {
+					content: "\e622";
+				}
+			}
+		}
+	}
+
+	.acr-body {
+		margin-top: 10px;
+		p {
+			font-family: $roboto;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 26px;
+            margin-bottom: 0;
+
+            @include respond (phone-sm) {
+                font-size: 14px;
+            }
+		}
+
+		a {
+			color: #fff;
+			font-family: $roboto;
+			font-size: 16px;
+			font-weight: 400;
+			padding-bottom: 15px;
+			display: block;
+			text-transform: capitalize;
+			transition: .5s;
+
+			i {
+				color: $primary-clr;
+				margin-right: 10px;
+				transition: .5s;
+			}
+
+			&:hover {
+				color: $secoundery-clr;
+
+				i {
+					color: $secoundery-clr;
+				}
+			}
+		}
+	}
+}
+
+.collapsing {
+	// transition: height 0.1s ease-in-out;
+	transition: all .5s ease-in-out;
+}

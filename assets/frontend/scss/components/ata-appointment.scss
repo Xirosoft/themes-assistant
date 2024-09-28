@@ -1,0 +1,96 @@
+@import '../base/index.scss';
+
+.appointment {
+	// background: url(../images/page-feature.jpg) no-repeat center top / cover;
+
+	&-form-2 {
+		background: rgba(#ffa8a8, 0.5);
+		padding: 25px;
+		// border-radius: 5px; 
+		display: flex;
+		justify-content: space-around;
+
+		@include mq (767) {  
+			display: block;
+		}
+ 
+		input {
+			// flex: 1;
+			// margin-right: 15px;
+			// background: rgba(255, 255, 255, 0.8);
+			border: none !important;
+			outline: none; 
+			width: 100%;
+			height: 55px;
+			line-height: 2;
+			@include mq (767) {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+		}
+		input[type="submit"] {
+			color: #fff;
+			max-width: 100px;
+
+			@include mq (767) {
+				max-width: 100%;
+				margin-bottom: 0;
+			}
+		}
+		span{
+			margin-right: 10px;
+		}
+		.ajax-loader {
+			position: absolute;
+			right: 5px;
+			bottom: 45px;
+			height: 15px;
+		}
+	}
+
+	&-form-3 {
+		background: rgba(#ffa8a8, 0.5);
+		padding: 25px;
+		border-radius: 5px;
+
+		.select {
+			border-radius: 5px;
+			background: rgba(255, 255, 255, 0.8);
+
+			@include mq (767) {
+				margin-bottom: 10px;
+			}
+		}
+		.customdSelect {
+			font-size: 15px;
+			line-height: 1.2;
+		}
+
+		input {
+			margin-right: 15px;
+			background: rgba(255, 255, 255, 0.8);
+			border: none !important;
+			border-radius: 5px !important;
+			width: 100%;
+			outline: none;
+			margin-bottom: 10px;
+		}
+		button {
+			border-radius: 5px !important;
+			max-width: 200px;
+			margin: 0 auto;
+			width: 100%;
+			display: block;
+
+			@include mq (767) {
+				max-width: 100%;
+			}
+		}
+		@include mq (767) {
+			.form-row>.col {
+				flex-basis: auto;
+				
+			}
+		}
+	}
+}

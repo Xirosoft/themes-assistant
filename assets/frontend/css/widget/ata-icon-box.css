@@ -1,0 +1,176 @@
+@media screen and (min-width: 768px) {
+  .nopadd-ltf {
+    padding-left: 0;
+  }
+  .nopadd-rth {
+    padding-right: 0;
+  }
+  .nopadd {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  color: #888888;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 27px;
+}
+
+a {
+  color: #7c49dd;
+  transition: all 300ms ease-in-out;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  outline: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rufina', serif;
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+figure {
+  margin: 0;
+}
+
+section {
+  display: block;
+  position: relative;
+  padding: 0;
+  width: 100%;
+}
+
+section.page-section {
+  padding: 0 0;
+}
+
+.style4 {
+  overflow: hidden;
+  top: 0;
+}
+
+.style4 .icon {
+  background: transparent !important;
+}
+
+.style4 .bgShape {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+.style4 .bgShape:before, .style4 .bgShape:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  transform: scale(2);
+  transition: all .5s;
+  border-radius: 50%;
+}
+
+.style4 .bgShape:before {
+  left: 0;
+  border-bottom: 15px solid #97bfb1;
+}
+
+.style4 .bgShape:after {
+  right: 0;
+  border-bottom: 15px solid #1b856b;
+  transition-delay: .2s;
+}
+
+.style4 .view_details {
+  position: relative;
+  font-weight: 700;
+  color: #1b856b;
+  font-size: 16px;
+  margin-top: 15px;
+  outline: none;
+}
+
+.style4 .view_details i {
+  position: relative;
+  left: 0;
+  transition: all .5s;
+  top: 2px;
+}
+
+.style4 .view_details:hover i {
+  left: 7px;
+}
+
+.style4 .icon-bg {
+  display: flex;
+  position: absolute;
+  top: 0;
+  opacity: .03;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  color: #1b856b;
+}
+
+.style4 .icon-bg i {
+  font-size: 250px;
+}
+
+.style4 .icon-bg img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  object-position: center;
+}
+
+.style4:hover .icon-bg i {
+  color: #1b856b;
+}
+
+.style4:hover {
+  top: -15px;
+}
+
+.style4:hover .bgShape:before {
+  transform: scale(1.3);
+}
+
+.style4:hover .bgShape:after {
+  transform: scale(1.37);
+}
