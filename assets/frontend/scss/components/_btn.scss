@@ -1,0 +1,27 @@
+.btn {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 12px 25px;
+  display: inline-block;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  z-index: 0;
+  margin: 0;
+  color: #fff;
+  background-color: $priarmy-clr;
+  transition: all ease-in-out 300ms;
+  &-round {
+    border-radius: 99px;
+  }
+  
+  &-slide-up {
+    &:hover {
+      color: #fff;
+      transform: translateY(-4px);
+    }
+  }
+}

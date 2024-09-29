@@ -268,7 +268,7 @@ class Ata_blog_post extends Widget_Base {
                       $this->add_group_control(
                            \Elementor\Group_Control_Typography::get_type(),
                           [
-                               'name' => 'Title_typography',
+                              'name' => 'Title_typography',
                               'label' => __( 'Title Typography', 'themes-assistant' ), 
                               'scheme' => Typography::TYPOGRAPHY_1,
                               'selector' => '{{WRAPPER}} .post h3',
@@ -343,14 +343,14 @@ class Ata_blog_post extends Widget_Base {
    * @access protected
    */
   	protected function render() {
-        global $post;
-       	$settings 		= $this->get_settings_for_display();
-		$style  		= $settings['blogs_style'];
-		$content_align  = $settings['content_align'];
-		$total_posts    = $settings['post_show'];
-        $widget_name    = $this->get_name(); // You can make this dynamic
-        $args           = array( 'numberposts' => $total_posts,   );
-        $myposts        = get_posts( $args ); 
+          global $post;
+          $settings      = $this->get_settings_for_display();
+          $style         = $settings['blogs_style'];
+          $content_align = $settings['content_align'];
+          $total_posts   = $settings['post_show'];
+          $widget_name   = $this->get_name(); // You can make this dynamic
+          $args          = array( 'numberposts' => $total_posts,   );
+          $myposts       = get_posts( $args );
         ?>
             <div class="row">
                 <?php

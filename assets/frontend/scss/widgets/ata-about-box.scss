@@ -17,6 +17,7 @@
 	.about-img-1 {
 		border-radius: 5px;
 		margin-top: 80px;
+        position: relative;
 
 		@include mq(767) {
 			margin-bottom: 30px;
@@ -25,6 +26,7 @@
 
 	.about-img-2 {
 		border-radius: 5px;
+        position: relative;
 
 		@include mq(479) {
 			margin-bottom: 20px;

@@ -47,7 +47,7 @@
         </h5>
         <a href="mailto:<?php echo esc_url($settings['p_text1']); ?>">
             <?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['p_text1'] ) ); ?>
-        </a>
+        </a><br>
         <a href="mailto:<?php echo esc_url($settings['p_text2']); ?>">
             <?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['p_text2'] ) ); ?>
         </a>
@@ -74,7 +74,7 @@
         </h5>
         <a href="<?php echo esc_attr($settings['e_text1']); ?>">
             <?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['e_text1'] ) ); ?>
-        </a>
+        </a><br>
         <a href="<?php echo esc_url($settings['e_text2']) ?>">
         <?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['a_text'], ) ); ?>
         </a>
