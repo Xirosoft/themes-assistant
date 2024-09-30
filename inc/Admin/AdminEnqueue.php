@@ -35,7 +35,7 @@ class AdminEnqueue {
 		if ( $current_screen && 'themes-assistant' === $current_screen->post_type ) {
         }
         wp_enqueue_script('ata-dashboard-scripts', ATA_ASSETS_URL . 'admin/js/dashboard.js', array('jquery'), '1.0', true);
-        wp_enqueue_style( 'ata-dashboard-css', ATA_ASSETS_URL . 'admin/css/ata-dashboard.css', array(), time(), 'all' );
+        wp_enqueue_style( 'ata-dashboard-css', ATA_ASSETS_URL . 'admin/css/ata-dashboard-style.css', array(), time(), 'all' );
 	}
 
 
