@@ -1,0 +1,68 @@
+@import '../base/index.scss';
+
+/**
+*  Services Widget
+*/ 
+.service-widget {
+	border: 10px solid #e3e6ea99;
+	padding: 25px;
+	margin-bottom: 15px;
+	position: relative;
+	background: #fff;
+	@include mq(767) {
+		border: 5px solid #e3e6ea99;
+		padding: 10px;		
+	}
+	h3 {
+		color: #233646;
+		display: block;
+		font-size: 28px;
+		font-weight: 600;
+		margin-bottom: 15px;
+	}
+
+	.btn {
+		margin: 0 auto;
+		display: block;
+		padding: 13px 15px 15px;
+		max-width: 250px;
+	}
+
+	&:hover {
+		box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.07);
+	}
+	.sp-wrapper .pricing-list-item {
+		padding: 12px 0;
+		.content p {
+			margin-top: 0;
+		}
+	}
+
+	&:before {
+		content: "\e6c6";
+		font-family: "themify";
+		font-size: 244px;
+		color: #000;
+		opacity: 0.02;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		margin: auto;
+		bottom: 0;
+		display: block;
+		height: 244px;
+		line-height: 1;
+		max-width: 244px;
+	}
+	.open_border {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		margin-top: 20px;
+		margin-left: 20px;
+		border: 10px solid $primary-clr;
+		z-index: -1;
+	}
+}

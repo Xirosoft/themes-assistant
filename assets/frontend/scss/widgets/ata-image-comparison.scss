@@ -1,0 +1,35 @@
+.comporision-slider {
+	position: relative;
+
+	.imageDiff {
+		display: block;
+		border-radius: 5px;
+
+		&.active {
+			&:hover .twentytwenty-before-label,
+			&:hover .twentytwenty-after-label {
+				opacity: 1 !important;
+			}
+		}
+	}
+
+	.overlay {
+		position: absolute;
+		width: 100%;
+		height: auto;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&:hover {
+		.overlay {
+			opacity: 1;
+		}
+	}
+}
+
+span.cat-links {
+	margin-right: 7px;
+}

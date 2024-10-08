@@ -124,13 +124,13 @@ protected function _register_controls() {
 	$this->add_control(
 	        'portfolio_style',
         [
-	            'label' =>esc_html__( 'Portfolio Style', 'themes-assistant' ),
+	          'label' =>esc_html__( 'Portfolio Style', 'themes-assistant' ),
             'type' => Controls_Manager::SELECT,
             'options' => [
 	            '1'      => esc_html__( 'Style 1', 'themes-assistant' ),
-                '2'      => esc_html__( 'Style 2', 'themes-assistant' ),
-                '3'      => esc_html__( 'Style 3', 'themes-assistant' ),
-                '4'      => esc_html__( 'Style 4', 'themes-assistant' ),
+							'2'      => esc_html__( 'Style 2', 'themes-assistant' ),
+							'3'      => esc_html__( 'Style 3', 'themes-assistant' ),
+							'4'      => esc_html__( 'Style 4', 'themes-assistant' ),
             ],
             'prefix_class' => 'elementor%s-align-',
             'default' => 'style-1',
@@ -306,7 +306,7 @@ protected function _register_controls() {
     $this->add_control(
 			'iconclass',
 		[
-				'label' => esc_html__( 'Icon Class', 'themes-assistant' ),
+			'label' => esc_html__( 'Icon Class', 'themes-assistant' ),
 			'type' => Controls_Manager::TEXT,
             'default' => esc_html__( 'borax-spa-bathrobe', 'themes-assistant' ),
             'description' => 'You can get icon class from <a href="https://wpborax.com/demo/borax-v1.0/">Borax Icon</a> or <a href="https://themify.me/themify-icons">Themify Icon</a>',
@@ -320,7 +320,7 @@ protected function _register_controls() {
     $this->start_controls_section(
 	        'portfolio_section_style_content',
         [
-	            'label' => esc_html__( 'Content Style', 'themes-assistant' ),
+	          'label' => esc_html__( 'Content Style', 'themes-assistant' ),
             'tab'   => Controls_Manager::TAB_STYLE,
         ]
     );

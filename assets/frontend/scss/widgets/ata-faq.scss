@@ -1,5 +1,6 @@
 @import '../base/index.scss';
 
+// Accordion
 .accordion {
 	position: relative;
 
@@ -98,4 +99,310 @@
 .collapsing {
 	// transition: height 0.1s ease-in-out;
 	transition: all .5s ease-in-out;
+}
+
+
+
+
+/**
+*  Accordiion
+*/
+.accordion {
+  .card-header {
+    padding: 10px;
+  
+    .a-btn {
+      color: #fff;
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 15px 15px;
+      position: relative;
+      text-transform: capitalize;
+      background: $primary-clr;
+      text-decoration: none;
+      border: none;
+      outline: none;
+      border-radius: 0;
+      &:before {
+        content: "";
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        position: absolute;
+        right: 10px;
+        display: block;
+        top: 50%;
+      }
+
+      &:after {
+        content: "";
+        width: 2px;
+        height: 20px;
+        position: absolute;
+        right: 10px;
+        display: block;
+        top: 12px;
+        right: 19px;
+        display: none;
+      }
+
+      &.collapsed {
+        background-color: #e8e8e8ad;
+        color: #252525;
+
+        &:after,
+        &:before {
+          background: $primary-clr;
+          display: block;
+        }
+      }
+    }
+  }
+
+  .card {
+    img {
+      max-width: 50%;
+
+      &.alignleft {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+
+      &.alignright {
+        float: right;
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &.version-2 {
+    .card {
+      margin-bottom: 15px;
+      box-shadow: 0 0 30px 5px #00000012;
+      border: none;
+      overflow: inherit;
+      background: transparent;
+      border-radius: 10px;
+
+      &.card:not(:first-of-type):not(:last-of-type) {
+        border-radius: 10px;
+      }
+
+      &:hover {
+        border: none;
+      }
+
+      .card-header {
+        background: transparent;
+        padding: 0;
+        position: relative;
+        border-bottom: none;
+
+        &:before {
+          content: "";
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          border: 1px solid #ddd;
+          position: absolute;
+          right: 15px;
+          display: block;
+          top: 0;
+          z-index: 1;
+          bottom: 0;
+          margin: auto;
+        }
+
+        .a-btn {
+          background: transparent;
+          color: #252525;
+          padding: 25px 40px;
+          border: 0px solid transparent;
+          font-size: 18px;
+
+          &:hover {
+            border: 0px solid transparent;
+          }
+        }
+      }
+
+      .card-body {
+        padding: 20px 37px 10px;
+        padding-top: 0;
+      }
+    }
+
+    .card-header .a-btn:before,
+    .card-header .wp-block-button__link:before {
+      content: "\e622";
+      font-family: "themify";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none; 
+      line-height: 1; 
+      -webkit-font-smoothing: antialiased;
+      width: 15px; 
+      height: 15px;
+      color: #b7b7b7;  
+      background: transparent;
+      right: 23px;
+      top: 32px;
+    }
+  
+    .card-header .a-btn:after, 
+    .card-header .wp-block-button__link:after {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      left: 15px; 
+      display: block;
+      top: 0; 
+      right: auto;
+      z-index: 1;
+      bottom: 0;
+      margin: auto;
+      background: $primary-clr;
+    }
+
+    .card-header .a-btn.collapsed:before { 
+      content: "\e61a";
+      background: transparent; 
+    }
+
+    .card-header .a-btn.collapsed:after {
+      background: #ddd;
+    }
+  }
+}
+
+.content-box {
+  h2 {
+    color: #233646;
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 23px;
+
+    @include mq(479) {
+      font-size: 26px;
+      line-height: 34px;
+    }
+  }
+
+  h5 {
+    color: #233646;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
+
+  .a-btn {margin-top: 20px;}
+}
+
+.image-box {
+  .content-box {
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .right-arrow {
+    position: relative;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 15px;
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 30px solid transparent;
+      border-left: 0 solid transparent;
+      border-bottom: 30px solid transparent;
+      transition: all 0.4s;
+    }
+  }
+
+  .left-arrow {
+    position: relative;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      right: 15px;
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 30px solid transparent;
+      border-right: 0 solid transparent;
+      border-bottom: 30px solid transparent;
+      transition: all 0.4s;
+    }
+  }
+
+  &:hover .right-arrow {
+    &:before {
+      border-left-width: 60px;
+      border-left-color: #fff;
+    }
+  }
+
+  &:hover .left-arrow {
+    &:before {
+      border-right-width: 60px;
+      border-right-color: #fff;
+    }
+  }
+}
+
+.content-box-fluid {
+  @include mq(992) {
+    padding: 30px 0;
+    display: block;
+    text-align: center; 
+  }
+
+  @extend .content-box;
+  width: 100%;
+
+  @include min-mq(768) {
+    // max-width: 505px;
+  }
+
+  &.right {
+    @include min-mq(768) {
+      float: right;
+    }
+  }
+
+  &.left {
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    span {
+      margin-bottom: 5px;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  span.tagline {
+    color: $primary-clr;
+  }
 }

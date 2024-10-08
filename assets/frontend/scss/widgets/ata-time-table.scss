@@ -1,0 +1,96 @@
+@import '../base/index.scss';
+
+
+/*****************************
+Tabs
+*****************************/
+.nav-tabs {
+	border: none;
+	margin: 0;
+	padding: 0;
+
+	.nav-item {
+		margin-bottom: 3px;
+		margin-right: 3px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		.nav-link {
+			border: none;
+			font-size: 16px;
+			padding: 12px 30px;
+			border-radius: 0;
+			font-weight: 600;
+			background: $secoundery-clr;
+			color: $primary-clr;
+			border-radius: 5px;
+
+			span {
+				// transform: skew(20deg);
+				display: block;
+			}
+		}
+
+		.nav-link.active {
+			background: $primary-clr;
+			color: #fff;
+		}
+	}
+}
+
+/* table */
+
+.table {
+	border-collapse: separate;
+	border-spacing: 0 1px;
+	font-size: 16px;
+	font-weight: 600;
+
+	tr,
+	thead {
+		background-color: #f6f7fb;
+	}
+
+	td {
+		padding: 14px 20px;
+
+		img {
+			max-width: 30px;
+		}
+	}
+
+	th {
+		padding: 14px 20px;
+	}
+}
+
+.table-bordered {
+	td {
+		border-color: $primary-clr;
+	}
+
+	th {
+		border-color: $primary-clr;
+	}
+}
+
+.table-striped {
+	tbody {
+		tr {
+			&:nth-of-type(odd) {
+				background: #f3f3f3;
+			}
+
+			&:nth-of-type(even) {
+				background: #fff;
+			}
+		}
+	}
+}
+
+.table td,
+.table th {
+	vertical-align: middle;
+}

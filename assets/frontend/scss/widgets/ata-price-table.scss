@@ -225,3 +225,192 @@ a.btn-plan-select {
 		}
 	}
 } 
+
+
+
+
+
+.pricings {
+	.card {
+		&-img {
+			max-height: 160px;
+			margin-bottom: 30px !important;
+			overflow: hidden;
+
+			img {
+				object-fit: cover;
+				object-position: center;
+				height: 160px;
+			}
+		}
+
+		.btn {
+			font-size: 14px;
+			&:hover{
+				color: #fff;
+			}
+		}
+
+		.table-content {
+			margin-bottom: 20px;
+
+			ul {
+				padding: 0; 
+				margin: 0;
+
+				li {
+					list-style: none;
+				} 
+			}  
+		}
+
+		&.highlight {
+			transform: scale(1.03) translateY(-10px);
+			border-color: #7c49dd;
+		}
+
+		&.align-left {
+			ul {
+				padding: 15px;
+
+				li { 
+					text-align: left;
+					position: relative;
+					line-height: 2.5;
+
+					&:before {
+						content: "\f058";
+						font-family: 'Font Awesome 5 Free';
+						font-size: 17px;
+						color: #d4d0d0;
+						position: absolute;
+						margin-top: 5px;
+						transition: 0.3s;
+						border: none;
+						padding: 0;
+						right: 0;
+					}
+				}
+			}
+		}
+		&.align-right {
+			ul {
+				padding: 15px;
+
+				li { 
+					text-align: right;
+					position: relative;
+					line-height: 2.5;
+
+					&:before {
+						content: "\f058";
+						font-family: 'Font Awesome 5 Free';
+						font-size: 17px;
+						color: #d4d0d0;
+						position: absolute;
+						margin-top: 5px;
+						transition: 0.3s;
+						border: none;
+						padding: 0;
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.card-deck {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 576px) {
+  .card-deck {
+      flex-flow: row wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+  }
+}
+
+
+  
+.card-deck {
+	@include mq(768) {
+		flex-flow: column; 
+	}
+
+	.card { 
+		padding-bottom: 15px;
+		border-color: rgba(0, 0, 0, 0.07); 
+		transition: all .5s;
+		@include mq(992) { 
+			max-width: 400px;
+			margin: 30px auto; 
+		}
+ 
+		&:hover {
+			border-color: rgba(0, 0, 0, 0.07);
+			box-shadow: 0 0 30px 5px #00000012;
+		}
+
+		ul {
+			li { 
+				line-height: 2.2;
+			}
+		}
+	} 
+} 
+
+// Ribbon Css
+.ribbon {
+	position: absolute;
+	left: -5px;
+	top: -5px;
+	z-index: 1;
+	overflow: hidden;
+	width: 115px;
+	height: 115px;
+	text-align: right;
+}
+
+.ribbon span {
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 30px;
+	transform: rotate(-45deg);
+	width: 150px;
+	display: block;
+	background-color: $primary-clr;
+	box-shadow: 0 3px 10px -5px black;
+	position: absolute;
+	top: 27px;
+	left: -33px;
+}
+
+.ribbon span::before {
+	content: "";
+	position: absolute;
+	left: 0px;
+	top: 100%;
+	z-index: -1;
+	border-left: 3px solid #000;
+	border-right: 3px solid transparent;
+	border-bottom: 3px solid transparent;
+	border-top: 3px solid #000;
+}
+
+.ribbon span::after {
+	content: "";
+	position: absolute;
+	right: 0px;
+	top: 100%;
+	z-index: -1;
+	border-left: 3px solid transparent;
+	border-right: 3px solid #000;
+	border-bottom: 3px solid transparent;
+	border-top: 3px solid #000;
+}

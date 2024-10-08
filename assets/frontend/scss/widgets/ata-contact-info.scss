@@ -1,0 +1,41 @@
+@import '../base/index.scss';
+
+/**
+*  Contact Widget
+*/
+.contact {
+  address {
+    color: #888;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 80px;
+    position: relative;
+
+    a {
+      color: #888;
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+
+      &:hover {
+        color: $primary-clr;
+      }
+    }
+
+    span {
+      background-color: $primary-clr;
+      border-radius: 50%;
+      color: #fff;
+      display: block;
+      font-size: 14px;
+      line-height: 50px;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+    

@@ -12,7 +12,7 @@
   z-index: 0;
   margin: 0;
   color: #fff;
-  background-color: $priarmy-clr;
+  background-color: $primary-clr;
   transition: all ease-in-out 300ms;
   &-round {
     border-radius: 99px;
@@ -24,4 +24,18 @@
       transform: translateY(-4px);
     }
   }
+
+
+  &.squre {
+    border-radius: 0 !important
+  }
+
+  &.round {
+    border-radius: 30px !important
+  }
+
+  &.roundShape {
+    border-radius: 5px !important
+  }
+
 }
