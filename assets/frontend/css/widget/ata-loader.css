@@ -1,1 +1,64 @@
-@media screen and (min-width: 768px){.nopadd-ltf{padding-left:0}.nopadd-rth{padding-right:0}.nopadd{padding-left:0;padding-right:0}}.xiroform-loader{width:50px;height:50px;border:6px solid rgba(0,0,0,0);border-top:6px solid #7c49dd;border-radius:50%;-webkit-animation:spin 1s linear infinite;animation:spin 1s linear infinite;display:none}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.xiroform-circle{width:30px;height:30px;border:6px solid #d946d3;border-top:6px solid #7c49dd;border-radius:50%;-webkit-animation:spin-circle .8s infinite linear;animation:spin-circle .8s infinite linear;display:none}@-webkit-keyframes spin-circle{from{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes spin-circle{from{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.xiroform-msg{display:none;display:inline-block;padding:5px 10px;margin-top:10px}.xiroform-msg.success{border:1px solid green}.xiroform-msg.error{border:1px solid red}
+@media screen and (min-width: 768px) {
+  .nopadd-ltf {
+    padding-left: 0;
+  }
+  .nopadd-rth {
+    padding-right: 0;
+  }
+  .nopadd {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.xiroform-loader {
+  width: 50px;
+  height: 50px;
+  border: 6px solid transparent;
+  border-top: 6px solid #7c49dd;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.xiroform-circle {
+  width: 30px;
+  height: 30px;
+  border: 6px solid #d946d3;
+  border-top: 6px solid #7c49dd;
+  border-radius: 50%;
+  animation: spin-circle 0.8s infinite linear;
+  display: none;
+}
+
+@keyframes spin-circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.xiroform-msg {
+  display: none;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+.xiroform-msg.success {
+  border: 1px solid green;
+}
+.xiroform-msg.error {
+  border: 1px solid red;
+}
+
+/******************************************/
+/* Loader Style End
+/******************************************/

@@ -1,1 +1,84 @@
-@media screen and (min-width: 768px){.nopadd-ltf{padding-left:0}.nopadd-rth{padding-right:0}.nopadd{padding-left:0;padding-right:0}}.nav-tabs{border:none;margin:0;padding:0}.nav-tabs .nav-item{margin-bottom:3px;margin-right:3px}.nav-tabs .nav-item:last-child{margin-right:0}.nav-tabs .nav-item .nav-link{border:none;font-size:16px;padding:12px 30px;border-radius:0;font-weight:600;background:#d946d3;color:#7c49dd;border-radius:5px}.nav-tabs .nav-item .nav-link span{display:block}.nav-tabs .nav-item .nav-link.active{background:#7c49dd;color:#fff}.table{border-collapse:separate;border-spacing:0 1px;font-size:16px;font-weight:600}.table tr,.table thead{background-color:#f6f7fb}.table td{padding:14px 20px}.table td img{max-width:30px}.table th{padding:14px 20px}.table-bordered td{border-color:#7c49dd}.table-bordered th{border-color:#7c49dd}.table-striped tbody tr:nth-of-type(odd){background:#f3f3f3}.table-striped tbody tr:nth-of-type(even){background:#fff}.table td,.table th{vertical-align:middle}
+@media screen and (min-width: 768px) {
+  .nopadd-ltf {
+    padding-left: 0;
+  }
+  .nopadd-rth {
+    padding-right: 0;
+  }
+  .nopadd {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+/*****************************
+Tabs
+*****************************/
+.nav-tabs {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-tabs .nav-item {
+  margin-bottom: 3px;
+  margin-right: 3px;
+}
+.nav-tabs .nav-item:last-child {
+  margin-right: 0;
+}
+.nav-tabs .nav-item .nav-link {
+  border: none;
+  font-size: 16px;
+  padding: 12px 30px;
+  border-radius: 0;
+  font-weight: 600;
+  background: #d946d3;
+  color: #7c49dd;
+  border-radius: 5px;
+}
+.nav-tabs .nav-item .nav-link span {
+  display: block;
+}
+.nav-tabs .nav-item .nav-link.active {
+  background: #7c49dd;
+  color: #fff;
+}
+
+/* table */
+.table {
+  border-collapse: separate;
+  border-spacing: 0 1px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.table tr,
+.table thead {
+  background-color: #f6f7fb;
+}
+.table td {
+  padding: 14px 20px;
+}
+.table td img {
+  max-width: 30px;
+}
+.table th {
+  padding: 14px 20px;
+}
+
+.table-bordered td {
+  border-color: #7c49dd;
+}
+.table-bordered th {
+  border-color: #7c49dd;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background: #f3f3f3;
+}
+.table-striped tbody tr:nth-of-type(even) {
+  background: #fff;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}

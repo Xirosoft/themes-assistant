@@ -1,1 +1,26 @@
-.comporision-slider{position:relative}.comporision-slider .imageDiff{display:block;border-radius:5px}.comporision-slider .imageDiff.active:hover .twentytwenty-before-label,.comporision-slider .imageDiff.active:hover .twentytwenty-after-label{opacity:1 !important}.comporision-slider .overlay{position:absolute;width:100%;height:auto;top:0;left:0;opacity:0;pointer-events:none}.comporision-slider:hover .overlay{opacity:1}span.cat-links{margin-right:7px}
+.comporision-slider {
+  position: relative;
+}
+.comporision-slider .imageDiff {
+  display: block;
+  border-radius: 5px;
+}
+.comporision-slider .imageDiff.active:hover .twentytwenty-before-label, .comporision-slider .imageDiff.active:hover .twentytwenty-after-label {
+  opacity: 1 !important;
+}
+.comporision-slider .overlay {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.comporision-slider:hover .overlay {
+  opacity: 1;
+}
+
+span.cat-links {
+  margin-right: 7px;
+}
