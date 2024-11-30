@@ -3,13 +3,20 @@
 /**
 *  Contact Widget
 */
-.contact {
+.ata-contact-info {
+    h5{
+        margin: 0;
+    }
+    p{
+        margin: 0;
+    }
   address {
     color: #888;
     font-size: 14px;
     font-weight: 400;
     padding-left: 80px;
     position: relative;
+    margin-bottom: 15px;
 
     a {
       color: #888;

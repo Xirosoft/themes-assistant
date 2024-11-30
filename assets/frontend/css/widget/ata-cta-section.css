@@ -29,4 +29,8 @@
 .call-content h2,
 .call-content p {
   color: #10233a;
+  margin-bottom: 0;
+}
+.call-content.text-center {
+  text-align: center;
 }

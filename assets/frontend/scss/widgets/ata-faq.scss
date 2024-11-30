@@ -3,7 +3,16 @@
 // Accordion
 .accordion {
 	position: relative;
-
+    .ata-collapse{
+        transition: .5s;
+        display: none;
+        opacity: 0;
+        margin: 0 10px;
+        &.ata-show{
+            display: block;
+            opacity: 1;
+        }
+    }
 	&-item {
         background: #fff;
 		color: $darkmid-clr;
@@ -94,24 +103,10 @@
 			}
 		}
 	}
-}
-
-.collapsing {
-	// transition: height 0.1s ease-in-out;
-	transition: all .5s ease-in-out;
-}
-
-
-
-
-/**
-*  Accordiion
-*/
-.accordion {
   .card-header {
     padding: 10px;
-  
     .a-btn {
+        cursor: pointer;
       color: #fff;
       display: block;
       width: 100%;
@@ -124,6 +119,8 @@
       border: none;
       outline: none;
       border-radius: 0;
+      font-size: 16px;
+      font-weight: 700;
       &:before {
         content: "";
         width: 20px;
@@ -142,7 +139,7 @@
         position: absolute;
         right: 10px;
         display: block;
-        top: 12px;
+        top: 15px;
         right: 19px;
         display: none;
       }
@@ -178,7 +175,7 @@
     }
   }
 
-  &.version-2 {
+  &.v2 {
     .card {
       margin-bottom: 15px;
       box-shadow: 0 0 30px 5px #00000012;
@@ -230,27 +227,33 @@
       }
 
       .card-body {
-        padding: 20px 37px 10px;
+        padding: 20px 30px 10px;
         padding-top: 0;
+        p{
+            margin-top: 0;
+        }
+      }
+
+      &.active{
+        .card-header .a-btn:before,
+        .card-header .wp-block-button__link:before, .card-header .a-btn:after, 
+        .card-header .wp-block-button__link:after{
+            background-color: $primary-clr;
+        }
       }
     }
 
     .card-header .a-btn:before,
     .card-header .wp-block-button__link:before {
-      content: "\e622";
-      font-family: "themify";
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none; 
-      line-height: 1; 
-      -webkit-font-smoothing: antialiased;
-      width: 15px; 
+      content: "";
       height: 15px;
-      color: #b7b7b7;  
-      background: transparent;
-      right: 23px;
-      top: 32px;
+      background:  transparent;
+      right: 20px;
+      top: 26px;
+      border-radius: 50%;
+      width: 21px;
+      height: 20px;
+      
     }
   
     .card-header .a-btn:after, 
@@ -266,17 +269,9 @@
       z-index: 1;
       bottom: 0;
       margin: auto;
-      background: $primary-clr;
-    }
-
-    .card-header .a-btn.collapsed:before { 
-      content: "\e61a";
-      background: transparent; 
-    }
-
-    .card-header .a-btn.collapsed:after {
       background: #ddd;
     }
+
   }
 }
 

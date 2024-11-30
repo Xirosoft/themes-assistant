@@ -1,5 +1,5 @@
 
-<section class="coming-sec">
+<section class="coming-sec v1 <?php echo $settings['select_align']; ?>">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 m-auto">
@@ -22,7 +22,7 @@
                     </p>
                 </div>
                 <div 
-                    class="text-center" 
+                    class="<?php echo $settings['select_align']; ?>" 
                     id="clock" 
                     data-date="
                         <?php
@@ -32,7 +32,7 @@
                             );
                         ?>   
                 "></div>
-                <div class="bill-form v2 text-center">
+                <div class="bill-form <?php echo $settings['select_align']; ?>">
                     <h3>
                         <?php
                             printf(

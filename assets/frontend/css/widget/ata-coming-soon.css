@@ -10,37 +10,149 @@
     padding-right: 0;
   }
 }
-.coming-style-3 .heading-area {
+.coming-sec.text-center {
+  text-align: center;
+}
+.coming-sec.text-left {
+  text-align: left;
+}
+.coming-sec.text-left h3, .coming-sec.text-left p {
+  text-align: left;
+}
+.coming-sec.text-right {
+  text-align: right;
+}
+.coming-sec.text-right h3, .coming-sec.text-right p {
+  text-align: right;
+}
+.coming-sec p {
+  color: #7b8491;
+  font-size: 15px;
+  line-height: 28px;
+}
+.coming-sec.v1 .form {
+  width: 100%;
+}
+.coming-sec.v1 .form .form-field {
+  position: relative;
+  margin-bottom: 15px;
+}
+.coming-sec.v1 .form .form-field i {
+  color: #7c49dd;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+.coming-sec.v1 .form input {
+  background-color: #fff;
+  border: 1px solid #7c49dd;
+  border-radius: 3px;
+  color: #888;
+  font-size: 14px;
+  padding: 15px 40px 15px 20px;
+  outline: 0;
+  width: 100%;
+}
+.coming-sec.v1 .form .btn {
+  padding: 20px 25px;
+}
+.coming-sec.v1 #clock {
+  margin-bottom: 50px;
+}
+.coming-sec.v1 #clock.text-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.coming-sec.v1 #clock.text-left {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  text-align: center;
+}
+.coming-sec.v1 #clock.text-right {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  text-align: center;
+}
+.coming-sec.v1 #clock span {
+  background: #7c49dd;
+  border-radius: 5px;
+  display: block;
+  font-size: 20px;
+  line-height: 65px;
+  margin: 5px 2.5px 0;
+  position: relative;
+  height: 60px;
+  width: 90px;
+  z-index: 2;
+  color: #fff;
+}
+.coming-sec.v1 #clock p {
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+  position: relative;
+  margin: 2px 0;
+  overflow: hidden;
+}
+.coming-sec.v1 #clock p:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  bottom: -40%;
+}
+.coming-sec.v2 .heading-area {
   margin-bottom: 40px;
 }
-.coming-style-3 .heading-area h2.title {
+.coming-sec.v2 .heading-area h2.title {
   font-size: 42px;
 }
-.coming-style-3 .counter-area {
+.coming-sec.v2 .counter-area {
   display: inline-block;
 }
-.coming-style-3 #clock {
+.coming-sec.v2 #clock.text-center {
   display: flex;
-  width: 363px;
-  margin: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-.coming-style-3 #clock p {
+.coming-sec.v2 #clock.text-left {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  text-align: center;
+}
+.coming-sec.v2 #clock.text-right {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  text-align: center;
+}
+.coming-sec.v2 #clock p {
   min-width: 70px;
-  font-size: 20px;
+  font-size: 30px;
   padding: 5px 10px;
 }
-.coming-style-3 #clock span {
+.coming-sec.v2 #clock span {
   display: block;
   width: 100%;
   text-transform: uppercase;
   text-align: center;
 }
-.coming-style-3 #clock span:last-child {
+.coming-sec.v2 #clock span:last-child {
   position: relative;
   font-size: 30px;
   font-weight: 700;
+  margin-top: 40px;
 }
-.coming-style-3 #clock span:last-child:before {
+.coming-sec.v2 #clock span:last-child:before {
   content: "";
   width: 32px;
   height: 2px;
@@ -48,7 +160,7 @@
   position: absolute;
   right: 0;
   left: 0;
-  top: 3px;
-  background-color: turquoise;
+  top: -20px;
+  background-color: #7c49dd;
   margin: auto;
 }

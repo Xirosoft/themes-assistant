@@ -1,0 +1,26 @@
+@import '../base/index.scss';
+
+.ata-cf7{
+
+    input:focus {
+        border-color: $primary-clr;
+    }
+
+    input, textarea {
+        height: auto;
+        border: 1px solid $primary-clr;
+        outline: none;
+        padding: 10px 10px;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    input:hover {
+        background-color: #cbe7fd;
+    }
+    input[type="submit"]{
+        background: $primary-clr;
+        color: #fff;
+    }
+}

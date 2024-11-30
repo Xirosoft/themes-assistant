@@ -202,7 +202,7 @@ class Ata_Contact_Form_7 extends Widget_Base { // this name is added to plugin.p
         $style = $settings['cf7_style'];
 
         if (!empty($settings['cf7'])) {
-            echo '<div class="ata-shortcode ata-cf7-' . esc_attr($data) . '">';
+            echo '<div class="ata-shortcode ata-cf7 ata-cf7-' . esc_attr($data) . '">';
             echo do_shortcode('[contact-form-7 id="' . esc_attr($settings['cf7']) . '"]');
             echo '</div>';
         }

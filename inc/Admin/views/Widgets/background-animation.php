@@ -154,7 +154,7 @@ class Ata_Background_Animation extends Widget_Base {
       $repeater->add_control(
           'shape_color',
         [
-              'label' => __( 'Shape Color', 'plugin-domain' ),
+              'label' => __( 'Shape Color', 'themes-assistant' ),
             'type' => Controls_Manager::COLOR,
             'scheme' => [
                   'type' => Color::get_type(),

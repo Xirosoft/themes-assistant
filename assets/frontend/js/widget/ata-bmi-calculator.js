@@ -56,7 +56,7 @@
         
                 $("#message").append(h1);
                 $("#message").append(h2);
-        
+                $("#message").show();
                 document.getElementById("submit").removeEventListener("click", countBmi);
                 document.getElementById("submit").removeEventListener("click", validateForm);
             }

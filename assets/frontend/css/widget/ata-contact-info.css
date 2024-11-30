@@ -13,23 +13,30 @@
 /**
 *  Contact Widget
 */
-.contact address {
+.ata-contact-info h5 {
+  margin: 0;
+}
+.ata-contact-info p {
+  margin: 0;
+}
+.ata-contact-info address {
   color: #888;
   font-size: 14px;
   font-weight: 400;
   padding-left: 80px;
   position: relative;
+  margin-bottom: 15px;
 }
-.contact address a {
+.ata-contact-info address a {
   color: #888;
   display: block;
   font-size: 14px;
   font-weight: 400;
 }
-.contact address a:hover {
+.ata-contact-info address a:hover {
   color: #7c49dd;
 }
-.contact address span {
+.ata-contact-info address span {
   background-color: #7c49dd;
   border-radius: 50%;
   color: #fff;

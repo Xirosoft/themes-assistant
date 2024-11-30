@@ -15,7 +15,7 @@
 
 .single-fun {
 	position: relative;
-
+    text-align: center;
 	@include mq(991) {
 		text-align: center;
 	}
@@ -24,7 +24,7 @@
 		max-width: 65px !important;
 		margin-bottom: 30px;
 		filter: invert(1);
-
+        display: inline-block;
 		@include mq(991) {
 			margin: 0 auto 30px;
 			max-width: 50px !important;
@@ -36,9 +36,7 @@
 	}
 
 	.count-box {
-		align-items: center;
 		color: $primary-clr;
-		display: inline-flex;
 		font-size: 22px;
 		font-weight: 700;
 		line-height: 30px;
@@ -66,7 +64,6 @@
 			font-size: 27px;
 			line-height: 1.2;
 			text-transform: capitalize;
-			color: #fff;
 			@include mq(991) {
 				font-size: 17px;
 			}

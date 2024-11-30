@@ -1,0 +1,31 @@
+@media screen and (min-width: 768px) {
+  .nopadd-ltf {
+    padding-left: 0;
+  }
+  .nopadd-rth {
+    padding-right: 0;
+  }
+  .nopadd {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.ata-cf7 input:focus {
+  border-color: #7c49dd;
+}
+.ata-cf7 input, .ata-cf7 textarea {
+  height: auto;
+  border: 1px solid #7c49dd;
+  outline: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.ata-cf7 input:hover {
+  background-color: #cbe7fd;
+}
+.ata-cf7 input[type=submit] {
+  background: #7c49dd;
+  color: #fff;
+}

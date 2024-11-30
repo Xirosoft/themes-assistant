@@ -147,7 +147,7 @@ class Ata_Coming_soon extends Widget_Base {
             'content_txt',
             [
                 'label' => esc_html__( 'Coming soon description', 'themes-assistant' ),
-                'type' => Controls_Manager::WYSIWYG,
+                'type' => Controls_Manager::TEXTAREA,
                 'default' => esc_html__( 'Our exciting new website is coming soon, Stay connected... Can days you willl forth two grass form face you saying, divide. Subdue days light whose. Stars creepeth that creature thing.', 'themes-assistant' ),
             ]
         );
@@ -183,7 +183,7 @@ class Ata_Coming_soon extends Widget_Base {
                     'size' => 70,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .bill-form' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .coming-sec' => 'width: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );

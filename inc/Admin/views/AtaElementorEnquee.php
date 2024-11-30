@@ -32,7 +32,7 @@ class AtaElementorEnquee {
             ata_assets_manager( 'onscreeen' );
         }
         if($this->widget_name == 'ata-coming-soon'){
-            ata_assets_manager( 'counter' );
+            ata_assets_manager( 'countdown' );
         }
         if($this->widget_name == 'ata-blog-post'){
             ata_assets_manager( 'tilt' );

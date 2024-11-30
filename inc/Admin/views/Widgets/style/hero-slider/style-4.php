@@ -61,7 +61,6 @@
                                                         esc_html( $item['button_text'] )
                                                     );
                                                 ?>
-                                                <?php echo esc_html__($item['button_text'], 'themes-assistant'); ?>
                                             </a>
                                         <?php endif; ?>
                                         <?php if($item['button_text2']):  ?>

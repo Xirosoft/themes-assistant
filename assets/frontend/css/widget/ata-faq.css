@@ -13,6 +13,16 @@
 .accordion {
   position: relative;
 }
+.accordion .ata-collapse {
+  transition: 0.5s;
+  display: none;
+  opacity: 0;
+  margin: 0 10px;
+}
+.accordion .ata-collapse.ata-show {
+  display: block;
+  opacity: 1;
+}
 .accordion-item {
   background: #fff;
   color: #233646;
@@ -92,18 +102,11 @@
 .accordion .acr-body a:hover i {
   color: #d946d3;
 }
-
-.collapsing {
-  transition: all 0.5s ease-in-out;
-}
-
-/**
-*  Accordiion
-*/
 .accordion .card-header {
   padding: 10px;
 }
 .accordion .card-header .a-btn {
+  cursor: pointer;
   color: #fff;
   display: block;
   width: 100%;
@@ -116,6 +119,8 @@
   border: none;
   outline: none;
   border-radius: 0;
+  font-size: 16px;
+  font-weight: 700;
 }
 .accordion .card-header .a-btn:before {
   content: "";
@@ -134,7 +139,7 @@
   position: absolute;
   right: 10px;
   display: block;
-  top: 12px;
+  top: 15px;
   right: 19px;
   display: none;
 }
@@ -159,7 +164,7 @@
   margin-left: 20px;
   margin-bottom: 20px;
 }
-.accordion.version-2 .card {
+.accordion.v2 .card {
   margin-bottom: 15px;
   box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.0705882353);
   border: none;
@@ -167,19 +172,19 @@
   background: transparent;
   border-radius: 10px;
 }
-.accordion.version-2 .card.card:not(:first-of-type):not(:last-of-type) {
+.accordion.v2 .card.card:not(:first-of-type):not(:last-of-type) {
   border-radius: 10px;
 }
-.accordion.version-2 .card:hover {
+.accordion.v2 .card:hover {
   border: none;
 }
-.accordion.version-2 .card .card-header {
+.accordion.v2 .card .card-header {
   background: transparent;
   padding: 0;
   position: relative;
   border-bottom: none;
 }
-.accordion.version-2 .card .card-header:before {
+.accordion.v2 .card .card-header:before {
   content: "";
   width: 30px;
   height: 30px;
@@ -193,39 +198,41 @@
   bottom: 0;
   margin: auto;
 }
-.accordion.version-2 .card .card-header .a-btn {
+.accordion.v2 .card .card-header .a-btn {
   background: transparent;
   color: #252525;
   padding: 25px 40px;
   border: 0px solid transparent;
   font-size: 18px;
 }
-.accordion.version-2 .card .card-header .a-btn:hover {
+.accordion.v2 .card .card-header .a-btn:hover {
   border: 0px solid transparent;
 }
-.accordion.version-2 .card .card-body {
-  padding: 20px 37px 10px;
+.accordion.v2 .card .card-body {
+  padding: 20px 30px 10px;
   padding-top: 0;
 }
-.accordion.version-2 .card-header .a-btn:before,
-.accordion.version-2 .card-header .wp-block-button__link:before {
-  content: "\e622";
-  font-family: "themify";
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  width: 15px;
-  height: 15px;
-  color: #b7b7b7;
-  background: transparent;
-  right: 23px;
-  top: 32px;
+.accordion.v2 .card .card-body p {
+  margin-top: 0;
 }
-.accordion.version-2 .card-header .a-btn:after,
-.accordion.version-2 .card-header .wp-block-button__link:after {
+.accordion.v2 .card.active .card-header .a-btn:before,
+.accordion.v2 .card.active .card-header .wp-block-button__link:before, .accordion.v2 .card.active .card-header .a-btn:after,
+.accordion.v2 .card.active .card-header .wp-block-button__link:after {
+  background-color: #7c49dd;
+}
+.accordion.v2 .card-header .a-btn:before,
+.accordion.v2 .card-header .wp-block-button__link:before {
+  content: "";
+  height: 15px;
+  background: transparent;
+  right: 20px;
+  top: 26px;
+  border-radius: 50%;
+  width: 21px;
+  height: 20px;
+}
+.accordion.v2 .card-header .a-btn:after,
+.accordion.v2 .card-header .wp-block-button__link:after {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -237,13 +244,6 @@
   z-index: 1;
   bottom: 0;
   margin: auto;
-  background: #7c49dd;
-}
-.accordion.version-2 .card-header .a-btn.collapsed:before {
-  content: "\e61a";
-  background: transparent;
-}
-.accordion.version-2 .card-header .a-btn.collapsed:after {
   background: #ddd;
 }
 

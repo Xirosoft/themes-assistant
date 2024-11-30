@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 							<?php
 								printf(
 									esc_html__( '%s', 'themes-assistant' ),
-									esc_html( $settings['content'] )
+									esc_html(wp_kses_post($settings['content']))
 								);
 							?>
 						</p>

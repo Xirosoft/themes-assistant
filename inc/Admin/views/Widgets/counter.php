@@ -61,7 +61,7 @@ class Ata_Counter extends Widget_Base {
    * @return string Widget title.
    */
 	public function get_title() {
-		return esc_html__( 'Fun Facts Counter', 'themes-assistant' );
+		return esc_html__( 'Counter', 'themes-assistant' );
 	}
  
   /**

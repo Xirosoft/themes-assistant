@@ -1,5 +1,5 @@
 <div class="col-md-4">
-        <article id="post-<?php the_ID(); ?>" <?php post_class(array('post el-blog-post v1', $settings['content_align'], $settings['animation'] )); ?>>
+        <article id="post-<?php the_ID(); ?>" <?php post_class(array('post ata-blog-post v1', $settings['content_align'], $settings['animation'] )); ?>>
         <?php
             if ( has_post_thumbnail() ) : ?>
                     <div class="post-img">
@@ -71,7 +71,6 @@
                         esc_html( ata_excerpt(19) )
                     );
                 ?>
-                <?php echo esc_html__( ata_excerpt(19), 'themes-assistant'); ?>
             </p>
             <a 
                 href="<?php echo esc_url( get_permalink() );  ?>" 

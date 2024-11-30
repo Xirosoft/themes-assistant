@@ -23,7 +23,7 @@
                         <?php
                             printf(
                                 esc_html__( '%s', 'themes-assistant' ),
-                                esc_html( $settings['content'] )
+                                esc_html(wp_kses_post($settings['content']))
                             );
                         ?>
                     </p>
@@ -38,7 +38,6 @@
                             );
                         ?>
                         ">
-                        <?php echo esc_html__($settings['button_text'], 'themes-assistant'); ?>
                         <?php
                             printf(
                                 esc_html__( '%s', 'themes-assistant' ),
@@ -60,8 +59,7 @@
                                 ?>
                             " 
                             aria-hidden="false">
-                            <i class="ti-control-play"></i>
-                            <?php echo esc_html__($settings['video_btn_text'], 'themes-assistant'); ?>
+                            <i class="dashicons dashicons-controls-play"></i>
                             <?php
                                 printf(
                                     esc_html__( '%s', 'themes-assistant' ),

@@ -1,5 +1,5 @@
 <div class="col-md-4">			
-    <article id="post-<?php the_ID(); ?>" <?php post_class(array('post el-blog-post v2', $content_align, $settings['animation'])); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class(array('post ata-blog-post v2', $content_align, $settings['animation'])); ?>>
         <div class="post-img">
             <?php
                 if ( has_post_thumbnail() ) :?>
@@ -41,8 +41,6 @@
                 </span>
             </div><!-- .entry-meta -->
         </div>
-
-        <hr>
         <h3>
             <a 
                 href="<?php echo esc_url( get_permalink() );  ?>"

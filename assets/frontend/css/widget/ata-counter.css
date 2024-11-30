@@ -25,6 +25,7 @@
 
 .single-fun {
   position: relative;
+  text-align: center;
 }
 @media screen and (max-width: 991px) {
   .single-fun {
@@ -35,6 +36,7 @@
   max-width: 65px !important;
   margin-bottom: 30px;
   filter: invert(1);
+  display: inline-block;
 }
 @media screen and (max-width: 991px) {
   .single-fun img {
@@ -48,9 +50,7 @@
   }
 }
 .single-fun .count-box {
-  align-items: center;
   color: #7c49dd;
-  display: inline-flex;
   font-size: 22px;
   font-weight: 700;
   line-height: 30px;
@@ -80,7 +80,6 @@
   font-size: 27px;
   line-height: 1.2;
   text-transform: capitalize;
-  color: #fff;
 }
 @media screen and (max-width: 991px) {
   .single-fun .count-box h3.text {

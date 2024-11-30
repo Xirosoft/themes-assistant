@@ -45,8 +45,9 @@ final class ATA_Main {
 	 * @since 1.0.0
 	 * @var string The plugin version.
 	 */
+	// const ATA_VERSION = '1.0.2';
 	const ATA_VERSION = '1.0.2';
-
+    
 	/**
 	 * Minimum PHP Version
 	 *
@@ -126,16 +127,25 @@ final class ATA_Main {
 	 * @return void
 	 */
 	public function define_constants() {
-		define( 'ATA_VERSION', self::ATA_VERSION );
+        if ( ! defined( 'ATA_VERSION' ) ) {
+            // Replace the ATA_VERSION number of the theme on each release.
+            $mode   = 'dev'; /*build*/
+            if ('dev' == $mode) {
+                define( 'ATA_VERSION', time() );
+            }else{
+                define( 'ATA_VERSION', self::ATA_VERSION  );
+            }
+        }
+		// define( 'ATA_VERSION', self::ATA_VERSION );
 		define( 'ATA__FILE__', __FILE__ );
 		define( 'ATA_PLUGIN_BASE', plugin_basename( ATA__FILE__ ) );
 		define( 'ATA_PATH', plugin_dir_path( ATA__FILE__ ) );
-        define( 'ATA_IMAGE', ATA_PATH . 'assets/img' );
 		define( 'ATA_ASSETS_PATH', ATA_PATH . 'assets/' );
 		define( 'ATA_MODULES_PATH', ATA_PATH . 'modules/' );
 		define( 'ATA_URL', plugins_url( '/', ATA__FILE__ ) );
 		define( 'ATA_ASSETS_URL', ATA_URL . 'assets/' );
 		define( 'ATA_MODULES_URL', ATA_URL . 'modules/' );
+        define( 'ATA_IMAGE', ATA_URL . 'assets/img' );
 		define( 'ATA_WIDGET_DIR', plugin_dir_path( __FILE__ ) . 'inc/Admin/Views/Widgets/style/' );
         define( 'ATA_BASE_PRO', 'https://wpborax.com/');
 	}

@@ -14,7 +14,7 @@
                     <div class="col-md-8">
                             <div class="call-content text-left">
                                 <h2 class="text-left"><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['title'] ) ); ?></h2>
-                            <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['text'] ) ); ?><?php echo esc_html__($settings['text'], 'themes-assistant'); ?></p>
+                            <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $settings['text'] ) ); ?></p>
                         </div>
                     </div>
                     <div class="col-md-4">

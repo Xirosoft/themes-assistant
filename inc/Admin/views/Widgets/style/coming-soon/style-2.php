@@ -1,4 +1,4 @@
-<div class="coming-style-3 <?php echo $settings['select_align']; ?>">
+<div class="coming-sec v2 <?php echo $settings['select_align']; ?>">
     <div class="heading-area">
         <h2 class="title">
             <?php
@@ -20,7 +20,7 @@
 
    <div class="counter-area">
         <div 
-            class="counter-items d-flex" 
+            class="counter-items d-flex <?php echo $settings['select_align']; ?>"  
             id="clock" 
             data-date="
                 <?php

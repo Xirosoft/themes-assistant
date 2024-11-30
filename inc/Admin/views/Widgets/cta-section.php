@@ -143,9 +143,9 @@ protected function _register_controls() {
     $this->add_control(
             'text',
         [
-              'label' =>esc_html__( 'Text', 'themes-assistant' ),
-          'type' => Controls_Manager::TEXT,
-          'default' =>esc_html__( 'There are many variations of passages of Lorem Ipsum but majority have suffered alteration form by injected humour or randomised words.', 'themes-assistant' ),
+              'label' =>esc_html__( 'Description', 'themes-assistant' ),
+          'type' => Controls_Manager::TEXTAREA,
+          'default' =>esc_html__( 'There are many variations of passages of Lorem Ipsum but majority have suffered alteration form by injected humour words.', 'themes-assistant' ),
         ]
     );
     $this->add_control(
