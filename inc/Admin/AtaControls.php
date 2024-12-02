@@ -56,40 +56,40 @@ class AtaControls {
             array($this->ata_elements, 'ata_elements_page'),
         );
 
-        add_submenu_page(
-            'themes-assistant',
-            __( 'Extensions', 'themes-assistant' ),
-            __( 'Extensions', 'themes-assistant' ),
-            'manage_options',
-            'ata-extensions',
-            array( $this->ata_extensions, 'ata_extensions_page' )
-        );
+        // add_submenu_page(
+        //     'themes-assistant',
+        //     __( 'Extensions', 'themes-assistant' ),
+        //     __( 'Extensions', 'themes-assistant' ),
+        //     'manage_options',
+        //     'ata-extensions',
+        //     array( $this->ata_extensions, 'ata_extensions_page' )
+        // );
 
-        add_submenu_page(
-            'themes-assistant',
-            __( 'Tools', 'themes-assistant' ),
-            __( 'Tools', 'themes-assistant' ),
-            'manage_options',
-            'ata-tools',
-            array( $this->ata_tools, 'ata_tools_page' )
-        );
+        // add_submenu_page(
+        //     'themes-assistant',
+        //     __( 'Tools', 'themes-assistant' ),
+        //     __( 'Tools', 'themes-assistant' ),
+        //     'manage_options',
+        //     'ata-tools',
+        //     array( $this->ata_tools, 'ata_tools_page' )
+        // );
 
-        add_submenu_page(
-            'themes-assistant',
-            __( 'Integrations', 'themes-assistant' ),
-            __( 'Integrations', 'themes-assistant' ),
-            'manage_options',
-            'ata-integrations',
-            array( $this->ata_integrations, 'ata_integrations_page' )
-        );
+        // add_submenu_page(
+        //     'themes-assistant',
+        //     __( 'Integrations', 'themes-assistant' ),
+        //     __( 'Integrations', 'themes-assistant' ),
+        //     'manage_options',
+        //     'ata-integrations',
+        //     array( $this->ata_integrations, 'ata_integrations_page' )
+        // );
 
-        add_submenu_page(
-            'themes-assistant',
-            __( 'Go Premium', 'themes-assistant' ),
-            __( 'Go Premium', 'themes-assistant' ),
-            'manage_options',
-            'ata-go-premium',
-            array( $this->ata_premium, 'ata_premium_page' )
-        );
+        // add_submenu_page(
+        //     'themes-assistant',
+        //     __( 'Go Premium', 'themes-assistant' ),
+        //     __( 'Go Premium', 'themes-assistant' ),
+        //     'manage_options',
+        //     'ata-go-premium',
+        //     array( $this->ata_premium, 'ata_premium_page' )
+        // );
     }
 }

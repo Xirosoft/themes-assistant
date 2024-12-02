@@ -8,12 +8,13 @@ if ( ! class_exists( 'AtaQuery' ) ) {
         private $wpdb;
         private $table_name;
         private $data_format;
+        
         // Constructor to initialize the $wpdb object
         public function __construct(){
             global $wpdb;
-            $this->wpdb = $wpdb;
-            $this->table_name = $this->wpdb->prefix . 'at_assistant_settings'; // Replace 'ms_form_data' with your custom table name
-            $this->data_format = array(
+            $this->wpdb         = $wpdb;
+            $this->table_name   = $this->wpdb->prefix . 'ata_settings'; // Replace 'ms_form_data' with your custom table name
+            $this->data_format  = array(
                 '%s', // 'post_id' is a string
                 '%s', // 'form_title' is a string
                 '%s', // 'form_json' is a string
@@ -129,6 +130,8 @@ if ( ! class_exists( 'AtaQuery' ) ) {
             $results = $this->wpdb->get_results($this->wpdb->prepare($query, $table_name));
             return $results;
         }   
+
+        
 
         
     }

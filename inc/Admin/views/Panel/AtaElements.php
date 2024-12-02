@@ -15,7 +15,7 @@ class AtaElements{
 
         global $wpdb;
         $this->wpdb = $wpdb;
-        $this->table_name = $wpdb->prefix . 'at_assistant_settings'; // Replace 't_assistant_settings' with your custom table name
+        $this->table_name = $wpdb->prefix . 'ata_settings'; // Replace 't_assistant_settings' with your custom table name
         $this->query = new AtaQuery();
         $query = "SELECT * FROM %1s"; // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
         $this->existing_data =  $this->wpdb->get_row($wpdb->prepare($query, $this->table_name));
@@ -286,7 +286,7 @@ class AtaElements{
                 'label' => 'Google Reviews',
                 'desc' => 'Description for the "Google Reviews" feature.',
                 'value' => $SettingsArray['ata_google_reviews'] ? true : false,
-                'disabled' => false,
+                'disabled' => true,
                 'demo_link' => 'https://example.com/demo/google_reviews',
                 'doc_link' => 'https://example.com/docs/google_reviews',
                 'badge' => 'new',
@@ -352,7 +352,7 @@ class AtaElements{
                 'label' => 'Instagram',
                 'desc' => 'Description for the "Instagram" feature.',
                 'value' => $SettingsArray['ata_instagram'] ? true : false,
-                'disabled' => false,
+                'disabled' => true,
                 'demo_link' => 'https://example.com/demo/instagram',
                 'doc_link' => 'https://example.com/docs/instagram',
                 'badge' => 'popular',
@@ -484,7 +484,7 @@ class AtaElements{
                 'label' => 'Trust Pilot',
                 'desc' => 'Description for the "Trust Pilot" feature.',
                 'value' => $SettingsArray['ata_trust_pilot'] ? true : false,
-                'disabled' => false,
+                'disabled' => true,
                 'demo_link' => 'https://example.com/demo/trust_pilot',
                 'doc_link' => 'https://example.com/docs/trust_pilot',
                 'badge' => 'hot',
@@ -518,26 +518,26 @@ class AtaElements{
         
         
         ?>
-        <div class="wrap">
-            <h1><?php _e( 'Elements', 'themes-assistant' ); ?></h1>
+        <div class="wrap ata-wrap">
+            <h1><?php echo esc_html__( 'Elements', 'themes-assistant' ); ?></h1>
             <form id="ata_elements_form">
                 <div class="form-header">
                     <div class="container">
                         <div class="form-header-inner">
                             <div class="title">
-                            <h2>Global Controls</h2>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime tempora saepe accusantium dolore.</p>
+                                <h2><?php echo esc_html__( 'Global Controls', 'themes-assistant' ); ?></h2>
+                                <p><?php echo esc_html__( 'Toggle various features of your theme/plugin below:', 'themes-assistant' ); ?></p>
                             </div>
                             <div class="switch-all">
-                            <span id="disable-all">Disable All</span>
-                            <div class="switch">
-                                <input type="checkbox" id="switch-all-input">
-                                <label for="switch-all-input" class="slider round"></label>
-                            </div>
-                            <span id="enable-all">Enable All</span>
+                                <span id="disable-all"><?php echo esc_html__( 'Disable All', 'themes-assistant' ); ?></span>
+                                <div class="switch">
+                                    <input type="checkbox" id="switch-all-input">
+                                    <label for="switch-all-input" class="slider round"></label>
+                                </div>
+                                <span id="enable-all"><?php echo esc_html__( 'Enable All', 'themes-assistant' ); ?></span>
                             </div>
                             <div class="header-action">
-                            <button type="submit" id="ata_save_element">Save Settings</button>
+                                <button type="submit" id="ata_save_element" class="button-primary"><?php echo esc_html__( 'Save Settings', 'themes-assistant' ); ?></button>
                             </div>
                         </div>
                     </div>
@@ -546,10 +546,10 @@ class AtaElements{
                 <div class="container">
                     <div class="form-body">
                         <div class="form-section">
-                            <div class="form-section__header">
-                                <h3>Theme Features</h3>
-                                <p>Toggle various features of your theme/plugin below:</p>
-                            </div>
+                            <!-- <div class="form-section__header">
+                                <h3><?php // echo esc_html__( 'Elements', 'themes-assistant' ); ?>Theme Features</h3>
+                                <p><?php // echo esc_html__( 'Elements', 'themes-assistant' ); ?></p>
+                            </div> -->
                             <?php foreach($ata_elements_array as $field): ?>
                             <div class="form-container">
                                 <div class="flag"></div>

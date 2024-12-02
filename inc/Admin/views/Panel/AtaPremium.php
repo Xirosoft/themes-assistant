@@ -25,7 +25,7 @@ class AtaPremium {
                 </div>
             </div>
             <div class="container">
-                <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus, voluptate.</h3>
+                <h3></h3>
             </div>
         </div>
     <?php

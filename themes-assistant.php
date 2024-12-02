@@ -3,7 +3,7 @@
  * Plugin Name: Advance Themes Assistant – Theme Customization, Optimization, and Support
  * Description: Advance Themeies Assistant is a user-friendly WordPress plugin that simplifies and enhances your theme customization experience. Effortlessly tweak colors, layouts, styles, and designs to bring your creative vision to life. Save time and personalize your website with ease using Themeies Assistant..
  * Plugin URI: https://themeies.com/item/themes-assistant
- * Version: 1.0.2
+ * Version: 1.0.3
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Xirosoft

@@ -15,7 +15,7 @@ class AtaExtensions {
 
         global $wpdb;
         $this->wpdb = $wpdb;
-        $this->table_name = $wpdb->prefix . 'at_assistant_settings'; // Replace 't_assistant_settings' with your custom table name
+        $this->table_name = $wpdb->prefix . 'ata_settings'; // Replace 't_assistant_settings' with your custom table name
         $this->query = new AtaQuery();
         $query = "SELECT * FROM %1s"; // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
         $this->existing_data =  $this->wpdb->get_row($wpdb->prepare($query, $this->table_name));

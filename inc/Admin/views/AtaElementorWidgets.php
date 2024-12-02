@@ -66,7 +66,7 @@ class AtaElementorWidgets {
 
         global $wpdb;
         $this->wpdb = $wpdb;
-        $this->table_name = $wpdb->prefix . 'at_assistant_settings'; // Replace 't_assistant_settings' with your custom table name
+        $this->table_name = $wpdb->prefix . 'ata_settings'; // Replace 't_assistant_settings' with your custom table name
         $this->query = new AtaQuery();
         $query = "SELECT * FROM %1s";
         $this->where = array('id' => 1);
