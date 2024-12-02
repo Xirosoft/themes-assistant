@@ -1,0 +1,27 @@
+/* 
+Lottie Animation
+ */
+ .ata-lottie__container{
+    p, h3{
+        pointer-events: none;
+    }
+   &.style-2{
+       .ata-lottie__animation {
+           max-width: 100px;
+           margin: 20px auto;
+           display: inline-block;
+       }
+       p.ata-lottie__caption {
+           color: #555;
+       }
+       a.btn.ata-lottie__container__link{
+           color: #fff;
+       }
+   }	 
+   &.style-3{
+       .ata-lottie__animation {
+           margin: 20px auto;
+           display: inline-block;
+       }
+   }	 
+}

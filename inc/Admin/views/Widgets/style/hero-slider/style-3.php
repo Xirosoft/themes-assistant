@@ -49,7 +49,7 @@
                                             <?php
                                                 printf(
                                                     esc_html__( '%s', 'themes-assistant' ),
-                                                    esc_html( $item['content_txt'] )
+                                                    esc_html( wp_kses_post($item['content_txt']) )
                                                 );
                                             ?>
                                         </p>
@@ -63,7 +63,7 @@
                                         </a>
                                         <?php if($item['button_text2']){ ?>
                                             <a class="video-btn" data-fancybox="true" href="<?php echo esc_url($item['link2']['url']); ?>" aria-hidden="false">
-                                                <i class="ti-control-play"></i>
+                                                <i class="dashicons dashicons-controls-play"></i>
                                                 <?php
                                                     printf(
                                                         esc_html__( '%s', 'themes-assistant' ),

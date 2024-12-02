@@ -122,7 +122,7 @@ protected function _register_controls() {
             'default' => '1',
             'options' => [
                 '1' => esc_html__( 'Style 1', 'themes-assistant' ),
-                '2' => esc_html__( 'Style 2', 'themes-assistant' ),
+                // '2' => esc_html__( 'Style 2', 'themes-assistant' ),  
             ],
         ]
     );

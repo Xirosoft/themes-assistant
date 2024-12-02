@@ -136,15 +136,15 @@ class Ata_Price_Table extends Widget_Base {
             ]
         );
         $this->add_control(
-                'pricing_style',
+            'pricing_style',
             [
-                    'label' => esc_html__( 'Align', 'themes-assistant' ),
+                'label' => esc_html__( 'Table Align', 'themes-assistant' ),
                 'type' => Controls_Manager::SELECT,
-                'default' => 'one',
+                'default' => 'text-center',
                 'options' => [
-                        'center'  => esc_html__( 'Align Center', 'themes-assistant' ),
-                    'align-left' => esc_html__( 'Align Left', 'themes-assistant' ),
-                    'align-right' => esc_html__( 'Align Right', 'themes-assistant' ),
+                    'text-center'  => esc_html__( 'Align Center', 'themes-assistant' ),
+                    'text-left' => esc_html__( 'Align Left', 'themes-assistant' ),
+                    'text-right' => esc_html__( 'Align Right', 'themes-assistant' ),
                 ]
             ]
         );

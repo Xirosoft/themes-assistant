@@ -232,37 +232,6 @@ img[data-src][src] {
 }
 
 
-
-/* 
-Lottie Animation
- */
- .e-lottie__container{
-	 p, h3{
-		 pointer-events: none;
-	 }
-	&.style-2{
-		.e-lottie__animation {
-			max-width: 100px;
-			margin: 20px auto;
-			display: inline-block;
-		}
-		p.e-lottie__caption {
-			color: #555;
-		}
-		a.btn.e-lottie__container__link{
-			color: #fff;
-		}
-	}	 
-	&.style-3{
-		.e-lottie__animation {
-			margin: 20px auto;
-			display: inline-block;
-		}
-	}	 
- }
-
-
-
 /* Custom BG Animation */
 .background_animation {
     position: absolute;

@@ -7,10 +7,10 @@
         </div>
     </div>
         <?php } ?>
-    <div class="card-deck mb-3 text-center">
+    <div class="card-deck">
             <?php
         foreach ($settings['pricing_plans'] as $pricing_plan) : ?>
-                    <div class="card <?php if ($pricing_plan['highlight'] == 'yes') { echo esc_attr('highlight');} ?>  <?php echo esc_attr($settings['pricing_style']); ?> <?php if($settings['animation']){ echo ' '. esc_attr($settings['animation']); } ?>">
+                    <div class="card <?php if ($pricing_plan['highlight'] == 'yes') { echo esc_attr('highlight');} ?> <?php echo esc_attr($settings['pricing_style']); ?> <?php if($settings['animation']){ echo ' '. esc_attr($settings['animation']); } ?>">
                     <div class="ribbon"><span><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $pricing_plan['pricing_title'] ) ); ?></span></div>
                     <div class="card-body GetAllPrice" 
                             data-price-year="<?php echo  esc_attr($pricing_plan['price_year'])?>" 
@@ -34,7 +34,7 @@
                             <span><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $pricing_plan['disscount_caption_year'] ) ); ?></span>
                         </p>
                         <div class="table-content">
-                            <?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $pricing_plan['pricing_content'] ) ); ?>
+                            <?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( wp_kses_post($pricing_plan['pricing_content']) ) ); ?>
                          </div>
                         <a href="<?php echo  esc_url($pricing_plan['button_url']['url']);?>"  class="btn btn-round btn-slide-right">
                             <?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $pricing_plan['button_text'] ) ); ?>

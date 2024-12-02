@@ -46,8 +46,15 @@ borax-img-box">
 	</h2>
 
 	<?php endif; ?>
-
-	<?php echo wp_kses_post( $settings['content'] ); ?>
+    
+    <p>
+        <?php
+            printf(
+                esc_html__( '%s', 'themes-assistant' ),
+                esc_html( $settings['content'] )
+            );
+        ?>
+    </p>
 
 	<?php if ( $settings['button_text'] ) : ?>
 

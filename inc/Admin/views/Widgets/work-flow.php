@@ -235,7 +235,7 @@ protected function _register_controls() {
     $this->add_control(
         'list',
         [
-            'label' => esc_html__( 'Faq List', 'themes-assistant' ),
+            'label' => esc_html__( 'Flow List', 'themes-assistant' ),
             'type' => Controls_Manager::REPEATER,
             'fields' => $repeater->get_controls(),
             'default' =>
@@ -457,9 +457,8 @@ protected function _register_controls() {
    * @access protected
    */
     protected function render() {
-        $settings   = $this->get_settings_for_display();
-        $style = $settings['work_flow_style'];
-        $lists       = $settings[ 'list' ];
+        $settings     = $this->get_settings_for_display();
+        $style        = $settings['work_flow_style'];
         $widget_title = $this->get_title(); // Get the widget title dynamically
         $widget_name  = $this->get_name(); // You can make this dynamic
         $AtaWidget    = new AtaWidgetManage($widget_name, $settings, $style);

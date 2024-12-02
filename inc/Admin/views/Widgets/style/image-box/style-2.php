@@ -28,10 +28,16 @@
 
                 if(!empty($settings['content'])){
 
-                    printf(
-                        esc_attr__( '%s', 'themes-assistant' ),
-                        esc_attr( $settings['content'] )
-                    );
+                    ?>
+                    <p>
+                        <?php
+                            printf(
+                                esc_html__( '%s', 'themes-assistant' ),
+                                esc_html( $settings['content'] )
+                            );
+                        ?>
+                    </p>
+                    <?php
                 }
 
                 if(!empty($settings['button_text'])){ ?> 

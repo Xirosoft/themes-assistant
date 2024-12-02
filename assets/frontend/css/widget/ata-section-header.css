@@ -11,6 +11,83 @@
   }
 }
 .sec-heading {
+  margin-bottom: 70px;
+  position: relative;
+  text-align: center;
+}
+.sec-heading img {
+  max-width: 84px !important;
+  margin: 0 auto 25px;
+}
+.sec-heading.text-left img {
+  margin: 0;
+  margin-bottom: 25px;
+}
+.sec-heading .tagline {
+  color: #7c49dd;
+  display: block;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative;
+}
+.sec-heading .sec-title {
+  color: #1e2528;
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 767px) {
+  .sec-heading .sec-title {
+    font-size: 33px !important;
+  }
+}
+.sec-heading p {
+  margin-bottom: 0;
+}
+.sec-heading p:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.sec-heading {
+  text-align: center;
+}
+.sec-heading .paragraph {
+  line-height: 28px;
+}
+
+@media screen and (max-width: 575px) {
+  .sec-heading {
+    margin-bottom: 40px;
+  }
+}
+.sec-heading h2 {
+  font-size: 65px;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+@media (max-width: 767px) {
+  html body.page-template section.elementor-section .elementor-element .elementor-widget-container .sec-heading {
+    width: 85% !important;
+  }
+  .sec-heading h2 {
+    font-size: 62px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .sec-heading h2 {
+    font-size: 52px;
+    line-height: 60px;
+  }
+}
+@media screen and (max-width: 479px) {
+  .sec-heading h2 {
+    font-size: 33px;
+    line-height: 40px;
+  }
+}
+.sec-heading {
   text-align: center;
 }
 .sec-heading .paragraph {

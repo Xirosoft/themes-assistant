@@ -34,11 +34,14 @@
             </span>
                 <?php endif;?>
                     <div class="test-caro owl-carousel" data-slider-id="2">
-                        <?php foreach (  $settings['list'] as $item ): ?>
+                        <?php foreach (  $settings['list'] as $item ): 
+                            
+                        //    var_dump($item);
+                            ?>
                             <div class="single-tst">
-                                <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $list['content'] ) ); ?> </p>
-                                <div class="client-info">                
-                                    <p><b><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?></b>, <span><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['position'] ) ); ?></span></p>
+                            <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( wp_kses_post($item['content'] )) ); ?></p>                                
+                            <div class="client-info">                
+                                <p><b><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?></b>, <span><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['position'] ) ); ?></span></p>
                             </div>
                         </div>
                         <?php endforeach; ?> 

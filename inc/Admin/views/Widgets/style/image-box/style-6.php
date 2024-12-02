@@ -32,8 +32,8 @@
         <p>
             <?php
                 printf(
-                    esc_attr__( '%s', 'themes-assistant' ),
-                    esc_attr( $settings['content'] )
+                    esc_html__( '%s', 'themes-assistant' ),
+                    esc_html( $settings['content'] )
                 );
             ?>
         </p>

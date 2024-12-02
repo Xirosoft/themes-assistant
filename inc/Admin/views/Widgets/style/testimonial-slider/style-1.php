@@ -32,7 +32,7 @@ $settings['list']
                     <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="" class="img-icon" width="50" height="50">
             </span>
                 <?php endif;?>
-                <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['content'] ) ); ?></p>
+                <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( wp_kses_post($item['content'] )) ); ?></p>
                 <div class="testi-info">
                     <p class="name"><b><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?></b></p>
                     <span class="desigration"><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['position'] ) ); ?></span>

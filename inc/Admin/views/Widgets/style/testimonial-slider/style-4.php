@@ -27,8 +27,7 @@
                     <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="<?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?>" class="img-icon" width="50" height="50">
             </span>
                 <?php endif;?>
-                    <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $list['content'] ) ); ?> </p>
-                    <div class="client-info">                
+                <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( wp_kses_post($item['content'] )) ); ?></p>                    <div class="client-info">                
                         <p><b><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['name'] ) ); ?></b>, <span><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $item['position'] ) ); ?></span></p>
                 </div>
             </div>

@@ -128,12 +128,12 @@ protected function _register_controls() {
             'type' => Controls_Manager::SELECT,
             'options' => [
 	            '1'      => esc_html__( 'Style 1', 'themes-assistant' ),
-							'2'      => esc_html__( 'Style 2', 'themes-assistant' ),
-							'3'      => esc_html__( 'Style 3', 'themes-assistant' ),
-							'4'      => esc_html__( 'Style 4', 'themes-assistant' ),
+                '2'      => esc_html__( 'Style 2', 'themes-assistant' ),
+                '3'      => esc_html__( 'Style 3', 'themes-assistant' ),
+                '4'      => esc_html__( 'Style 4', 'themes-assistant' ),
             ],
             'prefix_class' => 'elementor%s-align-',
-            'default' => 'style-1',
+            'default' => '1',
         ]
     );
 
@@ -212,7 +212,7 @@ protected function _register_controls() {
 			'fields' => $repeaters->get_controls(),
 			'default' => [
 					[
-						'portfolio_title' 	 => esc_html__( 'Creative agency', 'themes-assistant' ),
+					'portfolio_title' 	 => esc_html__( 'Creative agency', 'themes-assistant' ),
 					'portfolio_category' => esc_html__( 'design seo', 'themes-assistant' ),
 					'preview_link' 		 => esc_html__( 'https://themenies.com', 'themes-assistant' ),
 					'portfolio_description' 		 => esc_html__( 'Can days you will forth two grass form face you', 'themes-assistant' ),
@@ -233,7 +233,7 @@ protected function _register_controls() {
 	$this->add_control(
 			'show_filter',
 		[
-				'label' => esc_html__( 'Show Filter', 'themes-assistant' ),
+			'label' => esc_html__( 'Show Filter', 'themes-assistant' ),
 			'type' => Controls_Manager::SWITCHER,
 			'label_on' => esc_html__( 'Show', 'themes-assistant' ),
 			'label_off' => esc_html__( 'Hide', 'themes-assistant' ),

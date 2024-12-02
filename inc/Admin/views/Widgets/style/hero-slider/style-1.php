@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 													<?php
 														printf(
 															esc_html__( '%s', 'themes-assistant' ),
-															esc_html( $item['content_txt'] )
+															esc_html( wp_kses_post($item['content_txt']) )
 														);
 													?>
 												</p>

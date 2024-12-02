@@ -1,5 +1,7 @@
 <?php use Elementor\Icons_Manager; ?>
-<?php if (!empty($lists)): ?>
+<?php
+$lists        = $settings[ 'list' ];
+if (!empty($lists)): ?>
     <section class="process-sec">
         <div class="working-process v2">
             <?php foreach ($lists as $list): ?>
@@ -22,7 +24,7 @@
                     <?php endif;?>
                     <div class="process-content">
                         <h3><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $list['title'] ) ); ?></h3>
-                        <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( $list['text'] ) ); ?></p>
+                        <p><?php printf( esc_html__( '%s', 'themes-assistant' ), esc_html( wp_kses_post( $list['text']) ) ); ?></p>
                 </div>
             </div>
                 <?php if($list['link']['url']): ?>

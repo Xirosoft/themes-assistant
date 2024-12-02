@@ -1,6 +1,6 @@
 <?php use Elementor\Icons_Manager; ?>
 
-<div class="iconBox <?php echo $settings['style']; echo  ' '.$settings['animation'] ?>">
+<div class="iconBox v4<?php echo  ' '.$settings['animation'] ?>">
     <div class="bgShape"></div>
     <?php if( $settings['icon_type'] == 'icon'):?>
         <span class="icon-bg">

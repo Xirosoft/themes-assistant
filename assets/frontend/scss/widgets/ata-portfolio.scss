@@ -4,6 +4,7 @@
     &.style-4{
         .filters button{
             padding: 10px 15px; 
+            cursor: pointer;
             @include min-mq(992) {
                 font-size: 18px;
             }
@@ -195,7 +196,7 @@
             border-radius: 3px;
             margin: 5px;
             position: relative;
-
+            cursor: pointer;
             &:before {
                 content: "";
                 width: 20px;
